@@ -6,5 +6,5 @@ from django.views import generic
 #~ from .forms import RegForm
 
 
-def homePage(request):)
+def homePage(request):
    return render(request, 'home.html')

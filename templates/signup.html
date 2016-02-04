@@ -1,0 +1,52 @@
+<!-- Doctype Is nesessary for the browser to understand that the document is either html4 or html5. Do not ommit -->
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<!-- Start of HTML Document -->
+<html>
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Title of page -->
+    <title></title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">Epitome</h1>
+                <div class="account-wall">
+                    <img class="profile-img" src="{% static "img/logo.png" %}" alt="">
+					<form action="signup" method="post" class="form-signin">
+                     {% csrf_token %}
+                     {{ SignUpForm }}
+                     <button class="btn btn-lg btn-danger btn-block" type="submit">
+                            Sign Up</button>
+                        <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                    </form>
+                </div>
+                <a href="#" class="text-center new-account">Already have an account?</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery-2.2.0.min.js" %}"></script>
+</body>
+
+</html>
