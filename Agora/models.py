@@ -3,7 +3,6 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
 
 
 class VoteMain(models.Model):
@@ -31,11 +30,5 @@ class VoteTexts(models.Model):
     vote_description = models.CharField
     def __unicode__(self):              # __unicode__ on Python 2
         return self.vote_name
-
-
-class UserExtra(models.Model):
-	user = models.OneToOneField(User)
-	area_of_residence = models.CharField(max_length=100)
-	user_ID = models.IntegerField
 
 	
