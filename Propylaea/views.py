@@ -1,23 +1,34 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
-
-
-from Propylaea.forms import SignUp
+from Propylaea.forms import UserForm, UserFormExtra
 
 def SignUpV(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = SignUp(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+	# Signed up flag
+	signedUp = False
+	
+    # If the request is type of POST then proccess data
+	if request.method == 'POST':
+        # Create 2 form instances and populate them with data from the POST request
+		form1 = UserForm(request.POST)
+		form2 = UserFormExtra(request.POST)
+        # Check whether it's valid
+		if form1.is_valid() and form2.is_valid():
+			# Save main user form first and hash password
+			try:
+				user = form1.save(commit=False)
+				user.set_password(user.password)
+				user.save()
+				# Save second form, where its id equals the user's
+				profile = form2.save(commit=False)
+				profile.user = user
+				profile.save()
+				# Change sign up flag to true
+				signedUp = True
+			except:
+				signedUp = False
+    # If request is not POST create empty forms
+	else:
+		form1 = UserForm()
+		form2 = UserFormExtra()
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = SignUp()
-
-    return render(request, 'signup.html', {'SignUpForm': form})
+	return render(request, 'signup.html', {'SignUpForm': form1, 'SignUpFormEx': form2})
