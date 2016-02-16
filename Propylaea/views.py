@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 from Propylaea.forms import UserForm, UserFormExtra
 
 def SignUpV(request):
@@ -32,3 +33,22 @@ def SignUpV(request):
 		form2 = UserFormExtra()
 
 	return render(request, 'signup.html', {'SignUpForm': form1, 'SignUpFormEx': form2})
+
+def LogIn(request):
+	# If the request is type of POST then proccess data
+	if request.method == 'POST':
+		email = request.POST.get('email')
+		password = request.POST.get('password')
+		# Authenticate
+		user = authenticate(email=email, password=password)
+		# User valid
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return HttpResponse("Your account is loged in.")
+			else:
+				return HttpResponse("Your account is disabled.")
+		else:
+			return HttpResponse("Invalid login details supplied.")
+	else:
+		return render(request, 'login.html', {})
