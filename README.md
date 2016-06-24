@@ -1,7 +1,4 @@
-# Epitome
-
-.. image:: https://www.gnu.org/graphics/agplv3-155x51.png
-    :target: https://www.gnu.org/licenses/agpl-3.0.html
+# Epitome [AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)
 
 -----------------------------------
 An Instrument Built for Change
