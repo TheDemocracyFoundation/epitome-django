@@ -1,5 +1,4 @@
 # Epitome 
-[![AGPL3](https://www.bareos.org/files/misc/agplv3_white_120x50.png)](https://www.gnu.org/licenses/agpl-3.0.html)
 -----------------------------------
 An Instrument Built for Change
 
@@ -24,3 +23,7 @@ Languages used:
 3. CSS
 
 Please contact us at http://democracy.foundation/contact/
+
+[![AGPL3](https://www.bareos.org/files/misc/agplv3_white_120x50.png)](https://www.gnu.org/licenses/agpl-3.0.html)
+[![Python](https://www.python.org/static/opengraph-icon-200x200.png)](https://www.python.org/)
+[![Django](https://s3.amazonaws.com/openshift-hub/production/quickstarts/72/django.png?1425307190)](https://www.djangoproject.com)
