@@ -1,4 +1,4 @@
-# Epitome [AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)
+# Epitome ![AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)
 
 -----------------------------------
 An Instrument Built for Change
