@@ -14,4 +14,4 @@ Please pull request
 
 ##Contact
 
-If you would like to contact us for any reason please fill out a form in http://democracy.foundation/contact/ and we will be in contact with you soon.
+If you would like to contact us for any reason please fill out a form in our [contact page](http://democracy.foundation/contact/) and we will be in contact with you soon.
