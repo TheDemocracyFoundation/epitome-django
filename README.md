@@ -1,4 +1,5 @@
-# Epitome [![AGPL3](https://www.bareos.org/files/misc/agplv3_white_120x50.png)](https://www.gnu.org/licenses/agpl-3.0.html)
+# Epitome 
+[![AGPL3](https://www.bareos.org/files/misc/agplv3_white_120x50.png)](https://www.gnu.org/licenses/agpl-3.0.html)
 -----------------------------------
 An Instrument Built for Change
 
