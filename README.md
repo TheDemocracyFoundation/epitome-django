@@ -25,5 +25,3 @@ Languages used:
 Please contact us at http://democracy.foundation/contact/
 
 [![AGPL3](https://www.bareos.org/files/misc/agplv3_white_120x50.png)](https://www.gnu.org/licenses/agpl-3.0.html)
-[![Python](https://images.plot.ly/language-icons/api-home/python-logo.png)](https://www.python.org/)
-[![Django](https://s3.amazonaws.com/openshift-hub/production/quickstarts/72/django.png?1425307190)](https://www.djangoproject.com)
