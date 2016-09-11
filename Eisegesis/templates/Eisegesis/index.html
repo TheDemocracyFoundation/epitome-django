@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <!-- Frameworks -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <!-- Bootflat -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootflat.min.css" %}">
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/f63660f471.js"></script>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
+
+    <!-- Styling -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <!-- The page wrapper -->
+    <div id="wrapper">
+
+        <!-- Left Sidebar Menu -->
+        <div id="sidebar-wrapper">
+
+            <!-- The top part of the Sidebar menu -->
+            <div id="sidebar-top">
+                <ul id="sidebar-nav-top">
+                    <li>
+                        <a href="#">Proposals</a>
+                    </li>
+                    <li>
+                        <a href="#">Laws</a>
+                    </li>
+                    <li>
+                        <a href="#">Polls</a>
+                    </li>
+                    <li>
+                        <a href="#">Configuration</a>
+                    </li>
+                    <li>
+                        <a href="/user/logout">Constitution(Logout)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- The bottom part of the sidebar menu -->
+            <div id="sidebar-bot">
+                <ul id="sidebar-nav-bot">
+                    <li>
+                        <a href="#">Culture</a>
+                    </li>
+                    <li>
+                        <a href="#">Development</a>
+                    </li>
+                    <li>
+                        <a href="#">Diplomacy</a>
+                    </li>
+                    <li>
+                        <a href="#">Economy</a>
+                    </li>
+                    <li>
+                        <a href="#">Enviroment</a>
+                    </li>
+                    <li>
+                        <a href="#">Order</a>
+                    </li>
+                    <li>
+                        <a href="#">State</a>
+                    </li>
+                    <li>
+                        <a href="#">Wellfare</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The NavBar is a basic div. The "nav" style  from bootstrap is not used and may be removed from -->
+        <!-- the production release.The navbar contains two divs and they are positioned using bootstraps "pull-left" -->
+        <!-- and "pull-right" classes. -->
+        <div class="col-md-12 navbar-fixed-top">
+
+            <!-- This is the button that reveals the left sidebar -->
+            <ul class="pull-left activate-left-sidebar">
+                <li class="top-bar">
+                    <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i>
+                </li>
+            </ul>
+
+            <!-- User Buttons -->
+
+            <ul class="pull-right">
+                <li class="top-bar">
+                    <i class="fa fa-bell-o fa-2x"></i>
+                </li>
+                <li class="top-bar">
+                    <i class="fa fa-user fa-2x"></i>
+                </li>
+                <li class="top-bar">
+                    <i class="fa fa-cog fa-2x"></i>
+                </li>
+            </ul>
+            <div class="btn-group pull-right">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Sort By <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Most partisipants</a></li>
+                    <li><a href="#">More time remaining</a></li>
+                    <li><a href="#">More Important first</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Least participants</a></li>
+                    <li><a href="#">Less time remaining</a></li>
+                    <li><a href="#">Less important first</a></li>
+                </ul>
+            </div>&nbsp;
+        </div>
+
+
+        <!-- Cards -->
+        <div class="content-wrapper">
+            <div class="example">
+                <div class="row">
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+
+                <div class="row">
+					{% if latest_proposal_list %}
+						{% for proposal in latest_proposal_list %}
+							<div class="col-sm-6 col-md-3">
+								<div class="thumbnail">
+									<div class="col-xs-12 card-header">
+										<div class="col-xs-4">
+											<div class="card-icon">
+												<img src="http://placehold.it/70x70">
+											</div>
+										</div>
+										<div class="col-xs-8">
+											<div class="card-info">
+												<h6>Participation: <span class="info-value red">1300</span></h6>
+												<h6>Maturity: <span class="info-value orange">50%</span></h6>
+												<h6>Favour: <span class="info-value green">40%</span></h6>
+											</div>
+										</div>
+									</div>
+									<div class="caption text-center">
+										<h3> {{ proposal.P_TITLE }} </h3>
+										<h6>By {{ proposal.USER_CREATORID }}</h6>
+										<p>{{ proposal.P_SHRBODY }}</p>
+										<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Read More</button>-->
+										<a href="/eisegesis/{{ proposal.id }}/" class="btn btn-primary">Read More</a>
+									</div>
+								</div>
+							</div>
+                        {% endfor %}
+					{% else %}
+						<p>No proposals are available.</p>
+					{% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="myModalLabel">Here Goes the title</h3>
+                        <hr>
+                    </div>
+                    <div class="modal-body">
+                        <h4>This is a subtitle.</h4>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum dictum nisi, vitae blandit justo laoreet sit amet. Sed iaculis commodo augue at blandit. Curabitur non vulputate tortor. Pellentesque sodales volutpat odio. Quisque porttitor vestibulum maximus. Pellentesque ac bibendum erat. Quisque finibus nibh sit amet velit pellentesque, vel maximus tortor cursus. Duis ac egestas sem. Nam vestibulum neque id mollis sagittis. Suspendisse eget arcu elementum, pharetra quam id, fringilla orci. Proin luctus est velit, ac luctus ante imperdiet at. Nam sem urna, rhoncus eu pharetra a, maximus sit amet urna. Pellentesque accumsan sollicitudin mauris. Aliquam aliquam vestibulum ex, a convallis erat volutpat non. Vivamus vel enim eu turpis sollicitudin congue. Aenean condimentum iaculis lectus, eget bibendum turpis tincidunt vel. Vivamus dapibus est ut sapien aliquet, eget aliquam nisl posuere. Donec quis neque et velit facilisis egestas. Sed quis elit ligula. Mauris vitae mauris non nisi aliquet placerat eget sed turpis. Pellentesque varius, quam in sagittis venenatis, libero nisl fringilla nisi, id pharetra massa dui vestibulum ex. Donec a odio nec risus ullamcorper venenatis ut in tellus. Nam pharetra libero dapibus, tincidunt elit vel, finibus nibh. Nam laoreet, risus malesuada tincidunt feugiat, justo eros luctus turpis, at ullamcorper lectus diam vitae lectus. Donec est turpis, porta id metus a, lacinia faucibus sapien. Donec commodo quam quis facilisis sodales. Duis efficitur, urna nec tincidunt imperdiet, lorem ligula sagittis augue, eu aliquam purus dui a lorem. Nam at massa sed orci molestie pretium vitae et justo. Aliquam tincidunt purus eu ante semper dignissim. Curabitur pharetra rhoncus erat, eget mattis lacus posuere sit amet. Proin et consectetur metus. Mauris tempor elit in lacinia viverra. Suspendisse interdum cursus mattis. Sed congue facilisis purus eu gravida. Curabitur dolor eros, imperdiet sed ligula in, tincidunt malesuada lorem. Aliquam tincidunt iaculis urna quis tempor. Nulla aliquet augue vel tristique facilisis. In maximus augue ac lectus aliquet pellentesque. Vestibulum non maximus orci, ac luctus nunc. Nulla finibus eget velit eu sagittis. Sed sed congue urna. Curabitur hendrerit molestie augue nec malesuada. Pellentesque ornare justo ut ultricies laoreet. Donec mauris turpis, aliquam cursus tristique ut, euismod quis nisl. Aliquam ut nibh efficitur, mollis libero ut, ultrices nulla. Sed fringilla blandit fringilla. Aliquam eget metus dapibus, varius tortor eu, lacinia nunc. Vestibulum vulputate neque ac sem consequat, vitae posuere tortor dapibus. </p>
+                        <hr>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary">Yes</button>
+                            <button type="button" class="btn btn-primary">Abstain</button>
+                            <button type="button" class="btn btn-primary">No</button>
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- JS Files -->
+    <!-- Bootstrap -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery-2.2.2.min.js" %}"></script>
+    <!-- Bootflat -->
+    <script src="{% static "js/site.min.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+
+
+    <!-- This script reveals and hides the left sidebar (may move it into it's own seperate file) -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+
+</html>
