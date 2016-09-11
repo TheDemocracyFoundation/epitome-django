@@ -1,0 +1,20 @@
+/* font-family: 'Advent Pro', sans-serif; */
+
+
+/* font-family: 'Open Sans Condensed', sans-serif; */
+
+
+/* Here are the font settings for every element of the page */
+
+
+/* The Sidebar */
+
+#sidebar-top {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: X-Large;
+}
+
+#sidebar-bot {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: Large;
+}
