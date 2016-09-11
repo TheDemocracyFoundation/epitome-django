@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <!-- CSS Files. ONE for EACH element during Development stage. ONE for ALL elements during production stage -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <!-- Fixed Top Navigation Bar -->
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <!-- Fixed footer -->
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <!-- left Sidebar -->
+    <link rel="stylesheet" type="text/css" href="css/left-sidebar.css">
+    <!-- JS Files. For custom js files use ONE for EACH element during Development stage. ONE for ALL elements during production stage -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-2.2.2.min.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+    <!-- The page wrapper -->
+    <div id="wrapper">
+
+        <!-- Left Sidebar Menu -->
+        <div id="sidebar-wrapper">
+
+            <!-- The top part of the Sidebar menu -->
+            <div id="sidebar-top">
+                <ul id="sidebar-nav-top">
+                    <li>
+                        <a href="#">Proposals</a>
+                    </li>
+                    <li>
+                        <a href="#">Laws</a>
+                    </li>
+                    <li>
+                        <a href="#">Polls</a>
+                    </li>
+                    <li>
+                        <a href="#">Configuration</a>
+                    </li>
+                    <li>
+                        <a href="#">Constitution</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- The bottom part of the sidebar menu -->
+            <div id="sidebar-bot">
+                <ul id="sidebar-nav-bot">
+                    <li>
+                        <a href="#">Culture</a>
+                    </li>
+                    <li>
+                        <a href="#">Development</a>
+                    </li>
+                    <li>
+                        <a href="#">Diplomacy</a>
+                    </li>
+                    <li>
+                        <a href="#">Economy</a>
+                    </li>
+                    <li>
+                        <a href="#">Enviroment</a>
+                    </li>
+                    <li>
+                        <a href="#">Order</a>
+                    </li>
+                    <li>
+                        <a href="#">State</a>
+                    </li>
+                    <li>
+                        <a href="#">Wellfare</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- The NavBar is in fact a simple div. The "nav" style  from bootstrap is not used and will be removed from -->
+        <!-- the production release.The navbar contains two divs and they are positioned using bootstraps "pull-left" -->
+        <!-- and "pull-right" classes. -->
+        <div class="col-md-12 navbar-fixed-top">
+
+            <!-- This is the button that reveals the left sidebar -->
+            <ul class="pull-left activate-left-sidebar">
+                <li class="top-bar">
+                    <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i>
+                </li>
+            </ul>
+
+            <!-- These are the user buttons -->
+            <ul class="pull-right">
+                <li class="top-bar">
+                    <i class="fa fa-bell-o fa-2x"></i>
+                </li>
+                <li class="top-bar">
+                    <i class="fa fa-user fa-2x"></i>
+                </li>
+                <li class="top-bar">
+                    <i class="fa fa-cog fa-2x"></i>
+                </li>
+            </ul>
+        </div>
+
+        <!-- The Footer exists but for now contains no elements -->
+        <div class="footer">
+            <p class="pull-right">Version: 0.0.5</p>
+        </div>
+    </div>
+
+
+    <!-- This script reveals and hides the left sidebar (may move it into it's own seperate file) -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+
+</html>
