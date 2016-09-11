@@ -20,5 +20,6 @@ from Agora import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', views.homePage, name='home'),
-    url(r'^user/', include('Propylaea.urls', namespace="Propylaea"))
+    url(r'^user/', include('Propylaea.urls', namespace="Propylaea")),
+    url(r'^eisegesis/', include('Eisegesis.urls', namespace="Eisegesis"))
 ]
