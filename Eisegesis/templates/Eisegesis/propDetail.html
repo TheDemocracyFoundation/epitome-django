@@ -96,10 +96,16 @@
                         <h6>By {{ proposal.USER_CREATORID }} </h6>
                         <p> {{ proposal.P_BODY }} </p>
                         <div class="text-center">
+							<form action="{% url 'Eisegesis:vote' proposal.id %}" method="post">
+							{% csrf_token %}
 							{% for choice in proposal.PChoice.all %}
 								<!--<li>{{ choice.PCHOICE_CHOICE }}</li>-->
-								<button type="button" class="btn btn-primary">{{ choice.PCHOICE_CHOICE }}</button>
+								<!--<button type="button" class="btn btn-primary">{{ choice.PCHOICE_CHOICE }}</button>-->
+								<input type="radio" name="choice" id="{{ forloop.counter }}" value="{{ choice.id }}" />
+								<label for="choice{{ forloop.counter }}">{{ choice.PCHOICE_CHOICE }}</label><br />
 							{% endfor %}
+							<input type="submit" value="vote" />
+							</form>
                             <!--<button type="button" class="btn btn-primary">Yes</button>
                             <button type="button" class="btn btn-primary">Abstain</button>
                             <button type="button" class="btn btn-primary">No</button>-->
