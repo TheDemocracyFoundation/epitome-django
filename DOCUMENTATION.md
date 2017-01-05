@@ -47,7 +47,7 @@ or if installed in home folder and permissions problem arises:
 
 7) Move the contents of Epitome to the newly created folder replacing the existing files (keep your settings.py file separately)
 
-8) Open settings.py and add the secret key that was generated in your local machine, and replace the field for the database which should look like this.
+8) Open settings.py and add the secret key that was generated in your local machine, and replace the field for the database which should look like this:
 
 ```
 DATABASES = {
