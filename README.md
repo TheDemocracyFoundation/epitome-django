@@ -15,7 +15,7 @@ http://democracy.foundation/epitome/
 Contributions:
 -----------------------------------
 
-Please take a look at [CONTRIBUTING.md](https://github.com/DemocracyFoundation/Epitome/blob/Development/CONTRIBUTING.md)
+Please take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
 
 -----------------------------------
 
