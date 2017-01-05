@@ -2,8 +2,7 @@
 
 ### Installation
 
-<p align="justify">
-In order to install Epitome, pip needs to be installed globally. After that, django must be installed. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server. Note that at this point that apache and mysql are not necessary.
+<p align="justify">In order to install Epitome, pip needs to be installed globally. After that, django must be installed. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server. Note that at this point that apache and mysql are not necessary.
 </p>
 
 For example, in an Ubuntu based OS:
