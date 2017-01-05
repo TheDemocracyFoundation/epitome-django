@@ -19,4 +19,4 @@ Please take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
 
 -----------------------------------
 
-[![AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)
+[![AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)](LICENSE)
