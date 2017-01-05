@@ -43,7 +43,7 @@ You have our deep gratitude for deciding to contribute to the development of Epi
 
 ##Other Contributions
 
-* If you find something undocumented whose behaviour is unlikely to change, consider filling in that part of the documentation.
+* If you find something undocumented whose behaviour is unlikely to change, consider filling in that part of the DOCUMENTATION.md file.
 
 ##Contact
 
