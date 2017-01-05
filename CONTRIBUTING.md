@@ -15,7 +15,7 @@ You have our deep gratitude for deciding to contribute to the development of Epi
 
 ##Contributing Code
 
-* [Fork](https://help.github.com/articles/fork-a-repo/) the project, clone it in your local machine and make your changes.
+* [Fork](https://help.github.com/articles/fork-a-repo/) the project, [clone](https://help.github.com/articles/cloning-a-repository/) it in your local machine and make your changes.
 
 * We encourage testing before merging a pull-request. **Pull Requests should usually be made for the `Development` branch** as this contains the most recent version of the code.
 
