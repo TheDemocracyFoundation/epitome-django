@@ -2,8 +2,7 @@
 
 ### Installation
 
-<p align="justify">In order to install Epitome, pip needs to be installed globally. After that, django must be installed. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server. Note that at this point that apache and mysql are not necessary.
-</p>
+<p align="justify">In order to install Epitome, pip needs to be installed globally. After that, django must be installed. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
 
 For example, in an Ubuntu based OS:
 
@@ -21,7 +20,7 @@ For example, in an Ubuntu based OS:
 
 `sudo python get-pip.py`
 
-or if installed in home folder and permissions problem arises:
+or if installed in home folder and a permissions problem arises:
 
 `sudo -H python get-pip.py`
 
@@ -29,19 +28,19 @@ or if installed in home folder and permissions problem arises:
 
 `sudo pip install upgrade pip`
 
-or if installed in home folder and permissions problem arises:
+or if installed in home folder and a permissions problem arises:
 
 `sudo -H pip install upgrade pip`
  
-5) Install Django by typing:
+5) Install django by typing:
 
 `sudo pip install Django`
 
-or if installed in home folder and permissions problem arises:
+or if installed in home folder and a permissions problem arises:
 
 `sudo -H pip install Django`
 
-6) Create a new Project by typing:
+6) Create a new project by typing:
 
 `django-admin.py startproject Epitome`
 
@@ -62,7 +61,7 @@ DATABASES = {
 
 `sudo python manage.py migrate`
 
-10) To start Django server move to the folder Epitome and start the server by typing:
+10) To start django server move to the folder Epitome and start the server by typing:
 
 `sudo python manage.py runserver`
 
