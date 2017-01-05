@@ -9,41 +9,41 @@ For example, in an Ubuntu based OS:
 
 1) Update your OS by typing:
 
-`$ sudo apt update`
+`sudo apt update`
 
-`$ sudo apt full-upgrade`
+`sudo apt full-upgrade`
 
 2) Pip can be downloaded through its official installer get-pip.py by typing:
 
-`$ wget https://bootstrap.pypa.io/get-pip.py`
+`wget https://bootstrap.pypa.io/get-pip.py`
 
 3) Install pip by typing:
 
-`$ sudo python get-pip.py`
+`sudo python get-pip.py`
 
 or if installed in home folder and permissions problem arises:
 
-`$ sudo -H python get-pip.py`
+`sudo -H python get-pip.py`
 
 4) The version installed may be outdated. Update by typing:
 
-`$ sudo pip install upgrade pip`
+`sudo pip install upgrade pip`
 
 or if installed in home folder and permissions problem arises:
 
-`$ sudo -H pip install upgrade pip`
+`sudo -H pip install upgrade pip`
  
 5) Install Django by typing:
 
-`$ sudo pip install Django`
+`sudo pip install Django`
 
 or if installed in home folder and permissions problem arises:
 
-`$ sudo -H pip install Django`
+`sudo -H pip install Django`
 
 6) Create a new Project by typing:
 
-`$ django-admin.py startproject Epitome`
+`django-admin.py startproject Epitome`
 
 7) Move the contents of Epitome to the newly created folder replacing the existing files (keep your settings.py file separately)
 
@@ -60,15 +60,15 @@ DATABASES = {
 
 9) Make the database migrations by typing:
 
-`$ sudo python manage.py migrate`
+`sudo python manage.py migrate`
 
 10) To start Django server move to the folder Epitome and start the server by typing:
 
-`$ sudo python manage.py runserver`
+`sudo python manage.py runserver`
 
 11) To create an admin account type and follow the instructions:
 
-`$ sudo python manage.py createsuperuser`
+`sudo python manage.py createsuperuser`
 
 12) Open your web browser to access the admin panel in this address:
 
