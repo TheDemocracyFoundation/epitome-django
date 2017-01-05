@@ -19,4 +19,4 @@ Please take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
 
 -----------------------------------
 
-[![AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)](LICENSE)
+[![AGPL3](https://github.com/DemocracyFoundation/Epitome/blob/Development/License/agplv3-155x51.png)](LICENSE)
