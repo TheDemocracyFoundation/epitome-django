@@ -15,13 +15,31 @@ You have our deep gratitude for deciding to contribute to the development of Epi
 
 ##Contributing Code
 
-* [Fork](https://help.github.com/articles/fork-a-repo/) the project and make your changes.
+* [Fork](https://help.github.com/articles/fork-a-repo/) the project, clone it in your local machine and make your changes.
 
 * We encourage testing before merging a pull-request. **Pull Requests should usually be made for the `Development` branch** as this contains the most recent version of the code.
 
 * Push the changes to your fork and [submit a new pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) with a clear list of what you've done and a descriptive title.
 
-* All contributions must be made under the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html) license. No transfer of copyright or other rights or permissions is required. All contributors should be listed in the AUTHORS.md file, and all contributors with copyrights must be listed.
+* All contributions must be made under the [AGPL3](https://www.gnu.org/licenses/agpl-3.0.en.html) license. No transfer of copyright or other rights or permissions is required. All contributors should be listed in the AUTHORS.md file, and all contributors with copyrights must be listed. Specifically add this header in the beggining of each new file:
+
+```
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <Your real first and last name here>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
 
 ##Other Contributions
 
