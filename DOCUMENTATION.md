@@ -79,6 +79,8 @@ DATABASES = {
 
 You should now have a working instance of Epitome.
 
+*Usernames are case-sensitive.
+
 -----------------------------------
 
 ### Operation
