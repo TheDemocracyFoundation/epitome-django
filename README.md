@@ -13,7 +13,7 @@ The Epitome project is giving financial rewards to contributors upon successful 
 </p>
 
 <p align="center">
-  <img src="http://i.imgur.com/HUnDaCh.gif">
+  <img src="http://i.imgur.com/Q2AXPFE.gif">
 </p>
 
 Contributions:
