@@ -1,6 +1,6 @@
 # Epitome 
 -----------------------------------
-An Instrument Built for Change
+An instrument built for change
 
 http://democracy.foundation/epitome/
 
