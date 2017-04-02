@@ -1,4 +1,4 @@
-#Epitome 
+Epitome 
 -----------------------------------
 An Instrument Built for Change
 
