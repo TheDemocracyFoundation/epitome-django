@@ -31,9 +31,14 @@ class Proposals(models.Model):
 
 
 class ProposalChoice(models.Model):
-	#PCHOICE_CHOICE = models.IntegerField(default=0)                        #the voting choices of the proposal
+	#PCHOICE_CHOICE = models.IntegerField(default=0)                       #the voting choices of the proposal
 	proposals = models.ForeignKey(Proposals, related_name='PChoice')
 	PCHOICE_CHOICE = models.CharField(max_length=100)
 	PCHOICE_VOTES = models.IntegerField(default=0)
 	def __unicode__(self):
 		return self.PCHOICE_CHOICE
+
+
+class Voter(models.Model):
+	user = models.ForeignKey(User)
+	Proposals = models.ForeignKey(Proposals)

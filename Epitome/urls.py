@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from Agora import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,3 +24,5 @@ urlpatterns = [
     url(r'^user/', include('Propylaea.urls', namespace="Propylaea")),
     url(r'^eisegesis/', include('Eisegesis.urls', namespace="Eisegesis"))
 ]
+
+urlpatterns += staticfiles_urlpatterns()

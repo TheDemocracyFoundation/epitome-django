@@ -30,7 +30,7 @@ def SignUpV(request):
     # If request is not POST create empty forms
 	else:
 		#form1 = SignUpForm()
-		template = loader.get_template('Propylaea/login_register.html')
+		template = loader.get_template('Propylaea/login.html')
 		context = {
 			'SignUpForm': SignUpForm,
 			'LoginForm': LoginForm,
@@ -63,7 +63,7 @@ def LogIn(request):
 		else:
 			return HttpResponse("Invalid login details supplied")#: {0}, {1}".format(email, password))
 	else:
-		template = loader.get_template('Propylaea/login_register.html')
+		template = loader.get_template('Propylaea/login.html')
 		context = {
 			'LoginForm': LoginForm,
 			'SignUpForm': SignUpForm,

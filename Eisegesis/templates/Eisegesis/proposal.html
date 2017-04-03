@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <!-- Frameworks -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootstrap/bootstrap.min.css" %}">
+    <!-- Bootflat -->
+    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootflat/css/bootflat.min.css" %}">
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/f63660f471.js"></script>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
+    <!-- Styling -->
+    <link rel="stylesheet" type="text/css" href="{% static "resources/css/style.css"" %}">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width"> </head>
+
+<body>
+    <!-- The page wrapper -->
+    <div id="wrapper">
+        <!-- Left Sidebar Menu -->
+        <!-- The NavBar is a basic div. The "nav" style  from bootstrap is not used and may be removed from -->
+        <!-- the production release.The navbar contains two divs and they are positioned using bootstraps "pull-left" -->
+        <!-- and "pull-right" classes. -->
+        <div class="col-md-12 navbar-fixed-top">
+            <!-- This is the button that reveals the left sidebar -->
+            <ul class="pull-left activate-left-sidebar">
+                <li> <i><a href="/eisegesis/" class="fa fa-times fa-2x proposal-close"></a></i> </li>
+            </ul>
+        </div>
+        <div class="content-wrapper top60">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                <div class="thumbnail">
+                    <div class="col-xs-12 card-header">
+                        <div class="col-xs-4">
+                            <div class="card-icon"> <img src="http://placehold.it/70x70"> </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="card-info">
+                                <h6>Participation: <span class="info-value red">1300</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="caption text-center">
+                        <h3> {{ proposal.P_TITLE }} </h3>
+                        <h6>By {{ proposal.USER_CREATORID }} </h6>
+                        <p> {{ proposal.P_BODY }} </p>
+                        {% if proposal.P_ENDDT > nowdt %} <!--????-->
+							<div class="text-center">
+								<form action="{% url 'Eisegesis:vote' proposal.id %}" method="post">
+								{% csrf_token %}
+								{% for choice in proposal.PChoice.all %}
+									<button type="submit" name="choice" class="btn btn-primary" value="{{ choice.id }}">{{ choice.PCHOICE_CHOICE }}</button>
+									<!--<input type="radio" name="choice" id="{{ forloop.counter }}" value="{{ choice.id }}" />
+									<label for="choice{{ forloop.counter }}">{{ choice.PCHOICE_CHOICE }}</label><br />-->
+									<!--<input type="submit" name="Pavlos" value="{{ choice.id }}" />-->
+								{% endfor %}
+								<!--<input type="submit" value="vote" />-->
+								</form>
+								<!--<button type="button" class="btn btn-primary">Yes</button>
+								<button type="button" class="btn btn-primary">Abstain</button>
+								<button type="button" class="btn btn-primary">No</button>-->
+							</div>
+						{% else %}<!--????-->
+							<div class="text-center"><!--????-->
+							{% for choice in proposal.PChoice.all %}<!--????-->
+									<p> {{ choice.PCHOICE_CHOICE }}  =  {{ choice.PCHOICE_VOTES }} </p><!--????-->
+							{% endfor %}<!--????-->
+							</div><!--????-->
+						{% endif %}<!--????-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JS Files -->
+    <!-- Bootstrap -->
+    <script src="{% static "vendors/bootstrap/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendors/jquery/jquery-2.2.2.min.js" %}"></script>
+    <!-- Bootflat -->
+    <script src="{% static "vendors/bootflat/js/site.min.js" %}"></script>
+    <script src="{% static "vendors/bootflat/js/respond.min.js" %}"></script>
+    <script src="{% static "vendors/html5shiv/html5shiv.js" %}"></script>
+    <!-- This script reveals and hides the left sidebar (may move it into it's own seperate file) -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $("#wrapper").toggleClass("toggled");
+        });
+        $("body").click(function () {
+            $("#wrapper").removeClass("toggled");
+        });
+    </script>
+</body>
+
+</html>
