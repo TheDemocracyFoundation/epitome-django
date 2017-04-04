@@ -44,7 +44,7 @@ or if installed in home folder and a permissions problem arises:
 
 `django-admin.py startproject Epitome`
 
-**go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
+**Important: go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
 7) Move the contents of Epitome to the newly created folder replacing the existing files
 
