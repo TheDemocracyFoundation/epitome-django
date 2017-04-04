@@ -124,13 +124,9 @@ You should now have a working instance of Epitome.
 
 8) To create a new proposal, click on "Add" next to the "Proposals", add the information for the proposal and click save.
 
-![proposal-creation-1](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-1.png)
+![proposal-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation.png)
 
 ![proposal-creation-2](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-2.png)
-
-![proposal-creation-3](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-3.png)
-
-![proposal-creation-4](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-4.png)
 
 9) A user can also register by clicking "Create an account" on the login page (<http://localhost:8000/user/login>)
 
