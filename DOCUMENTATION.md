@@ -122,7 +122,7 @@ You should now have a working instance of Epitome.
 
 ![proposal-cat-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-cat-creation.png)
 
-8) To create a new proposal, click on "Add" next to the "Proposalss", add the information for the proposal and click save.
+8) To create a new proposal, click on "Add" next to the "Proposals", add the information for the proposal and click save.
 
 ![proposal-creation-1](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-1.png)
 
