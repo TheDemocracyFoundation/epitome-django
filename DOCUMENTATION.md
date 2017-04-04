@@ -96,11 +96,20 @@ You should now have a working instance of Epitome.
 
 1) Enter the Admin page by inserting your information.
 
-[![Admin-login-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-login-page.png)]
+![Admin-login-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-login-page.png)
 
 2) This will bring you to the admin landing page.
 
-[![Admin-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-landing-page.png)]
+![Admin-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-landing-page.png)
+
+3) Click "Groups" to go into the groups section, and press "Add group" on the top right corner.
+
+![groups-main](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/groups-main.png)
+
+4) Create a new admin group and give all permissions.
+
+![admin-group-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-group-creation.png)
+
 
 ### Troubleshooting
 
