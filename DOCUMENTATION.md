@@ -44,9 +44,11 @@ or if installed in home folder and a permissions problem arises:
 
 `django-admin.py startproject Epitome`
 
-7) Move the contents of Epitome to the newly created folder replacing the existing files (keep your settings.py file separately)
+**go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-8) Open settings.py and add the secret key that was generated in your local machine, and replace the field for the database which should look like this:
+7) Move the contents of Epitome to the newly created folder replacing the existing files
+
+8) Open the old settings.py that you saved seperately and add the secret key to the settings.py file in the Epitome folder that was generated in your local machine, and replace the information under the "DATABASES = {" section which should look like this:
 
 ```
 DATABASES = {
@@ -57,7 +59,9 @@ DATABASES = {
 }
 ```
 
-9) Make the database migrations by typing:
+9) Change the directory of the terminal into the newly created folder and make the database migrations by typing:
+
+`cd Epitome`
 
 `sudo python manage.py migrate`
 
@@ -65,7 +69,7 @@ DATABASES = {
 
 `sudo python manage.py runserver`
 
-11) To create an admin account type and follow the instructions:
+11) To create an admin account, open a new terminal, type and follow the instructions:
 
 `sudo python manage.py createsuperuser`
 
@@ -77,9 +81,9 @@ DATABASES = {
 
 <http://localhost:8000/user/login>
 
-You should now have a working instance of Epitome.
-
 *Usernames are case-sensitive.
+
+You should now have a working instance of Epitome.
 
 -----------------------------------
 
@@ -95,4 +99,13 @@ You should now have a working instance of Epitome.
 
 * Issue: django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
 
- Solution: Check if you have correctly configured the database field in the settings.py file under the "Epitome" folder
+ Solution: Check if you have correctly configured the fields under the "DATABASES = {" section of the settings.py file.
+ located inside the "Epitome" folder
+ 
+ * Issue: when typing "sudo python manage.py migrate" you get the following
+ `'NAME': 'os.path.join(BASE_DIR, 'db.sqlite3')',
+                                      ^
+SyntaxError: invalid syntax`
+
+Solution: make sure you remove the 'apostrophes' from the "NAME:" field under the "DATABASES = {" section of the settings.py file.
+
