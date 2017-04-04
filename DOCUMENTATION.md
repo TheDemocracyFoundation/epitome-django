@@ -44,11 +44,11 @@ or if installed in home folder and a permissions problem arises:
 
 `django-admin.py startproject Epitome`
 
-**Important: go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
+**Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-7) Move the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
+7) Move all the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
 
-8) Open the old settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine, it should look somewhat like this:
+8) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
 
 `SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
 `
@@ -98,16 +98,16 @@ You should now have a working instance of Epitome.
 
 * Issue: django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb
 
- Solution: install python-mysqldb by writing
+Solution: install python-mysqldb by writing
 
  `sudo apt install python-mysqldb`
 
 * Issue: django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
 
- Solution: Check if you have correctly configured the fields under the "DATABASES = {" section of the settings.py file.
- located inside the "Epitome" folder
+Solution: Check if you have correctly configured the fields under the "DATABASES = {" section of the settings.py file.
+located inside the "Epitome" folder
  
- * Issue: when typing "sudo python manage.py migrate" you get the following
+* Issue: when typing "sudo python manage.py migrate" you get the following
  `'NAME': 'os.path.join(BASE_DIR, 'db.sqlite3')',
                                       ^
 SyntaxError: invalid syntax`
