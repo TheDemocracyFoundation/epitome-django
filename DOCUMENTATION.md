@@ -91,7 +91,7 @@ You should now have a working instance of Epitome.
 
  Solution: install python-mysqldb by writing
 
- `sudo apt-get install python-mysqldb`
+ `sudo apt install python-mysqldb`
 
 * Issue: django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
 
