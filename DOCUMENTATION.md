@@ -52,6 +52,7 @@ or if installed in home folder and a permissions problem arises:
 
 `SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
 `
+
 9) Replace the information under the "DATABASES = {" section which should look like this:
 
 ```
