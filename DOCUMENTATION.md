@@ -114,3 +114,8 @@ SyntaxError: invalid syntax`
 
 Solution: make sure you remove the 'apostrophes' from the "NAME:" field under the "DATABASES = {" section of the settings.py file.
 
+* Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
+
+Solution: kill all the processes associated with port 8000 by typing 
+
+`sudo fuser -k 8000/tcp`
