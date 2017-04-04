@@ -24,7 +24,7 @@ or if installed in home folder and a permissions problem arises:
 
 `sudo -H python get-pip.py`
 
-4) The version installed may be outdated. Update by typing:
+4) The version already installed may be outdated. Update by typing:
 
 `sudo pip install upgrade pip`
 
@@ -46,9 +46,13 @@ or if installed in home folder and a permissions problem arises:
 
 **Important: go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-7) Move the contents of Epitome (the folder which you downloaded) to the newly created folder replacing all the existing files
+7) Move the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
 
-8) Open the old settings.py that you saved seperately and add the secret key to the settings.py file in the Epitome folder that was generated in your local machine, and replace the information under the "DATABASES = {" section which should look like this:
+8) Open the old settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine, it should look somewhat like this:
+
+`SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
+`
+9) Replace the information under the "DATABASES = {" section which should look like this:
 
 ```
 DATABASES = {
@@ -59,21 +63,21 @@ DATABASES = {
 }
 ```
 
-9) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
+10) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
 `cd Epitome`
 
 `sudo python manage.py migrate`
 
-10) To start django server move to the folder Epitome and start the server by typing:
+11) To start django server move to the folder Epitome and start the server by typing:
 
 `sudo python manage.py runserver`
 
-11) To create an admin account, open a new terminal, type and follow the instructions:
+12) To create an admin account, open a new terminal, type and follow the instructions:
 
 `sudo python manage.py createsuperuser`
 
-12) Open your web browser to access the admin panel in this address:
+13) Open your web browser to access the admin panel in this address:
 
 <http://localhost:8000/admin/>
 
