@@ -87,12 +87,12 @@ You should now have a working instance of Epitome.
 
 ### Troubleshooting
 
-1) Issue: django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb
+* Issue: django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb
 
-Solution: install python-mysqldb by writing
+ Solution: install python-mysqldb by writing
 
-sudo apt-get install python-mysqldb
+ `sudo apt-get install python-mysqldb`
 
-2) Issue: django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
+* Issue: django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
 
-Solution: Check if you have correctly configured the database field in the settings.py file under the "Epitome" folder
+ Solution: Check if you have correctly configured the database field in the settings.py file under the "Epitome" folder
