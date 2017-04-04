@@ -94,6 +94,14 @@ You should now have a working instance of Epitome.
 
 ### Operation
 
+1) Enter the Admin page by inserting your information.
+
+[![Admin-login-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-login-page.png)]
+
+2) This will bring you to the admin landing page.
+
+[![Admin-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/Admin-landing-page.png)]
+
 ### Troubleshooting
 
 * Issue: django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb
