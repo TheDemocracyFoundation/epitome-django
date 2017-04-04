@@ -126,7 +126,7 @@ You should now have a working instance of Epitome.
 
 ![proposal-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation.png)
 
-![proposal-creation-2](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-2.png)
+![proposal-creation-done](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-done.png)
 
 9) A user can also register by clicking "Create an account" on the login page (<http://localhost:8000/user/login>)
 
