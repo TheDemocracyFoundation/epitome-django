@@ -46,7 +46,7 @@ or if installed in home folder and a permissions problem arises:
 
 **Important: go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-7) Move the contents of Epitome to the newly created folder replacing the existing files
+7) Move the contents of Epitome (the folder which you downloaded) to the newly created folder replacing all the existing files
 
 8) Open the old settings.py that you saved seperately and add the secret key to the settings.py file in the Epitome folder that was generated in your local machine, and replace the information under the "DATABASES = {" section which should look like this:
 
@@ -59,7 +59,7 @@ DATABASES = {
 }
 ```
 
-9) Change the directory of the terminal into the newly created folder and make the database migrations by typing:
+9) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
 `cd Epitome`
 
