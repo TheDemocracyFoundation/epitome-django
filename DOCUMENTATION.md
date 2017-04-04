@@ -6,7 +6,7 @@
 
 In an Ubuntu based OS:
 
-1) Update your OS by typing:
+1) It is recommended that you first update your OS by typing:
 
 `sudo apt update`
 
