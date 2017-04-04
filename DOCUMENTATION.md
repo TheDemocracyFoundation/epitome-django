@@ -110,7 +110,7 @@ You should now have a working instance of Epitome.
 
 ![admin-group-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-group-creation.png)
 
-5) You should now have a admin group.
+5) You should now have an admin group.
 
 ![admin-group-saved](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-group-saved.png)
 
@@ -182,3 +182,13 @@ Solution: make sure you remove the 'apostrophes' from the "NAME:" field under th
 Solution: kill all the processes associated with port 8000 by typing 
 
 `sudo fuser -k 8000/tcp`
+
+* Issue: Import error, No module named urls
+
+Solution: Change line in file Eisegesis/views.py
+
+`from django.url import reverse`
+
+to
+
+`from django.core.urlresolvers import reverse`
