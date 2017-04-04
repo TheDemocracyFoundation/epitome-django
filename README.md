@@ -16,6 +16,10 @@ The Epitome project is giving financial rewards to contributors upon successful 
   <img src="http://i.imgur.com/Q2AXPFE.gif">
 </p>
 
+Installation:
+-----------------------------------
+Please take a look at [DOCUMENTATION.md](DOCUMENTATION.md)
+
 Contributions:
 -----------------------------------
 

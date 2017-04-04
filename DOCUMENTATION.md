@@ -142,7 +142,7 @@ You should now have a working instance of Epitome.
 
 ![epitome-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/epitome-landing-page.png)
 
-12) You can vote on the proposal by clicking on it and selecting your choice on the bottom. Once you did, you will be transfered back to the main page and a confirmation message will appear.
+12) You can vote on the proposal by clicking on it and selecting your choice on the bottom. Once you do, you will be transfered back to the main page and a confirmation message will appear.
 
 ![proposal](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal.png)
 
