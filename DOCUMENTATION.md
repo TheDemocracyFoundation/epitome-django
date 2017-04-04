@@ -82,7 +82,7 @@ DATABASES = {
 
 <http://localhost:8000/admin/>
 
-13) To access Epitome enter the following address:
+14) To access Epitome enter the following address:
 
 <http://localhost:8000/user/login>
 
