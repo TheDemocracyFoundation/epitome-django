@@ -1,4 +1,4 @@
-* **14 February 2016**
+**14 February 2016**
 
 +Created Epitome Project.
 
