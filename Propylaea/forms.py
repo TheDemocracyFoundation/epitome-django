@@ -9,7 +9,6 @@ class LoginForm(ModelForm):
         model = User
         fields = ('username', 'password')
         widgets = {
-			#'email' : forms.EmailInput(attrs={'name': 'Email', 'required': True}),
 			'username' : forms.TextInput(attrs={'name': 'name', 'required': True}),
 			'password' : forms.PasswordInput(attrs={'max_length': '64', 'name': 'password', 'required': True}),
         }

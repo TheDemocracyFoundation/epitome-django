@@ -13,10 +13,10 @@ class VoteMain(models.Model):
     def __unicode__(self):              # __unicode__ on Python 2
         return self.question_text
     def was_published_recently(self):
-		now = timezone.now()
-		return now - datetime.timedelta(days=1) <= self.pub_date <= now
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
-		
+        
 class VoteResult(models.Model):
     vote_main = models.OneToOneField(VoteMain)
     votes = models.IntegerField(default=0)
@@ -30,5 +30,3 @@ class VoteTexts(models.Model):
     vote_description = models.CharField
     def __unicode__(self):              # __unicode__ on Python 2
         return self.vote_name
-
-	
