@@ -5,45 +5,123 @@
 <html>
 
 <head>
+    <!-- Meta Data -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <!-- Frameworks -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootstrap/bootstrap.min.css" %}">
-    <!-- Bootflat -->
-    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootflat/css/bootflat.min.css" %}">
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/f63660f471.js"></script>
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
-    <!-- Styling -->
-    <link rel="stylesheet" type="text/css" href="{% static "resources/css/style.css" %}">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width"> </head>
+    <meta name="viewport" content="width=device-width">
 
+    <title></title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
+    <link rel="stylesheet" href="{% static "resources/css/style.css"%}"> </head>
 <body>
-    <!-- The page wrapper -->
-    <div id="wrapper">
-        <!-- Left Sidebar Menu -->
-        <div id="sidebar-wrapper">
-            <!-- The top part of the Sidebar menu -->
-            <div id="sidebar-top">
-                <ul id="sidebar-nav-top">
-                    <li> <a href="#">Proposals</a> </li>
-                    <li> <a href="#">Laws</a> </li>
-                    <li> <a href="#">Polls</a> </li>
-                    <li> <a href="#">Configuration</a> </li>
-                    <li> <a href="#">Constitution</a> </li>
-                </ul>
-            </div>
-            <!-- The bottom part of the sidebar menu -->
-            <div id="sidebar-bot">
 
-            </div>
+        <!-- .navbar -->
+      <nav class="navbar navbar-light navbar-toggleable-md bg-main">
+        <a class="navbar-brand" href="#">Navbar</a>
+         <div class="float-right">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
         </div>
-        <!-- The NavBar is a basic div. The "nav" style  from bootstrap is not used and may be removed from -->
-        <!-- the production release.The navbar contains two divs and they are positioned using bootstraps "pull-left" -->
+      </nav>
+<!-- /.navbar -->
+        
+        
+        
+        
+        
+   <div class="card-columns">
+  <div class="card">
+    <img class="card-img-top img-fluid" src="..." alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Card title that wraps to a new line</h4>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+  <div class="card p-3">
+    <blockquote class="card-block card-blockquote">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>
+        <small class="text-muted">
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <img class="card-img-top img-fluid" src="..." alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card card-inverse card-primary p-3 text-center">
+    <blockquote class="card-blockquote">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+      <footer>
+        <small>
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <div class="card-block">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img img-fluid" src="..." alt="Card image">
+  </div>
+  <div class="card p-3 text-right">
+    <blockquote class="card-blockquote">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>
+        <small class="text-muted">
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <!-- and "pull-right" classes. -->
         <div class="col-md-12 navbar-fixed-top">
             <!-- This is the button that reveals the left sidebar -->
@@ -101,26 +179,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- JS Files -->
-    <!-- Bootstrap -->
-    <script src="{% static "vendors/bootstrap/bootstrap.min.css" %}"></script>
-    <script src="{% static "vendors/jquery/jquery-2.2.2.min.js" %}"></script>
-    <!-- Bootflat -->
-    <script src="{% static "vendors/bootflat/js/site.min.js" %}"></script>
-    <script src="{% static "vendors/bootflat/js/respond.min.js" %}"></script>
-    <script src="{% static "vendors/html5shiv/html5shiv.js" %}"></script>
-    <!-- This script reveals and hides the left sidebar (may move it into it's own seperate file) -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            $("#wrapper").toggleClass("toggled");
-        });
-        $("body").click(function () {
-            $("#wrapper").removeClass("toggled");
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
+    <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
 </body>
 
 </html>

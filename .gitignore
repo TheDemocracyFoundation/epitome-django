@@ -95,3 +95,4 @@ ENV/
 
 # Epitome Settings
 settings.py
+db.sqlite3
