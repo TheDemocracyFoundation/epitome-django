@@ -1,22 +1,6 @@
-<!DOCTYPE html> 
-
-{% load staticfiles %}
-
-<html>
-
-<head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-
-    <title></title>
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
-    <link rel="stylesheet" href="{% static "resources/css/style.css"%}"> </head>
-<body>
+{% extends 'partials/base.html' %}
+	{% load static %}
+	{% block content %}
 
         <!-- .navbar -->
       <nav class="navbar navbar-light navbar-toggleable-md bg-main">
@@ -182,6 +166,6 @@
     <!-- JavaScript -->
     <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
     <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
-</body>
 
-</html>
+
+  	{% endblock %}

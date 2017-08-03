@@ -1,3 +1,4 @@
+/** Colors **/
 .bg-main{
 	background-color: #374A5D;	
 }
@@ -5,3 +6,10 @@
 .bg-white{
 	background-color: azure;
 }
+
+/** End Colors **/
+
+/** Login **/
+.login-content {display: none;}
+
+#login {display: block;}

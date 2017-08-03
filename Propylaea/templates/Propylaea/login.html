@@ -1,27 +1,15 @@
-<!DOCTYPE html> {% load staticfiles %}
-<html>
-
-<head>
-	<!-- Meta Data -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	<title></title>
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
-	<link rel="stylesheet" href="{% static "resources/css/style.css"%}">
-	<style>.content {display: none;}#login {display: block;}
-	</style>
-</head>
-
-<body class="bg-main">
-	<div class="container mt-5 pt-5">
-		<div class="row justify-content-center align-self-center">
-		<div class="col col-lg-6 bg-white pt-5 pl-5 pr-5">
-			<div id="login" class="content">
+{% extends 'partials/base.html' %}
+	{% load static %}
+	{% block content %}
+	
+	<div class="container-fluid bg-main" style="height: 100vh">
+	<div class="pt-5 ">
+		<div class="row mt-5 justify-content-center align-self-center">
+		<div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+			<div id="login" class="login-content">
 				<form class="form-signin" method="post">
-					<h2 class="form-signin-heading">Login</h2> {% csrf_token %}
+					<h2 class="form-signin-heading">Login</h2>
+					{% csrf_token %}
 					<label for="inputEmail" class="sr-only">Username</label>
 					<input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
 					<label for="inputPassword" class="sr-only">Password</label>
@@ -36,16 +24,17 @@
 			</div>	
 		</div>
 		<div class="row justify-content-center align-self-center">
-		<div class="col col-lg-6 bg-white pb-5 pl-5 pr-5">
-			<div id="register" class="content">
+		<div class="col col-lg-4 bg-white pb-5 pl-5 pr-5">
+			<div id="register" class="login-content">
 				<form class="form-register" method="post">
-					<h2 class="form-signin-heading">Register</h2> {% csrf_token %}
+				{% csrf_token %}
+					<h2 class="form-signin-heading">Register</h2>
 					<label for="inputEmail" class="sr-only">Username</label>
-					<!--<input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>-->{{ SignUpForm.username }}
+					{{ SignUpForm.username }}
 					<label for="inputEmail" class="sr-only">Emain</label>
-					<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>-->{{ SignUpForm.email }}
+					{{ SignUpForm.email }}
 					<label for="inputPassword" class="sr-only">Emain</label>
-					<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>-->{{ SignUpForm.password }}
+					{{ SignUpForm.password }}
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" value="remember-me"> Remember me </label>
@@ -54,11 +43,12 @@
 				</form> <a href="#login" class="link" data-page="login">Already have an account Login here.</a> </div>
 			</div>
 		</div>
+		</div>
 	</div>
 	<!-- JavaScript -->
 	<script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
 	<script>
-		var content = $('.content')
+		var content = $('.login-content')
 			, links = $('.link');
 		links.on('click', function (e) {
 			e.preventDefault();
@@ -66,6 +56,4 @@
 			$($(this).attr('href')).show(); // show targetted content
 		})
 	</script>
-</body>
-
-</html>
+  {% endblock %}

@@ -9,8 +9,7 @@ class LoginForm(ModelForm):
         model = User
         fields = ('username', 'password')
         widgets = {
-			#'email' : forms.EmailInput(attrs={'name': 'Email', 'required': True}),
-			'username' : forms.TextInput(attrs={'name': 'name', 'required': True}),
+			'username' : forms.TextInput(attrs={'name': 'login-name', 'required': True}),
 			'password' : forms.PasswordInput(attrs={'max_length': '64', 'name': 'password', 'required': True}),
         }
         
@@ -19,7 +18,7 @@ class SignUpForm(ModelForm):
         model = User
         fields = ('username', 'email', 'password')
         widgets = {
-			'username' : forms.TextInput(attrs={'name': 'name', 'required': True}),
-			'email' : forms.EmailInput(attrs={'name': 'email', 'required': True}),
-			'password' : forms.PasswordInput(attrs={'name': 'password', 'required': True}),
-        }
+			'username' : forms.TextInput(attrs={'class':'form-control','name': 'name', 'required': True}),
+			'email' : forms.EmailInput(attrs={'class':'form-control mt-2','name': 'email', 'required': True}),
+			'password' : forms.PasswordInput(attrs={'class':'form-control mt-2','name': 'password', 'required': True}),
+       }
