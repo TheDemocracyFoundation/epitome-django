@@ -13,3 +13,19 @@
 .login-content {display: none;}
 
 #login {display: block;}
+
+/** End Login **/
+
+/** Sisegesis **/
+
+.img-responsive {
+    width: 100%;
+}
+
+/** End Eisegesis **/
+
+
+/** Bootstrap 4 **/
+.navbar-toggleable-xl .navbar-nav .dropdown-menu {
+  position: absolute;
+}

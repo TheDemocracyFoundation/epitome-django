@@ -1,129 +1,33 @@
-{% extends 'partials/base.html' %}
-	{% load static %}
-	{% block content %}
+{% extends 'partials/base.html' %} 
+{% load static %} 
+{% block content %}
 
-        <!-- .navbar -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <div id="navbarNavDropdown" class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Register</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<!-- .navbar -->
+<nav class="navbar navbar-toggleable-xl navbar-light bg-main">
+	<div id="navbarNavDropdown ml-5" class="navbar-collapse collapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			<a class="navbar-brand" href="#">
+    			<img src={% static "resources/img/logo.svg"%} width="30" height="30" alt="">
+  			</a>
+		 </li>
+		</ul>
+		<ul class="navbar-nav mr-5">
+			<li class="nav-item dropdown"> 
+               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      User
+               </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="#">Profile</a> <a class="dropdown-item" href="/user/logout">Logout</a> </div>
+			</li>
+		</ul>
+	</div>
+</nav>
 <!-- /.navbar -->
-        
-        
-     {% block masonry %}
-       
-     {% endblock %}
-        
-        
-   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!-- and "pull-right" classes. -->
-        <div class="col-md-12 navbar-fixed-top">
-            <!-- This is the button that reveals the left sidebar -->
-            <ul class="pull-left activate-left-sidebar">
-                <li class="top-bar"> <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i> </li>
-            </ul>
-            <!-- User Buttons -->
+
+{% block masonry %} 
+{% endblock %}
 
 
-            <div class="logout-container pull-right">
-                <a href="/user/logout"><img width="30" height="30" src="{% static "resources/img/Reset_button.svg" %}" alt="Image description." /></a>
-            </div>
-
-
-        </div>
-        <!-- Cards -->
-        <div class="content-wrapper">
-            <div class="example">
-                <div class="row">
-                    <br>
-                    <br>
-					{% if messages %}
-						{% for message in messages %}
-							<p>{{ message }}</p>
-						{% endfor %}
-					{% endif %}
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    {% if latest_proposal_list %} 
-					{% for proposal in latest_proposal_list %}
-                    <a href="/eisegesis/{{ proposal.id }}/">
-                        <div class="thumbnail">
-                            <div class="col-xs-12 card-header">
-                                <div class="col-xs-4">
-                                    <div class="card-icon"> <img src="http://placehold.it/40x40"> </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="card-info">
-                                        <h6>Participation: <span class="info-value red">1300</span></h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption text-center">
-                                <h3>{{ proposal.P_TITLE }}</h3>
-                                <h6>By {{ proposal.USER_CREATORID }}</h6>
-                                <p>{{ proposal.P_SHRBODY }}</p>
-                            </div>
-                        </div>
-                    </a>
-                    {% endfor %} 
-                    {% else %}
-                    <p>No proposals are available.</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    <!-- JavaScript -->
-    <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
-    <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
-
-
-  	{% endblock %}
+<!-- JavaScript -->
+<script src="{% static " vendors/jquery/dist/jquery.min.js "%}"></script>
+<script src="{% static " vendors/bootstrap/dist/js/bootstrap.min.js "%}"></script> {% endblock %}
