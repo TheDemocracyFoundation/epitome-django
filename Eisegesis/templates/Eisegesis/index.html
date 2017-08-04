@@ -1,28 +1,10 @@
-{% extends 'partials/base.html' %}
-	{% load static %}
-	{% block content %}
-
-        <!-- .navbar -->
-      <nav class="navbar navbar-light navbar-toggleable-md bg-main">
-        <a class="navbar-brand" href="#">Navbar</a>
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-      </nav>
-<!-- /.navbar -->
-        
-        
-        
-        
-        
-   <div class="card-columns">
+{% extends 'partials/eisegesis.html' %}
+	{% block masonry %}
+	
+	
+	
+	<div class="container mt-5">
+	<div class="card-columns">
   <div class="card">
     <img class="card-img-top img-fluid" src="..." alt="Card image cap">
     <div class="card-block">
@@ -85,85 +67,8 @@
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-</div>     
+</div>   
+</div>  
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!-- and "pull-right" classes. -->
-        <div class="col-md-12 navbar-fixed-top">
-            <!-- This is the button that reveals the left sidebar -->
-            <ul class="pull-left activate-left-sidebar">
-                <li class="top-bar"> <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i> </li>
-            </ul>
-            <!-- User Buttons -->
-
-
-            <div class="logout-container pull-right">
-                <a href="/user/logout"><img width="30" height="30" src="{% static "resources/img/Reset_button.svg" %}" alt="Image description." /></a>
-            </div>
-
-
-        </div>
-        <!-- Cards -->
-        <div class="content-wrapper">
-            <div class="example">
-                <div class="row">
-                    <br>
-                    <br>
-					{% if messages %}
-						{% for message in messages %}
-							<p>{{ message }}</p>
-						{% endfor %}
-					{% endif %}
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    {% if latest_proposal_list %} 
-					{% for proposal in latest_proposal_list %}
-                    <a href="/eisegesis/{{ proposal.id }}/">
-                        <div class="thumbnail">
-                            <div class="col-xs-12 card-header">
-                                <div class="col-xs-4">
-                                    <div class="card-icon"> <img src="http://placehold.it/40x40"> </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="card-info">
-                                        <h6>Participation: <span class="info-value red">1300</span></h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption text-center">
-                                <h3>{{ proposal.P_TITLE }}</h3>
-                                <h6>By {{ proposal.USER_CREATORID }}</h6>
-                                <p>{{ proposal.P_SHRBODY }}</p>
-                            </div>
-                        </div>
-                    </a>
-                    {% endfor %} 
-                    {% else %}
-                    <p>No proposals are available.</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    <!-- JavaScript -->
-    <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
-    <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
-
-
-  	{% endblock %}
+{% endblock %}
