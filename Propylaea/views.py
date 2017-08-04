@@ -15,11 +15,17 @@ def SignUpV(request):
 				user.set_password(user.password)
 				user.save()				# Change sign up flag to true
 				signedUp = True
-				return HttpResponseRedirect('/user/signup/success')
+				return HttpResponseRedirect('/eisegesis/')
 			except:
 				signedUp = False
 		else:
-			return HttpResponse("Your account is not registered.")
+			template = loader.get_template('error.html')
+			context = {
+				"errorType": "409",
+				"errorMessage": "Your prefered credentials were received but your account was not created. Please try again with a different username.",
+				"redirectTo": "/user/signup"
+			}
+			return HttpResponse(template.render(context, request))
 	else:								# If request is not POST create empty forms
 		#form1 = SignUpForm()
 		template = loader.get_template('Propylaea/login.html')
@@ -46,11 +52,19 @@ def LogIn(request):
 		if user is not None:					# User valid
 			if user.is_active:
 				login(request, user)
-				return HttpResponse("Your account is logged in.")
+				return HttpResponseRedirect('/eisegesis/')
 			else:
 				return HttpResponse("Your account is disabled.")
 		else:
-			return HttpResponse("Invalid login details supplied")#: {0}, {1}".format(email, password))
+			#return HttpResponse("Invalid login details supplied")#: {0}, {1}".format(email, password))
+			template = loader.get_template('error.html')
+			context = {
+				"errorType": "401",
+				"errorMessage": "You are not authorized to login. Please check your credentials or register an account",
+				"redirectTo": "/user/login"
+			}
+		return HttpResponse(template.render(context, request))
+	
 	else:
 		template = loader.get_template('Propylaea/login.html')
 		context = {
@@ -59,6 +73,7 @@ def LogIn(request):
 		}
 		return HttpResponse(template.render(context, request))
 		#return render_to_response('Propylaea/login_register.html', {}, context)
+				
 
 @login_required
 def UsrLogout(request):

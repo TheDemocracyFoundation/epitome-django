@@ -96,3 +96,4 @@ ENV/
 # Epitome Settings
 settings.py
 db.sqlite3
+db.sqlite3-journal
