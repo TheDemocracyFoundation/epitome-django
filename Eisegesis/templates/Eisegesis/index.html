@@ -1,8 +1,25 @@
-{% extends 'partials/eisegesis.html' %}
+{% extends 'partials/base.html' %}
 {% load staticfiles %} 
-{% block masonry %}
-	
-	
+{% block content %}
+<nav class="navbar navbar-toggleable-xl navbar-light bg-main">
+	<div id="navbarNavDropdown ml-5" class="navbar-collapse collapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			<a class="navbar-brand" href="#">
+    			<img src={% static "resources/img/logo.svg"%} width="30" height="30" alt="">
+  			</a>
+		 </li>
+		</ul>
+		<ul class="navbar-nav mr-5">
+			<li class="nav-item dropdown"> 
+               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      User
+               </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="#">Profile</a> <a class="dropdown-item" href="/user/logout">Logout</a> </div>
+			</li>
+		</ul>
+	</div>
+</nav>	
 	
 <div class="container mt-5">
 {% if latest_proposal_list %}

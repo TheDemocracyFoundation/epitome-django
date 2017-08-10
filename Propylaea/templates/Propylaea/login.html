@@ -47,7 +47,8 @@
 		</div>
 		</div>
 	</div>
-	<!-- JavaScript -->
+	
+	{% block scripts %}
 	<script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
 	<script>
 		var content = $('.login-content')
@@ -58,4 +59,6 @@
 			$($(this).attr('href')).show(); // show targetted content
 		})
 	</script>
+	{% endblock %}
+	
   {% endblock %}
