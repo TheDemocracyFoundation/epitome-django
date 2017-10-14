@@ -1,7 +1,40 @@
+<<<<<<< HEAD
 .bg-main{
 	background-color: #374A5D;
 }
 
 .bg-white{
 	background-color: #ffffff;
+=======
+/** Colors **/
+.bg-main{
+	background-color: #374A5D;	
+}
+
+.bg-white{
+	background-color: azure;
+}
+
+/** End Colors **/
+
+/** Login **/
+.login-content {display: none;}
+
+#login {display: block;}
+
+/** End Login **/
+
+/** Sisegesis **/
+
+.img-responsive {
+    width: 100%;
+}
+
+/** End Eisegesis **/
+
+
+/** Bootstrap 4 **/
+.navbar-toggleable-xl .navbar-nav .dropdown-menu {
+  position: absolute;
+>>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7
 }

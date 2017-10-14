@@ -29,4 +29,10 @@ class VoteTexts(models.Model):
     vote_name = models.CharField(max_length=200)
     vote_description = models.CharField
     def __unicode__(self):              # __unicode__ on Python 2
+<<<<<<< HEAD
         return self.vote_name
+=======
+        return self.vote_name
+
+    
+>>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7

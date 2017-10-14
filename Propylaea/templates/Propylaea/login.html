@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
@@ -124,3 +125,66 @@
 </body>
 
 </html>
+=======
+{% extends 'partials/base.html' %}
+	{% load static %}
+	{% block content %}
+	
+	<div class="container-fluid bg-main" style="height: 100vh">
+	<div class="pt-5 ">
+		<div class="row mt-5 justify-content-center align-self-center">
+		<div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+			<div id="login" class="login-content">
+				<form class="form-signin" method="post">
+					<h2 class="form-signin-heading">Login</h2>
+					{% csrf_token %}
+					<label for="inputEmail" class="sr-only">Username</label>
+					<input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+					<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" id="inputPassword" class="form-control mt-2" placeholder="Password" name="password" required>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="remember-me"> Remember me </label>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</form> <a href="/user/signup">Create an account</a> 
+				<!-- <a href="/user/signup" class="link" data-page="register"> -->
+			</div>
+			</div>	
+		</div>
+		<div class="row justify-content-center align-self-center">
+		<div class="col col-lg-4 bg-white pb-5 pl-5 pr-5">
+			<div id="register" class="login-content">
+				<form class="form-register" method="post">
+				{% csrf_token %}
+					<h2 class="form-signin-heading">Register</h2>
+					<label for="inputEmail" class="sr-only">Username</label>
+					{{ SignUpForm.username }}
+					<label for="inputEmail" class="sr-only">Email</label>
+					{{ SignUpForm.email }}
+					<label for="inputPassword" class="sr-only">Email</label>
+					{{ SignUpForm.password }}
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="remember-me"> Remember me </label>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+				</form> <a href="/user/login">Already have an account Login here.</a> </div>
+				<!-- <a href="/user/login" class="link" data-page="login"> -->
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
+	<script>
+		var content = $('.login-content')
+			, links = $('.link');
+		links.on('click', function (e) {
+			e.preventDefault();
+			content.hide(); // hide all content blocks
+			$($(this).attr('href')).show(); // show targetted content
+		})
+	</script>
+  {% endblock %}
+>>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7

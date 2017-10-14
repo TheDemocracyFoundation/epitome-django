@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta Data -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<title></title>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
+	<link rel="stylesheet" href="{% static "resources/css/style.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/chartist/css/chartist.min.css"%}">
+</head>
+
+<body>
+	{% block content %}
+	
+	{% endblock %}
+<!-- Scripts -->
+   
+    <script src="{% static "vendors/tether/dist/js/tether.min.js"%}"></script>
+    <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
+    <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
+</body>
+</html>

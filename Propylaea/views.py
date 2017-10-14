@@ -6,29 +6,27 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 
 def SignUpV(request):
-	# Signed up flag
-	signedUp = False
-	
-    # If the request is type of POST then proccess data
-	if request.method == 'POST':
-        # Create 2 form instances and populate them with data from the POST request
-		form1 = SignUpForm(request.POST)
-        # Check whether it's valid
-		if form1.is_valid():
-			# Save main user form first and hash password
-			try:
+	signedUp = False					# Signed up flag
+	if request.method == 'POST':		# If the request is type of POST then proccess data
+		form1 = SignUpForm(request.POST)# Create 2 form instances and populate them with data from the POST request
+		if form1.is_valid():			# Check whether it's valid
+			try:						# Save main user form first and hash password
 				user = form1.save(commit=False)
 				user.set_password(user.password)
-				user.save()
-				# Change sign up flag to true
+				user.save()				# Change sign up flag to true
 				signedUp = True
-				return HttpResponse("Your account is registered.")
+				return HttpResponseRedirect('/eisegesis/')
 			except:
 				signedUp = False
 		else:
-			return HttpResponse("Your account is not registered.")
-    # If request is not POST create empty forms
-	else:
+			template = loader.get_template('error.html')
+			context = {
+				"errorType": "409",
+				"errorMessage": "Your prefered credentials were received but your account was not created. Please try again with a different username.",
+				"redirectTo": "/user/signup"
+			}
+			return HttpResponse(template.render(context, request))
+	else:								# If request is not POST create empty forms
 		#form1 = SignUpForm()
 		template = loader.get_template('Propylaea/login.html')
 		context = {
@@ -40,8 +38,7 @@ def SignUpV(request):
 		#return render(request, 'Propylaea/login_register.html', {'SignUpForm': SignUpForm, 'LoginForm': LoginForm})
 
 def LogIn(request):
-	# If the request is type of POST then proccess data
-	if request.method == 'POST':
+	if request.method == 'POST':				# If the request is type of POST then proccess data
 		#forml = LoginForm(request.POST)
 		#if forml.is_valid():
 		#email = request.POST.get('email')
@@ -52,16 +49,22 @@ def LogIn(request):
 		# Authenticate
 		#user = authenticate(email=email, password=password)
 		user = authenticate(username=username, password=password)
-		# User valid
-		if user is not None:
+		if user is not None:					# User valid
 			if user.is_active:
 				login(request, user)
-				#return HttpResponse("Your account is logged in.")
 				return HttpResponseRedirect('/eisegesis/')
 			else:
 				return HttpResponse("Your account is disabled.")
 		else:
-			return HttpResponse("Invalid login details supplied")#: {0}, {1}".format(email, password))
+			#return HttpResponse("Invalid login details supplied")#: {0}, {1}".format(email, password))
+			template = loader.get_template('error.html')
+			context = {
+				"errorType": "401",
+				"errorMessage": "You are not authorized to login. Please check your credentials or register an account",
+				"redirectTo": "/user/login"
+			}
+		return HttpResponse(template.render(context, request))
+	
 	else:
 		template = loader.get_template('Propylaea/login.html')
 		context = {
@@ -70,6 +73,7 @@ def LogIn(request):
 		}
 		return HttpResponse(template.render(context, request))
 		#return render_to_response('Propylaea/login_register.html', {}, context)
+				
 
 @login_required
 def UsrLogout(request):

@@ -1,126 +1,47 @@
-<!DOCTYPE html> 
-
-{% load staticfiles %}
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <!-- Frameworks -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootstrap/bootstrap.min.css" %}">
-    <!-- Bootflat -->
-    <link rel="stylesheet" type="text/css" href="{% static "vendors/bootflat/css/bootflat.min.css" %}">
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/f63660f471.js"></script>
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
-    <!-- Styling -->
-    <link rel="stylesheet" type="text/css" href="{% static "resources/css/style.css" %}">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width"> </head>
-
-<body>
-    <!-- The page wrapper -->
-    <div id="wrapper">
-        <!-- Left Sidebar Menu -->
-        <div id="sidebar-wrapper">
-            <!-- The top part of the Sidebar menu -->
-            <div id="sidebar-top">
-                <ul id="sidebar-nav-top">
-                    <li> <a href="#">Proposals</a> </li>
-                    <li> <a href="#">Laws</a> </li>
-                    <li> <a href="#">Polls</a> </li>
-                    <li> <a href="#">Configuration</a> </li>
-                    <li> <a href="#">Constitution</a> </li>
-                </ul>
-            </div>
-            <!-- The bottom part of the sidebar menu -->
-            <div id="sidebar-bot">
-
-            </div>
-        </div>
-        <!-- The NavBar is a basic div. The "nav" style  from bootstrap is not used and may be removed from -->
-        <!-- the production release.The navbar contains two divs and they are positioned using bootstraps "pull-left" -->
-        <!-- and "pull-right" classes. -->
-        <div class="col-md-12 navbar-fixed-top">
-            <!-- This is the button that reveals the left sidebar -->
-            <ul class="pull-left activate-left-sidebar">
-                <li class="top-bar"> <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i> </li>
-            </ul>
-            <!-- User Buttons -->
-
-
-            <div class="logout-container pull-right">
-                <a href="/user/logout"><img width="30" height="30" src="{% static "resources/img/Reset_button.svg" %}" alt="Image description." /></a>
-            </div>
-
-
-        </div>
-        <!-- Cards -->
-        <div class="content-wrapper">
-            <div class="example">
-                <div class="row">
-                    <br>
-                    <br>
-					{% if messages %}
-						{% for message in messages %}
-							<p>{{ message }}</p>
-						{% endfor %}
-					{% endif %}
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    {% if latest_proposal_list %} 
-					{% for proposal in latest_proposal_list %}
-                    <a href="/eisegesis/{{ proposal.id }}/">
-                        <div class="thumbnail">
-                            <div class="col-xs-12 card-header">
-                                <div class="col-xs-4">
-                                    <div class="card-icon"> <img src="http://placehold.it/40x40"> </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="card-info">
-                                        <h6>Participation: <span class="info-value red">1300</span></h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption text-center">
-                                <h3>{{ proposal.P_TITLE }}</h3>
-                                <h6>By {{ proposal.USER_CREATORID }}</h6>
-                                <p>{{ proposal.P_SHRBODY }}</p>
-                            </div>
-                        </div>
-                    </a>
-                    {% endfor %} 
-                    {% else %}
-                    <p>No proposals are available.</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- JS Files -->
-    <!-- Bootstrap -->
-    <script src="{% static "vendors/bootstrap/bootstrap.min.css" %}"></script>
-    <script src="{% static "vendors/jquery/jquery-2.2.2.min.js" %}"></script>
-    <!-- Bootflat -->
-    <script src="{% static "vendors/bootflat/js/site.min.js" %}"></script>
-    <script src="{% static "vendors/bootflat/js/respond.min.js" %}"></script>
-    <script src="{% static "vendors/html5shiv/html5shiv.js" %}"></script>
-    <!-- This script reveals and hides the left sidebar (may move it into it's own seperate file) -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            $("#wrapper").toggleClass("toggled");
-        });
-        $("body").click(function () {
-            $("#wrapper").removeClass("toggled");
-        });
-    </script>
-</body>
-
-</html>
+{% extends 'partials/eisegesis.html' %}
+{% load staticfiles %} 
+{% block masonry %}
+	
+	
+	
+<div class="container mt-5">
+{% if latest_proposal_list %}
+<div class="card-columns">
+{% for proposal in latest_proposal_list %}
+  <a class="card card-inverse card-primary p-3 text-center" href="/eisegesis/{{ proposal.id }}/" Style="text-decoration: none;">
+    <blockquote class="card-blockquote">
+     <h5>{{ proposal.P_TITLE }}</h5>
+      <p>{{ proposal.P_SHRBODY }}</p>
+      <footer>
+        <small>
+          Created by: <cite title="Source Title">{{ proposal.USER_CREATORID }}</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </a>
+  {% endfor %}  
+</div> 
+{% else %}
+<div class="row">
+<div class="col-md-12  text-center">
+	<h1>Empty list.</h1>
+</div>
+</div>
+ <div class="row mt-5">
+	 <div class="col-md-4">
+	 	 <img src={% static "resources/img/icon-sad-face.svg"%} alt="Smiley face" class="img-responsive"> 
+	 </div>
+	 <div class="col-md-8">
+		 <h3>The proposal list is currently empty... Either nothing was posted, or your filtering excluded some proposals. You can broaden your search filter or create a proposal yourself! </h3>
+	 </div>
+ </div>
+ <div class="row mt-5">
+ <div class="col-md-12  text-center">
+ 	<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a proposal</a>
+ </div>
+ </div>
+ {% endif %}  
+</div>  
+        
+        
+{% endblock %}
