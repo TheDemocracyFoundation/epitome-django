@@ -96,3 +96,6 @@ ENV/
 settings.py
 db.sqlite3
 db.sqlite3-journal
+
+# IDE 
+.idea
