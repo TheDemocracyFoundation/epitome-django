@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
 	<link rel="stylesheet" href="{% static "resources/css/style.css"%}">
 	<link rel="stylesheet" href="{% static "vendors/chartist/css/chartist.min.css"%}">
+	{% block stylesheets %}
+	
+	{% endblock %}
 </head>
 
 <body>
@@ -24,5 +27,14 @@
     <script src="{% static "vendors/tether/dist/js/tether.min.js"%}"></script>
     <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
     <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
+    
+    {% block scriptfiles %}
+	
+	{% endblock %}
+   
+   	{% block scripts %}
+	
+	{% endblock %}
+    
 </body>
 </html>

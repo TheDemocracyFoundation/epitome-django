@@ -175,7 +175,8 @@
 		</div>
 		</div>
 	</div>
-	<!-- JavaScript -->
+	
+	{% block scripts %}
 	<script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
 	<script>
 		var content = $('.login-content')
@@ -186,5 +187,7 @@
 			$($(this).attr('href')).show(); // show targetted content
 		})
 	</script>
+	{% endblock %}
+	
   {% endblock %}
 >>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7

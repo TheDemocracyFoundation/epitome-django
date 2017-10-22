@@ -1,0 +1,35 @@
+{% extends 'partials/proposal.html' %}
+{% load staticfiles %} 
+{% block proposal %}
+    <div class="container">
+	<div class="row mt-5">
+		<div class="col">
+			<div class="caption text-center">
+			<h3> {{ proposal.P_TITLE }} </h3>
+			<h6>By {{ proposal.USER_CREATORID }} </h6>
+			<p class="text-justify"> {{ proposal.P_BODY }} </p>
+			{% if proposal.P_ENDDT > nowdt %}
+
+					<form action="{% url 'Eisegesis:vote' proposal.id %}" method="post">
+					{% csrf_token %}
+					{% for choice in proposal.PChoice.all %}
+						<button type="submit" name="choice" class="btn btn-primary" value="{{ choice.id }}">{{ choice.PCHOICE_CHOICE }}</button>
+					{% endfor %}
+				</form>
+			{% else %}
+				
+				<div class="text-center">
+				{% for choice in proposal.PChoice.all %}
+						<p> {{ choice.PCHOICE_CHOICE }}  =  {{ choice.PCHOICE_VOTES }} </p>
+				{% endfor %}
+				
+				<div class="ct-chart ct-perfect-fourth"></div>
+				
+				</div>
+			{% endif %}
+		</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
