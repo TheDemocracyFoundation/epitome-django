@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html> {% load staticfiles %}
-<html>
-
-<head>
-	<!-- Meta Data -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	
-	<title></title>
-	
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}"> </head>
-	<link rel="stylesheet" href="{% static "resources/css/style.css"%}"> </head>
-
-<body class="bg-main">
-<container>
-	<div class="mt-5 mr-5 float-right">
-		<a href="/user/login" class="btn btn-primary" role="button">Login</a>
-		<a href="/user/register" class="btn btn-info" role="button">Register</a>
-	</div>
-</container>
-
-
-	<!-- JavaScript -->
-	<script src="{% static "jquery/dist/jquery.min.js"%}"></script>
-	<script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
-	<script src="{% static "resources/js/script.js"%}"></script>
-</body>
-
-</html>
-=======
 {% extends 'partials/base.html' %}
 	{% load static %}
 	{% block content %}
@@ -42,4 +8,3 @@
 		</div>
    	</div>
   	{% endblock %}
->>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7

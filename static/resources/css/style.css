@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-.bg-main{
-	background-color: #374A5D;
-}
-
-.bg-white{
-	background-color: #ffffff;
-=======
 /** Colors **/
 .bg-main{
 	background-color: #374A5D;	
@@ -36,5 +28,681 @@
 /** Bootstrap 4 **/
 .navbar-toggleable-xl .navbar-nav .dropdown-menu {
   position: absolute;
->>>>>>> d6509b0d84e5de8ef8debbb6c2e3165e05fb06d7
+}
+
+.proposal-close {
+    color: #D2D2D2;
+}
+
+.full-height {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
+}
+
+
+/* FONTS */
+
+
+/* font-family: 'Advent Pro', sans-serif; */
+
+
+/* font-family: 'Open Sans Condensed', sans-serif; */
+
+
+/* Here are the font settings for every element of the page */
+
+
+/* The Sidebar */
+
+#sidebar-top {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: X-Large;
+    margin-top: 30px;
+}
+
+#sidebar-bot {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: Large;
+}
+
+
+/* FONTS-END */
+
+
+/* NAVBAR */
+
+
+/* This creates the backround color and a frame around the elements */
+
+.navbar-fixed-top {
+    background-color: #374A5D;
+    padding-top: 10px;
+}
+
+
+/* This makes the lists (.li) to be horizontal instead of vertical */
+
+.top-bar {
+    display: inline;
+    margin-right: 20px;
+}
+
+ul.activate-left-sidebar li a {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+/* Wherever these tags exist the appropriate icon will be present */
+
+li .fa-bars {
+    color: #D2D2D2;
+}
+
+li .fa-user {
+    color: #D2D2D2;
+}
+
+li .fa-bell-o {
+    color: #D2D2D2;
+}
+
+li .fa-cog {
+    color: #D2D2D2;
+}
+
+
+/* NAVBAR-END */
+
+
+/* LEFT SIDEBAR */
+
+
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+/* Toggle Styles */
+
+#wrapper {
+    min-height: 100%;
+    height: 100%;
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 0px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+#sidebar-wrapper {
+    background-color: #2C2D33;
+    margin-top: 10px;
+}
+
+
+/* Here are the sidebar top and bottom sperate menus */
+
+
+/* The Top */
+
+
+/* #sidebar-top {
+        background-color: #32333A;
+    } */
+
+ul#sidebar-nav-top li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+ul#sidebar-nav-top li a {
+    display: block;
+    color: #fff;
+    padding: 8px 0 8px 16px;
+}
+
+
+/* The Bottom */
+
+#sidebar-bot {}
+
+#sidebar-bot li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#sidebar-bot li a {
+    color: #fff;
+    padding: 8px 0 8px 16px;
+}
+
+
+/* LEFT SIDEBAR END */
+
+
+/* CONTENT */
+
+
+/* ADMIN */
+
+.modal-backdrop {
+    background-color: #263340;
+    opacity: 0.9 !important;
+}
+
+
+/* ADMIN END */
+
+body {
+    background-color: #F1F2F6;
+}
+
+.login-register {
+    background-color: #374A5D;
+}
+
+.cont-wrapper {
+    margin-top: 50px;
+}
+
+.content {
+    display: none;
+}
+
+
+/*hide all pages*/
+
+#page1 {
+    display: block;
+}
+
+.admin-content {
+    /*  padding-left: 50px;
+        padding-right: 50px; */
+}
+
+
+.content-wrapper {
+    margin: 15px;
+}
+
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+
+.top30 {
+    margin-top: 30px;
+}
+
+.top50 {
+    margin-top: 50px;
+}
+
+.top60 {
+    margin-top: 60px;
+}
+
+.form-control:focus {
+    border-color: #CCCCCC;
+    box-shadow: inset 0 1px 1px #CCCCCC, 0 1px 1px rgba(0, 0, 0, 0.0);
+}
+
+
+/* CONTENT END */
+
+
+/* CARD */
+
+.card-header {
+    background-color: #535170;
+}
+
+.card-icon {
+    margin: 10px 0px 10px 0px;
+}
+
+.card-info {
+    text-align: right;
+    margin: 10px 0px 10px 0px;
+}
+
+.card-info h6 {
+    color: aliceblue;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.info-value {
+    font-weight: bold;
+}
+
+.caption {
+    margin-top: 50px;
+}
+
+.caption p {
+    text-align: justify;
+}
+
+.red {
+    color: #F94343;
+}
+
+.orange {
+    color: #FAA550;
+}
+
+.green {
+    color: #7FFB7F;
+}
+
+
+/* CARD END */
+
+
+/* FOOTER */
+
+.footer {
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+    background-color: #42434C;
+    padding: 5px 35px 0px 0px;
+}
+
+.footer p {
+    color: aliceblue;
+}
+
+
+/* FOOTER-END */
+
+.login-backgroung {
+    background-color: #374A5D;
+}
+
+/* --------  */
+
+.proposal-close {
+  color: #D2D2D2;
+}
+
+.full-height {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  box-sizing: border-box;
+}
+
+
+/* FONTS */
+
+
+/* font-family: 'Advent Pro', sans-serif; */
+
+
+/* font-family: 'Open Sans Condensed', sans-serif; */
+
+
+/* Here are the font settings for every element of the page */
+
+
+/* The Sidebar */
+
+#sidebar-top {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: X-Large;
+  margin-top: 25px;
+}
+
+#sidebar-bot {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: Large;
+}
+
+
+/* FONTS-END */
+
+
+/* NAVBAR */
+
+
+/* This creates the backround color and a frame around the elements */
+
+.navbar-fixed-top {
+  background-color: #374A5D;
+  padding-top: 10px;
+}
+
+
+/* This makes the lists (.li) to be horizontal instead of vertical */
+
+.top-bar {
+  display: inline;
+  margin-right: 20px;
+}
+
+ul.activate-left-sidebar li a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+/* Wherever these tags exist the appropriate icon will be present */
+
+li .fa-bars {
+  color: #D2D2D2;
+}
+
+li .fa-user {
+  color: #D2D2D2;
+}
+
+li .fa-bell-o {
+  color: #D2D2D2;
+}
+
+li .fa-cog {
+  color: #D2D2D2;
+}
+
+
+/* NAVBAR-END */
+
+
+/* LEFT SIDEBAR */
+
+
+/*!
+* Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.
+*/
+
+
+/* Toggle Styles */
+
+#wrapper {
+  min-height: 100%;
+  height: 100%;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 0px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+#sidebar-wrapper {
+  background-color: #2C2D33;
+  margin-top: 10px;
+}
+
+
+/* Here are the sidebar top and bottom sperate menus */
+
+
+/* The Top */
+
+
+/* #sidebar-top {
+      background-color: #32333A;
+  } */
+
+ul#sidebar-nav-top li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+ul#sidebar-nav-top li a {
+  display: block;
+  color: #fff;
+  padding: 8px 0 8px 16px;
+}
+
+
+/* The Bottom */
+
+#sidebar-bot {}
+
+#sidebar-bot li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+#sidebar-bot li a {
+  color: #fff;
+  padding: 8px 0 8px 16px;
+}
+
+
+/* LEFT SIDEBAR END */
+
+
+/* CONTENT */
+
+
+/* ADMIN */
+
+.modal-backdrop {
+  background-color: #263340;
+  opacity: 0.9 !important;
+}
+
+
+/* ADMIN END */
+
+body {
+  background-color: #F1F2F6;
+}
+
+.login-register {
+  background-color: #374A5D;
+}
+
+.cont-wrapper {
+  margin-top: 50px;
+}
+
+.content {
+  display: none;
+}
+
+
+/*hide all pages*/
+
+#page1 {
+  display: block;
+}
+
+.admin-content {
+  /*  padding-left: 50px;
+      padding-right: 50px; */
+}
+
+
+.content-wrapper {
+  margin: 15px;
+}
+
+.admin-content-wrapper {
+  /* margin: auto 50px; */
+}
+
+.top10 {
+  margin-top: 10px;
+}
+
+.top20 {
+  margin-top: 20px;
+}
+
+.top30 {
+  margin-top: 30px;
+}
+
+.top50 {
+  margin-top: 50px;
+}
+
+.top60 {
+  margin-top: 60px;
+}
+
+.form-control:focus {
+  border-color: #CCCCCC;
+  box-shadow: inset 0 1px 1px #CCCCCC, 0 1px 1px rgba(0, 0, 0, 0.0);
+}
+
+
+/* CONTENT END */
+
+
+/* CARD */
+
+.card-header {
+  background-color: #535170;
+}
+
+.card-icon {
+  margin: 10px 0px 10px 0px;
+}
+
+.card-info {
+  text-align: right;
+  margin: 10px 0px 10px 0px;
+}
+
+.card-info h6 {
+  color: aliceblue;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.info-value {
+  font-weight: bold;
+}
+
+.caption {
+  margin-top: 50px;
+}
+
+.caption p {
+  text-align: justify;
+}
+
+.red {
+  color: #F94343;
+}
+
+.orange {
+  color: #FAA550;
+}
+
+.green {
+  color: #7FFB7F;
+}
+
+
+/* CARD END */
+
+
+/* FOOTER */
+
+.footer {
+  position: fixed;
+  height: 30px;
+  bottom: 0;
+  width: 100%;
+  background-color: #42434C;
+  padding: 5px 35px 0px 0px;
+}
+
+.footer p {
+  color: aliceblue;
+}
+
+
+/* FOOTER-END */
+
+.login-backgroung {
+  background-color: #374A5D;
 }
