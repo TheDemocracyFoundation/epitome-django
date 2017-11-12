@@ -3,6 +3,7 @@
 {% block content %}
 
 <!-- .navbar -->
+<!--
 <nav class="navbar navbar-toggleable-xl navbar-light bg-main">
 	<div id="navbarNavDropdown ml-5" class="navbar-collapse collapse">
 		<ul class="navbar-nav mr-auto">
@@ -22,12 +23,44 @@
 		</ul>
 	</div>
 </nav>
+-->
+<nav class="navbar navbar-light bg-main">
+		<div class="btn-group ml-auto">
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			User
+			</button>
+			<div class="dropdown-menu dropdown-menu-right">
+				<a href="#" class="btn " role="button" aria-pressed="true">Profile</a>
+				<a href="/user/logout" class="btn " role="button" aria-pressed="true">Logout</a>
+			</div>
+		</div>
+</nav>
+
+<div id="wrapper">
+<!-- Left Sidebar Menu -->
+<div id="sidebar-wrapper">
+		<!-- The top part of the Sidebar menu -->
+		<div id="sidebar-top">
+			<ul id="sidebar-nav-top">
+				<li> <a href="#">Issues</a> </li>
+				<li> <a href="#">Referendums</a> </li>
+				<li> <a href="#">Polls</a> </li>
+				<li> <a href="#">Archive</a> </li>
+			</ul>
+		</div>
+		<!-- The bottom part of the sidebar menu -->
+		<div id="sidebar-bot">
+
+		</div>
+	</div>
+
+	<ul class="activate-left-sidebar">
+			<li class="top-bar"> <i id="menu-toggle"><a href="#menu-toggle" class="fa fa-bars fa-2x"></a></i> </li>
+	</ul>
+</div>
 <!-- /.navbar -->
 
 {% block masonry %} 
 {% endblock %}
 
-<!-- JavaScript -->
-<script src="{% static " vendors/jquery/dist/jquery.min.js "%}"></script>
-<script src="{% static " vendors/bootstrap/dist/js/bootstrap.min.js "%}"></script> 
 {% endblock %}

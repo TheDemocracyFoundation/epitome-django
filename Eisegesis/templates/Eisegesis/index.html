@@ -4,43 +4,43 @@
 	
 	
 	
-<div class="container mt-5">
-{% if latest_proposal_list %}
-<div class="card-columns">
-{% for proposal in latest_proposal_list %}
-  <a class="card card-inverse card-primary p-3 text-center" href="/eisegesis/{{ proposal.id }}/" Style="text-decoration: none;">
-    <blockquote class="card-blockquote">
-     <h5>{{ proposal.P_TITLE }}</h5>
-      <p>{{ proposal.P_SHRBODY }}</p>
-      <footer>
-        <small>
-          Created by: <cite title="Source Title">{{ proposal.USER_CREATORID }}</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </a>
-  {% endfor %}  
-</div> 
-{% else %}
-<div class="row">
-<div class="col-md-12  text-center">
-	<h1>Empty list.</h1>
-</div>
-</div>
- <div class="row mt-5">
-	 <div class="col-md-4">
-	 	 <img src={% static "resources/img/icon-sad-face.svg"%} alt="Smiley face" class="img-responsive"> 
-	 </div>
-	 <div class="col-md-8">
-		 <h3>The proposal list is currently empty... Either nothing was posted, or your filtering excluded some proposals. You can broaden your search filter or create a proposal yourself! </h3>
-	 </div>
- </div>
- <div class="row mt-5">
- <div class="col-md-12  text-center">
- 	<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a proposal</a>
- </div>
- </div>
- {% endif %}  
+<div class="container">
+  {% if latest_proposal_list %}
+  <div class="card-columns">
+  {% for proposal in latest_proposal_list %}
+    <a class="card card-inverse card-primary p-3 text-center" href="/eisegesis/{{ proposal.id }}/" Style="text-decoration: none;">
+      <blockquote class="card-blockquote">
+      <h5>{{ proposal.P_TITLE }}</h5>
+        <p>{{ proposal.P_SHRBODY }}</p>
+        <footer>
+          <small>
+            Created by: <cite title="Source Title">{{ proposal.USER_CREATORID }}</cite>
+          </small>
+        </footer>
+      </blockquote>
+    </a>
+    {% endfor %}  
+  </div> 
+  {% else %}
+  <div class="row">
+  <div class="col-md-12  text-center">
+    <h1>Empty list.</h1>
+  </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <img src={% static "resources/img/icon-sad-face.svg"%} alt="Smiley face" class="img-responsive"> 
+    </div>
+    <div class="col-md-8">
+      <h3>The proposal list is currently empty... Either nothing was posted, or your filtering excluded some proposals. You can broaden your search filter or create a proposal yourself! </h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+  <div class="col-md-12  text-center">
+    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a proposal</a>
+  </div>
+  </div>
+  {% endif %}  
 </div>  
         
         

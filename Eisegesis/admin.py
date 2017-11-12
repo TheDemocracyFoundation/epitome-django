@@ -6,7 +6,7 @@ from Eisegesis.models import ProposalChoice
 
 
 class ProposalInline(admin.StackedInline):
-	model = ProposalChoice
+	model = PollChoice
 	extra = 3
 
     
@@ -18,9 +18,9 @@ class EisegesisAdmin(admin.ModelAdmin):
 		('Code information', {'fields': ['P_CODE', 'P_CODE2']}),
 		('User and Category information', {'fields': ['USER_CREATORID', 'UGRP_GROUPID', 'PCAT_CAT']}),
 	]
-	inlines = [ProposalInline]
+	inlines = [PollInline]
 
 
-admin.site.register(Proposals, EisegesisAdmin)
-admin.site.register(ProposalCat)
-admin.site.register(ProposalChoice)
+admin.site.register(Polls, EisegesisAdmin)
+admin.site.register(PollCat)
+admin.site.register(PollChoice)

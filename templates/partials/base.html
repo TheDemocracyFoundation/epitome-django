@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="{% static "vendors/bootstrap/dist/css/bootstrap.min.css"%}">
 	<link rel="stylesheet" href="{% static "resources/css/style.css"%}">
 	<link rel="stylesheet" href="{% static "vendors/chartist/css/chartist.min.css"%}">
+	<script src="https://use.fontawesome.com/f63660f471.js"></script>
+	<!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Advent+Pro|Open+Sans+Condensed:300&subset=greek,latin' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -23,6 +26,17 @@
    
     <script src="{% static "vendors/tether/dist/js/tether.min.js"%}"></script>
     <script src="{% static "vendors/jquery/dist/jquery.min.js"%}"></script>
-    <script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
+	<script src="{% static "vendors/bootstrap/dist/js/bootstrap.min.js"%}"></script>
+	
+	<script>
+			$("#menu-toggle").click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				$("#wrapper").toggleClass("toggled");
+			});
+			$("body").click(function () {
+				$("#wrapper").removeClass("toggled");
+			});
+		</script>
 </body>
 </html>
