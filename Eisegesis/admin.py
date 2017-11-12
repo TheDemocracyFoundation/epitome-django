@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from Eisegesis.models import Proposals
-from Eisegesis.models import ProposalCat
-from Eisegesis.models import ProposalChoice
+from Eisegesis.models import Polls
+from Eisegesis.models import PollCat
+from Eisegesis.models import PollChoice
 
 
-class ProposalInline(admin.StackedInline):
+class PollInline(admin.StackedInline):
 	model = PollChoice
 	extra = 3
 
