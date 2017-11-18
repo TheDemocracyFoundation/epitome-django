@@ -90,12 +90,10 @@ ENV/
 #######
 
 # Sqlite3 Database
-.sqlite3
+*.sqlite3
 
 # Epitome Settings
 settings.py
-db.sqlite3
-db.sqlite3-journal
 
 # Dolphin
 .directory
