@@ -96,3 +96,10 @@ ENV/
 settings.py
 db.sqlite3
 db.sqlite3-journal
+
+#Dolphin
+.directory
+
+#Migrations
+Agora/migrations/
+Eisegesis/migrations/
