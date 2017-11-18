@@ -97,9 +97,9 @@ settings.py
 db.sqlite3
 db.sqlite3-journal
 
-#Dolphin
+# Dolphin
 .directory
 
-#Migrations
+# Migrations
 Agora/migrations/
 Eisegesis/migrations/
