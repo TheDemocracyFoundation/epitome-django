@@ -42,3 +42,14 @@ class PollChoice(models.Model):
 class Voter(models.Model):
 	user = models.ForeignKey(User)
 	Polls = models.ForeignKey(Polls)
+	
+	
+class Evidence(models.Model):
+	E_FLD1 = models.CharField(max_length=1000)                             # What has happened?
+	E_FLD2 = models.CharField(max_length=1000)                             # Why is it important?
+	E_FLD3 = models.CharField(max_length=1000)                             # Who has been affected?
+	E_FLD4 = models.CharField(max_length=1000)                             # How and why did it happen?
+	E_FLD5 = models.CharField(max_length=1000)                             # Where did it occur?
+	E_FLD6 = models.CharField(max_length=1000)                             # When did it occur?
+	E_FLD7 = models.CharField(max_length=1000)                             # How much is the cost?
+	E_FLD8 = models.CharField(max_length=1000)                             # How long did it last?
