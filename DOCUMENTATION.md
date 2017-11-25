@@ -72,23 +72,23 @@ Install django
 
 and
 
-`python manage.py makemigrations Eisegesis`
+`python3 manage.py makemigrations Eisegesis`
 
 and
 
-`python manage.py makemigrations Agora`
+`python3 manage.py makemigrations Agora`
 
 and
 
-`python manage.py makemigrations Propylaea`
+`python3 manage.py makemigrations Propylaea`
 
 and
 
-`python manage.py migrate`
+`python3 manage.py migrate`
 
 12) To start django server move to the folder Epitome and start the server by typing:
 
-`python manage.py runserver`
+`python3 manage.py runserver`
 
 13) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
 
@@ -100,7 +100,7 @@ and
 
 and
 
-`python manage.py createsuperuser`
+`python3 manage.py createsuperuser`
 
 14) Open your web browser to access the admin panel in this address:
 
