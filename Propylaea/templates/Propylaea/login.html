@@ -1,50 +1,68 @@
-{% extends 'partials/base.html' %}
-	{% load static %}
-	{% block content %}
-	
-	<div class="container-fluid bg-main" style="height: 100vh">
-	<div class="pt-5 ">
-		<div class="row mt-5 justify-content-center align-self-center">
-		<div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
-			<div id="login" class="login-content">
-				<form class="form-signin" method="post">
-					<h2 class="form-signin-heading">Login</h2>
-					{% csrf_token %}
-					<label for="inputEmail" class="sr-only">Username</label>
-					<input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
-					<label for="inputPassword" class="sr-only">Password</label>
-					<input type="password" id="inputPassword" class="form-control mt-2" placeholder="Password" name="password" required>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="remember-me"> Remember me </label>
-					</div>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-				</form> <a href="/user/signup">Create an account</a> 
-				<!-- <a href="/user/signup" class="link" data-page="register"> -->
-			</div>
-			</div>	
-		</div>
-		<div class="row justify-content-center align-self-center">
-		<div class="col col-lg-4 bg-white pb-5 pl-5 pr-5">
-			<div id="register" class="login-content">
-				<form class="form-register" method="post">
-				{% csrf_token %}
-					<h2 class="form-signin-heading">Register</h2>
-					<label for="inputEmail" class="sr-only">Username</label>
-					{{ SignUpForm.username }}
-					<label for="inputEmail" class="sr-only">Email</label>
-					{{ SignUpForm.email }}
-					<label for="inputPassword" class="sr-only">Email</label>
-					{{ SignUpForm.password }}
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="remember-me"> Remember me </label>
-					</div>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-				</form> <a href="/user/login">Already have an account Login here.</a> </div>
-				<!-- <a href="/user/login" class="link" data-page="login"> -->
-			</div>
-		</div>
-		</div>
-	</div>
-  {% endblock %}
+<html>
+    <head>
+{% load static %}
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>Epitome</title>
+          <link rel="stylesheet" href="{% static "css/app.css"%}">   
+        </head>
+    <body>
+        <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+            <a class="navbar-brand  float-left" href="#">
+                <img src= width="30" height="30" alt="">
+            </a>
+            <ul class="nav nav-pills" id="pills-tab">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="container bg-main">
+                    <div class="row mt-5 justify-content-center align-self-center">
+                    <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                        <div id="login" class="login-content">
+                            <form class="form-signin" method="post">
+                                {% csrf_token %}
+                                <label for="inputEmail" class="sr-only">Username</label>
+                                <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" name="password" required>
+                                <div class="checkbox mt-3">
+                                    <label><input type="checkbox" value="remember-me"> Remember me </label>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
+                                </form>
+                        </div>
+                        </div>	
+                    </div>
+                </div>            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="container bg-main">
+                    <div class="row mt-5 justify-content-center align-self-center">
+                    <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                        <div id="register" class="login-content">
+                        <form class="form-register" method="post">
+                            {% csrf_token %}
+                            <label for="inputEmail" class="sr-only">Username</label>
+                            <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+                            <label for="inputEmail" class="sr-only">Email</label>
+                            <input type="text" id="email" class="form-control mt-3" placeholder="e-mail" name="email" required autofocus>
+                            <label for="inputPassword" class="sr-only">Email</label>
+                            <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" name="password" required>
+                            <label for="inputPassword" class="sr-only">Email</label>
+                            <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Repeat Password" name="password" required>
+                            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
+                        </form> 
+                        </div>
+                    </div>
+                    </div>
+                </div>            </div>
+        </div>
+
+        <script src="{% static "js/app.min.js"%}"></script>     </body>
+</html>

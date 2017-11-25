@@ -30,7 +30,7 @@
   position: absolute;
 }
 
-.proposal-close {
+.poll-close {
     color: #D2D2D2;
 }
 
@@ -368,7 +368,7 @@ body {
 
 /* --------  */
 
-.proposal-close {
+.poll-close {
   color: #D2D2D2;
 }
 
