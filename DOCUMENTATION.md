@@ -6,6 +6,8 @@
 
 In an Ubuntu based operating system:
 
+Download the repository from GitHub.
+
 1) It is recommended that you first update your operating system by typing:
 
 `sudo apt update`
