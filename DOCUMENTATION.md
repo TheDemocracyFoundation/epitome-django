@@ -47,7 +47,7 @@ and
 
 `source ~/venvs/Epitome/bin/activate`
 
-upgrade pip3
+upgrade pip3 again in case it requires it
 
 `pip3 install --upgrade pip`
 
