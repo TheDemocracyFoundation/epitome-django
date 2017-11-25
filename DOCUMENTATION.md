@@ -6,7 +6,7 @@
 
 In an Ubuntu based operating system:
 
-Download the repository from GitHub.
+[Download the repository from GitHub](https://help.github.com/articles/cloning-a-repository/) somewhere in your desktop (so it won't interfere with the folder we will create in your home directory).
 
 1) It is recommended that you first update your operating system by typing:
 
