@@ -66,18 +66,7 @@ Install django
 `SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
 `
 
-11) Replace the information under the "DATABASES = {" section which should look like this:
-
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-```
-
-12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
+11) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
 `cd ~/Epitome`
 
@@ -97,11 +86,11 @@ and
 
 `python manage.py migrate`
 
-13) To start django server move to the folder Epitome and start the server by typing:
+12) To start django server move to the folder Epitome and start the server by typing:
 
 `python manage.py runserver`
 
-14) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
+13) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
 
 `source ~/venvs/Epitome/bin/activate`
 
@@ -113,11 +102,11 @@ and
 
 `python manage.py createsuperuser`
 
-15) Open your web browser to access the admin panel in this address:
+14) Open your web browser to access the admin panel in this address:
 
 <http://localhost:8000/admin/>
 
-16) To access Epitome enter the following address:
+15) To access Epitome enter the following address:
 
 <http://localhost:8000/user/login>
 
