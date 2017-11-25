@@ -18,10 +18,6 @@ In an Ubuntu based operating system:
 
 and
 
-`sudo apt install python3-dev` ?????
-
-and
-
 `sudo apt install python3-venv`
 
 3) Install pip by typing:
