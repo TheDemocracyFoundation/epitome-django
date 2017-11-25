@@ -79,7 +79,7 @@ DATABASES = {
 
 12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
-`cd Epitome`
+`cd ~/Epitome`
 
 and
 
