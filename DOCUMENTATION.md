@@ -59,14 +59,14 @@ Install django
 
 **Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-7) Move all the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
+9) Move all the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
 
-8) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
+10) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
 
 `SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
 `
 
-9) Replace the information under the "DATABASES = {" section which should look like this:
+11) Replace the information under the "DATABASES = {" section which should look like this:
 
 ```
 DATABASES = {
@@ -77,7 +77,7 @@ DATABASES = {
 }
 ```
 
-10) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
+12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
 `cd Epitome`
 
@@ -97,11 +97,11 @@ and
 
 `python manage.py migrate`
 
-11) To start django server move to the folder Epitome and start the server by typing:
+13) To start django server move to the folder Epitome and start the server by typing:
 
 `python manage.py runserver`
 
-12) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
+14) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
 
 `source ~/venvs/Epitome/bin/activate`
 
@@ -113,11 +113,11 @@ and
 
 `python manage.py createsuperuser`
 
-13) Open your web browser to access the admin panel in this address:
+15) Open your web browser to access the admin panel in this address:
 
 <http://localhost:8000/admin/>
 
-14) To access Epitome enter the following address:
+16) To access Epitome enter the following address:
 
 <http://localhost:8000/user/login>
 
