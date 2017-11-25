@@ -2,7 +2,7 @@
 
 ### Installation
 
-<p align="justify">In order to install Epitome, pip needs to be installed globally. After that, django must be installed. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
+<p align="justify">In order to install Epitome, python 3 must be installed in order to create a virtual environment. After that, django must be installed via pip. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
 
 In an Ubuntu based operating system:
 
@@ -12,37 +12,54 @@ In an Ubuntu based operating system:
 
 `sudo apt full-upgrade`
 
-2) Pip can be downloaded through its official installer get-pip.py by typing:
+2) Install required dependencies:
 
-`wget https://bootstrap.pypa.io/get-pip.py`
+`sudo apt install python3`
+
+and
+
+`sudo apt install python3-dev` ?????
+
+and
+
+`sudo apt install python3-venv`
 
 3) Install pip by typing:
 
-`sudo python get-pip.py`
-
-or if installed in home folder and a permissions problem arises:
-
-`sudo -H python get-pip.py`
+`sudo apt install python3-pip`
 
 4) The version already installed may be outdated. Update by typing:
 
-`sudo pip install upgrade pip`
+`pip3 install --upgrade pip setuptools`
 
-or if installed in home folder and a permissions problem arises:
 
-`sudo -H pip install upgrade pip`
- 
-5) Install django by typing:
+5) Go to the home directory and create a new directory for the virtual environment:
 
-`sudo pip install Django`
+`cd ~`
 
-or if installed in home folder and a permissions problem arises:
+and
 
-`sudo -H pip install Django`
+`mkdir venvs`
 
-6) Create a new project by typing:
+6) Specify the system python3 installation:
 
-`django-admin.py startproject Epitome`
+`python3 -m venv venvs/Epitome`
+
+7) Activate the virtual environment:
+
+`source ~/venvs/Epitome/bin/activate`
+
+upgrade pip3
+
+`pip3 install --upgrade pip`
+
+Install django
+
+`pip3 install django`
+
+8) Create a new project by typing:
+
+`django-admin startproject Epitome`
 
 **Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
@@ -68,15 +85,37 @@ DATABASES = {
 
 `cd Epitome`
 
-`sudo python manage.py migrate`
+and
+
+`python manage.py makemigrations Eisegesis`
+
+and
+
+`python manage.py makemigrations Agora`
+
+and
+
+`python manage.py makemigrations Propylaea`
+
+and
+
+`python manage.py migrate`
 
 11) To start django server move to the folder Epitome and start the server by typing:
 
-`sudo python manage.py runserver`
+`python manage.py runserver`
 
-12) To create an admin account, open a new terminal, type and follow the instructions:
+12) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
 
-`sudo python manage.py createsuperuser`
+`source ~/venvs/Epitome/bin/activate`
+
+and
+
+`cd Epitome`
+
+and
+
+`python manage.py createsuperuser`
 
 13) Open your web browser to access the admin panel in this address:
 
