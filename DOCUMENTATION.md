@@ -96,7 +96,7 @@ and
 
 and
 
-`cd Epitome`
+`cd ~/Epitome`
 
 and
 
