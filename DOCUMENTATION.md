@@ -28,7 +28,7 @@ and
 
 4) The version already installed may be outdated. Update by typing:
 
-`pip3 install --upgrade pip setuptools`
+`sudo pip3 install --upgrade pip setuptools`
 
 
 5) Go to the home directory and create a new directory for the virtual environment:
