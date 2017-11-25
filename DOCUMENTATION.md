@@ -59,7 +59,7 @@ Install django
 
 **Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-9) Move all the contents of Epitome (the old folder which you downloaded) to the newly created folder replacing all the existing files
+9) Move all the contents of Epitome (the folder which you downloaded from our repository) to the newly created folder replacing all the existing files
 
 10) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
 
