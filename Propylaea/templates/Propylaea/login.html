@@ -1,11 +1,11 @@
 <html>
     <head>
-{% load static %}
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <title>Epitome</title>
-          <link rel="stylesheet" href="{% static "css/app.css"%}">   
-        </head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Epitome</title>
+        <link rel="stylesheet" href="{% static "css/app.min.css"%}">   
+    </head>
     <body>
         <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
             <a class="navbar-brand  float-left" href="#">
@@ -29,9 +29,9 @@
                             <form class="form-signin" method="post">
                                 {% csrf_token %}
                                 <label for="inputEmail" class="sr-only">Username</label>
-                                <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+                                {{ LoginForm.username }}
                                 <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" name="password" required>
+                                {{ LoginForm.password }}
                                 <div class="checkbox mt-3">
                                     <label><input type="checkbox" value="remember-me"> Remember me </label>
                                 </div>
@@ -49,13 +49,11 @@
                         <form class="form-register" method="post">
                             {% csrf_token %}
                             <label for="inputEmail" class="sr-only">Username</label>
-                            <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+                            {{ SignUpForm.username }}
                             <label for="inputEmail" class="sr-only">Email</label>
-                            <input type="text" id="email" class="form-control mt-3" placeholder="e-mail" name="email" required autofocus>
+                            {{ SignUpForm.email }}
                             <label for="inputPassword" class="sr-only">Email</label>
-                            <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" name="password" required>
-                            <label for="inputPassword" class="sr-only">Email</label>
-                            <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Repeat Password" name="password" required>
+                            {{ SignUpForm.password }}
                             <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
                         </form> 
                         </div>
