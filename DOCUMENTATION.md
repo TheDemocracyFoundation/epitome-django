@@ -121,7 +121,7 @@ You should now have a working instance of Epitome.
 
 1) Enter the Admin page by inserting your information.
 
-![admin-login-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-login-page.png)
+![admin-login-page](/Demonstration/admin-login-page.png)
 
 2) This will bring you to the admin landing page.
 
