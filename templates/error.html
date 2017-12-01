@@ -1,12 +1,24 @@
-{% extends 'partials/base.html' %}
-	{% load static %}
-	{% block content %}
-     <div class ="container">
-      <div class="jumbotron">
-       {% csrf_token %}
-        <h1 class="display-3">Error {{ errorType }}</h1>
-        <p class="lead">{{ errorMessage }}</p>
-        <p><a class="btn btn-lg btn-success" href="{{ redirectTo }}" role="button">Close</a></p>
-      </div>
-	</div>
-  	{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta Data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static "css/app.min.css"%}">
+  </head>
+  <body>
+      <div class ="container">
+        <div class="jumbotron mt-5">
+        {% csrf_token %}
+          <h1 class="display-3">Error {{ errorType }}</h1>
+          <p class="lead">{{ errorMessage }}</p>
+          <p><a class="btn btn-lg btn-primary" href="{{ redirectTo }}" role="button">Close</a></p>
+        </div>
+    </div>
+  </body>
+</html>

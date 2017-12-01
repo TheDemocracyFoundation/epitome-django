@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
     <head>
         {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Epitome</title>
-        <link rel="stylesheet" href="{% static "css/app.min.css"%}">   
+        <link rel="stylesheet" href="{% static "css/app.min.css"%}">
     </head>
     <body>
         <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
@@ -24,43 +25,46 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="container bg-main">
                     <div class="row mt-5 justify-content-center align-self-center">
-                    <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
-                        <div id="login" class="login-content">
-                            <form class="form-signin" method="post">
-                                {% csrf_token %}
-                                <label for="inputEmail" class="sr-only">Username</label>
-                                {{ LoginForm.username }}
-                                <label for="inputPassword" class="sr-only">Password</label>
-                                {{ LoginForm.password }}
-                                <div class="checkbox mt-3">
-                                    <label><input type="checkbox" value="remember-me"> Remember me </label>
-                                </div>
-                                <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
+                        <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                            <div id="login" class="login-content">
+                                <form class="form-signin" method="post">
+                                    {% csrf_token %}
+                                    <label for="inputEmail" class="sr-only">Username</label>
+                                    {{ LoginForm.username }}
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    {{ LoginForm.password }}
+                                    <div class="checkbox mt-3">
+                                        <label><input type="checkbox" value="remember-me"> Remember me </label>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
                                 </form>
-                        </div>
+                            </div>
                         </div>	
                     </div>
-                </div>            </div>
+                </div>            
+            </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="container bg-main">
                     <div class="row mt-5 justify-content-center align-self-center">
-                    <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
-                        <div id="register" class="login-content">
-                        <form class="form-register" method="post">
-                            {% csrf_token %}
-                            <label for="inputEmail" class="sr-only">Username</label>
-                            {{ SignUpForm.username }}
-                            <label for="inputEmail" class="sr-only">Email</label>
-                            {{ SignUpForm.email }}
-                            <label for="inputPassword" class="sr-only">Email</label>
-                            {{ SignUpForm.password }}
-                            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
-                        </form> 
+                        <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                            <div id="register" class="login-content">
+                                <form class="form-register" method="post">
+                                    {% csrf_token %}
+                                    <label for="inputEmail" class="sr-only">Username</label>
+                                    {{ SignUpForm.username }}
+                                    <label for="inputEmail" class="sr-only">Email</label>
+                                    {{ SignUpForm.email }}
+                                    <label for="inputPassword" class="sr-only">Email</label>
+                                    {{ SignUpForm.password }}
+                                    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
+                                </form> 
+                            </div>
                         </div>
                     </div>
-                    </div>
-                </div>            </div>
+                </div>            
+            </div>
         </div>
 
-        <script src="{% static "js/app.min.js"%}"></script>     </body>
+        <script src="{% static "js/app.min.js"%}"></script>     
+    </body>
 </html>
