@@ -125,57 +125,57 @@ You should now have a working instance of Epitome.
 
 2) This will bring you to the admin landing page.
 
-![admin-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-landing-page.png)
+![admin-landing-page](/Demonstration/admin-landing-page.png)
 
 3) Click "Groups" to go into the groups section, and press "Add group" on the top right corner.
 
-![groups-main](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/groups-main.png)
+![groups-main](/Demonstration/groups-main.png)
 
 4) Create a new admin group, give all permissions and press save.
 
-![admin-group-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-group-creation.png)
+![admin-group-creation](/Demonstration/admin-group-creation.png)
 
 5) You should now have an admin group.
 
-![admin-group-saved](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-group-saved.png)
+![admin-group-saved](/Demonstration/admin-group-saved.png)
 
 6) You can register users manually through the admin page, simply click on "Add" next to the "Users" in the main admin page, add the info and press save.
 
-![admin-user-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/admin-user-creation.png)
+![admin-user-creation](/Demonstration/admin-user-creation.png)
 
 7) Before creating proposals, you need to create a category first, from the main adming page, click on "Add" next to the "Proposal cats", add the name of the category and press save.
 
-![proposal-cat-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-cat-creation.png)
+![proposal-cat-creation](/Demonstration/proposal-cat-creation.png)
 
 8) To create a new proposal, click on "Add" next to the "Proposals", add the information for the proposal and click save.
 
-![proposal-creation](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation.png)
+![proposal-creation](/Demonstration/proposal-creation.png)
 
-![proposal-creation-done](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal-creation-done.png)
+![proposal-creation-done](/Demonstration/proposal-creation-done.png)
 
 9) A user can also register by clicking "Create an account" on the login page (<http://localhost:8000/user/login>)
 
-![user-register](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/user-register.png)
+![user-register](/Demonstration/user-register.png)
 
-![register-complete](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/register-complete.png)
+![register-complete](/Demonstration/register-complete.png)
 
 10) Login using your account information.
 
-![user-login](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/user-login.png)
+![user-login](/Demonstration/user-login.png)
 
 11) This bring you to the main page that should now contain your created proposal.
 
-![epitome-landing-page](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/epitome-landing-page.png)
+![epitome-landing-page](/Demonstration/epitome-landing-page.png)
 
 12) You can vote on the proposal by clicking on it and selecting your choice on the bottom. Once you do, you will be transfered back to the main page and a confirmation message will appear.
 
-![proposal](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/proposal.png)
+![proposal](/Demonstration/proposal.png)
 
-![vote-sucessful](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/vote-sucessful.png)
+![vote-sucessful](/Demonstration/vote-sucessful.png)
 
 13) If you try to vote again, a message will inform you that you have already voted.
 
-![already-voted](https://github.com/DemocracyFoundation/Epitome/blob/Development/Demonstration/already-voted.png)
+![already-voted](/Demonstration/already-voted.png)
 
 
 ### Troubleshooting
