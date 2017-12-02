@@ -14,7 +14,7 @@ class PollCat(models.Model):
 
 class Polls(models.Model):
 	P_CODE = models.CharField(max_length=200)                              # the code of the poll
-	P_TITLE = models.CharField(max_length=100)                             # the title of the poll
+	P_TITLE = models.CharField(max_length=200)                             # the title of the poll
 	P_SHRBODY = models.CharField(max_length=300)                           # the short body of the poll
 	P_BODY = models.CharField(max_length=1000)                             # the body (main text) of the poll
 	P_CREATION = models.DateTimeField(default = timezone.now())            # the creation date and time of the poll
