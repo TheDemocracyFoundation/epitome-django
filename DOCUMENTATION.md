@@ -2,7 +2,7 @@
 
 ### Installation
 
-<p align="justify">In order to install epitome, python 3 must be installed in order to create a virtual environment. After that, django must be installed via pip. Create a new project using django’s “startproject” command, and in that new project, import the epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
+<p align="justify">In order to install Epitome, python 3 must be installed in order to create a virtual environment. After that, django must be installed via pip. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
 
 In an Ubuntu based operating system:
 
@@ -40,11 +40,11 @@ and
 
 7) Specify the system python3 installation:
 
-`python3 -m venv venvs/epitome`
+`python3 -m venv venvs/Epitome`
 
 8) Activate the virtual environment:
 
-`source ~/venvs/epitome/bin/activate`
+`source ~/venvs/Epitome/bin/activate`
 
 upgrade pip3 again in case it requires it
 
@@ -56,11 +56,11 @@ Install django
 
 9) Create a new project by typing:
 
-`django-admin startproject epitome`
+`django-admin startproject Epitome`
 
-**Important: This will create a new folder named "epitome" in your current directory, go into the newly created folder, find the folder "epitome" and the file "settings.py" and save it somewhere seperately**
+**Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
 
-10) Move all the contents of epitome (the folder which you downloaded from our repository) to the newly created folder replacing all the existing files
+10) Move all the contents of Epitome (the folder which you downloaded from our repository) to the newly created folder replacing all the existing files
 
 11) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
 
@@ -69,7 +69,7 @@ Install django
 
 12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
-`cd ~/epitome`
+`cd ~/Epitome`
 
 and
 
@@ -93,11 +93,11 @@ and
 
 14) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
 
-`source ~/venvs/epitome/bin/activate`
+`source ~/venvs/Epitome/bin/activate`
 
 and
 
-`cd ~/epitome`
+`cd ~/Epitome`
 
 and
 
@@ -113,7 +113,7 @@ and
 
 *Usernames are case-sensitive.
 
-You should now have a working instance of epitome.
+You should now have a working instance of Epitome.
 
 -----------------------------------
 
