@@ -19,7 +19,7 @@ We expect all contributors uphold a positive and respectful behaviour as explain
 
 * [Fork](https://help.github.com/articles/fork-a-repo/) the project, [clone](https://help.github.com/articles/cloning-a-repository/) it in your local machine and make your changes.
 
-* We encourage testing before merging a pull-request. **Pull Requests should usually be made for the `Development` branch** as this contains the most recent version of the code.
+* We encourage testing before merging a pull-request. **Pull Requests should usually be made for the `development` branch** as this contains the most recent version of the code.
 
 * Push the changes to your fork and [submit a new pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) with a clear list of what you've done and a descriptive title.
 
