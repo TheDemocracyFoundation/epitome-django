@@ -1,4 +1,4 @@
-# Epitome Documentation
+# Epitome documentation
 
 ### Installation
 
