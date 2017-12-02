@@ -1,4 +1,4 @@
-# epitome 
+# Epitome 
 -----------------------------------
 An instrument built for change
 
