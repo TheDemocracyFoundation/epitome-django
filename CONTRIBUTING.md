@@ -1,10 +1,10 @@
-# Welcome to the Epitome Project
+# Welcome to the Epitome project
 
 You have our deep gratitude for deciding to contribute to the development of Epitome. We welcome all contributors and contributions regardless of skill or experience level. We want to make contributing as easy as possible, by providing support to contributors, especially new contributors. This can include providing feedback on your patches among other things.  However by following the guidelines below contributors can decrease the amount of support required, which gives everyone more time to write code and contribute.
 
 We expect all contributors uphold a positive and respectful behaviour as explained in the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## Reporting Bugs and Issues
+## Reporting bugs and issues
 
 * **Please first make sure that your issue is not already reported, by using the GitHub issue search** as it would greatly help to gather information about different instances of a single bug.
 * **Use a clear and descriptive title** for the issue to identify the problem.
@@ -15,7 +15,7 @@ We expect all contributors uphold a positive and respectful behaviour as explain
 * **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. 
 * **If the problem wasn't triggered by a specific action**, describe what you were doing before the problem happened.
 
-## Contributing Code
+## Contributing code
 
 * [Fork](https://help.github.com/articles/fork-a-repo/) the project, [clone](https://help.github.com/articles/cloning-a-repository/) it in your local machine and make your changes.
 
@@ -43,7 +43,7 @@ We expect all contributors uphold a positive and respectful behaviour as explain
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ```
 
-## Other Contributions
+## Other contributions
 
 * If you find something undocumented whose behaviour is unlikely to change, consider filling in that part of the [DOCUMENTATION.md](DOCUMENTATION.md) file.
 
