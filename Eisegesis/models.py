@@ -22,19 +22,17 @@ class Polls(models.Model):
 	P_ENDDT = models.DateTimeField()                                       # the ending date and time of the poll
 	P_DURATION = models.IntegerField(default=0)                            # the duration of the poll
 	P_CODE2 = models.CharField(max_length=200, blank = True)               # the code2 of the poll (protocol number, approval number)
-	USER_CREATORID = models.ForeignKey(User, on_delete=models.CASCADE)     # the user (admin) who created the poll
-	UGRP_GROUPID = models.ForeignKey(Group, on_delete=models.CASCADE)      # the group of the user that created the poll
+	USER_CREATORID = models.ForeignKey(User)                               # the user (admin) who created the poll
+	UGRP_GROUPID = models.ForeignKey(Group)                                # the group of the user that created the poll
 	PCAT_CAT = models.ForeignKey(PollCat)                                  # the category of the poll
-	#PCHOICE_CHOICE = models.ForeignKey(PollChoice)                        # the voting choices of the poll
 	def __str__(self): 
-		return "%s %s" % (self.P_TITLE, self.P_BODY)
+		return "%s %s" % (self.P_TITLE, self.P_SHRBODY)
 
 
 class PollChoice(models.Model):
-	#PCHOICE_CHOICE = models.IntegerField(default=0)                       # the voting choices of the poll
-	polls = models.ForeignKey(Polls, related_name='PChoice')
-	PCHOICE_CHOICE = models.CharField(max_length=100)
-	PCHOICE_VOTES = models.IntegerField(default=0)
+	polls = models.ForeignKey(Polls, related_name='PChoice')               # key to Polls table
+	PCHOICE_CHOICE = models.CharField(max_length=100)                      # the vote choice
+	PCHOICE_VOTES = models.IntegerField(default=0)                         # the number of votes
 	def __str__(self):
 		return self.PCHOICE_CHOICE
 
@@ -42,8 +40,21 @@ class PollChoice(models.Model):
 class Voter(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	Polls = models.ForeignKey(Polls)
-	
-	
+
+
+class Issues(models.Model):
+	IS_CODE = models.CharField(max_length=200)                             # the code of the issue
+	IS_TITLE = models.CharField(max_length=200)                            # the title of the issue
+	IS_SHRBODY = models.CharField(max_length=300)                          # the short body of the issue
+	IS_BODY = models.CharField(max_length=1000)                            # the body (main text) of the issue
+	IS_CREATION = models.DateTimeField(default = timezone.now())           # the creation date and time of the issue
+	IS_CODE2 = models.CharField(max_length=200, blank = True)              # the code2 of the issue (protocol number, approval number)
+	USER_CREATORID = models.ForeignKey(User)                               # the user (admin) who created the issue
+	UGRP_GROUPID = models.ForeignKey(Group)                                # the group of the user that created the issue
+	def __str__(self): 
+		return "%s %s" % (self.IS_TITLE, self.IS_SHRBODY)
+
+
 class Evidence(models.Model):
 	E_FLD1 = models.CharField(max_length=1000)                             # What has happened?
 	E_FLD2 = models.CharField(max_length=1000)                             # Why is it important?
@@ -53,3 +64,4 @@ class Evidence(models.Model):
 	E_FLD6 = models.CharField(max_length=1000)                             # When did it occur?
 	E_FLD7 = models.CharField(max_length=1000)                             # How much is the cost?
 	E_FLD8 = models.CharField(max_length=1000)                             # How long did it last?
+	Issue = models.ForeignKey(Issues)                                      # key to Issues table
