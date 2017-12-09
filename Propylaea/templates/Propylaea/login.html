@@ -50,11 +50,11 @@
                             <div id="register" class="login-content">
                                 <form class="form-register" method="post">
                                     {% csrf_token %}
-                                    <label for="inputEmail" class="sr-only">Username</label>
+                                    <label for="inputUserName" class="sr-only">Username</label>
                                     {{ SignUpForm.username }}
                                     <label for="inputEmail" class="sr-only">Email</label>
                                     {{ SignUpForm.email }}
-                                    <label for="inputPassword" class="sr-only">Email</label>
+                                    <label for="inputPassword" class="sr-only">Password</label>
                                     {{ SignUpForm.password }}
                                     <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
                                 </form> 
