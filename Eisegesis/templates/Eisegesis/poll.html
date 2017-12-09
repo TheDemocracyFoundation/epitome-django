@@ -1,60 +1,48 @@
-{% extends 'partials/poll.html' %}
-{% load staticfiles %} 
-{% block poll %}
-    <div class="container">
-	<div class="row mt-5">
-		<div class="col">
-			<div class="caption text-center">
-			<h3> {{ poll.P_TITLE }} </h3>
-			<h6>By {{ poll.USER_CREATORID }} </h6>
-			<p class="text-justify"> {{ poll.P_BODY }} </p>
-			{% if poll.P_ENDDT > nowdt %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>Epitome</title>
+          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand float-left" href="/eisegesis/">
+                    <img class ="text-white" src="{% static "img/x.svg"%}" width="30" height="30" alt=""></img>
+                </a>
+            </div>
+        </nav>        
+        <div class="bg-secondary">
+            <div class="container">
+                <p>&zwnj;</p>
+                <h1 class="text-primary">{{ poll.P_TITLE }}</h1>
+                <h4>Created by: <span class="text-danger">{{ poll.USER_CREATORID }}</span></span></h4>
+                <p>&zwnj;</p>
+            </div>       
+        </div>
+        <div class="container">
+            <p>
+                {{ poll.P_BODY }}
+            </p>
 
-					<form action="{% url 'Eisegesis:vote' poll.id %}" method="post">
-					{% csrf_token %}
-					{% for choice in poll.PChoice.all %}
-						<button type="submit" name="choice" class="btn btn-primary" value="{{ choice.id }}">{{ choice.PCHOICE_CHOICE }}</button>
-					{% endfor %}
-				</form>
-			{% else %}
-				
-				<div class="text-center">
-				{% for choice in poll.PChoice.all %}
-						<p> {{ choice.PCHOICE_CHOICE }}  =  {{ choice.PCHOICE_VOTES }} </p>
-				{% endfor %}
-				
-				<div class="ct-chart ct-perfect-fourth"></div>
-				
-				
-				</div>
-			{% endif %}
-		</div>
-		</div>
-	</div>
-</div>
-
-
-<script>
-var data = {
-  // A labels array that can contain any sort of values
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-  // Our series array that contains series objects or in this case series data arrays
-  series: [
-    [5, 2, 4, 2, 0]
-  ]
-};
-
-// As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-// as you saw in the previous example
-var options = {
-  width: 300,
-  height: 200
-};
-
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object. As a third parameter we pass in our custom options.
-new Chartist.Line('.ct-chart', data, options);
-</script>
-
-{% endblock %}
+            {% if poll.P_ENDDT > nowdt %}
+                    <form action="{% url 'Eisegesis:vote' poll.id %}" method="post">
+                    {% csrf_token %}
+                    {% for choice in poll.PChoice.all %}
+                        <button type="submit" name="choice" class="btn btn-primary" value="{{ choice.id }}">{{ choice.PCHOICE_CHOICE }}</button>
+                    {% endfor %}
+                </form>
+            {% else %}
+                <div class="text-center">
+                {% for choice in poll.PChoice.all %}
+                        <p> {{ choice.PCHOICE_CHOICE }}  =  {{ choice.PCHOICE_VOTES }} </p>
+                {% endfor %}
+                <div class="ct-chart ct-perfect-fourth"></div>
+                </div>
+            {% endif %}
+        </div>
+        <script src="js/app.min.js"></script> 
+    </body>
+</html>
