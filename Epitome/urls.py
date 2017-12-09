@@ -18,14 +18,22 @@ from django.contrib import admin
 from Agora import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import RedirectView
+from django.urls import path
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^home/', views.homePage, name='home'),
-    url(r'^user/', include('Propylaea.urls', namespace="Propylaea")),
-    url(r'^eisegesis/', include('Eisegesis.urls', namespace="Eisegesis")),
-    url(r'^.*/$', RedirectView.as_view(url='/home/')),
-    url(r'^$', RedirectView.as_view(url='/home/'))
+    #url(r'^admin/', admin.site.urls),
+    #url(r'^home/', views.homePage, name='home'),
+    #url(r'^user/', include('Propylaea.urls', namespace="Propylaea")),
+    #url(r'^eisegesis/', include('Eisegesis.urls', namespace="Eisegesis")),
+    #url(r'^.*/$', RedirectView.as_view(url='/home/')),
+    #url(r'^$', RedirectView.as_view(url='/home/'))
+	
+	path('admin/', admin.site.urls),
+	path('home/', views.homePage, name='home'),
+	path('user/', include('Propylaea.urls', namespace='Propylaea')),
+	path('eisegesis/', include('Eisegesis.urls', namespace='Eisegesis')),
+	url(r'^.*/$', RedirectView.as_view(url='/home/')),
+    url(r'^$', RedirectView.as_view(url='/home/')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
