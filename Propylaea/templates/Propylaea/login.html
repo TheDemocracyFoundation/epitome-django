@@ -27,7 +27,7 @@
                     <div class="row mt-5 justify-content-center align-self-center">
                         <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
                             <div id="login" class="login-content">
-                                <form class="form-signin" method="post">
+                                <form class="form-signin" action="/user/login/" method="post">
                                     {% csrf_token %}
                                     <label for="inputUsername" class="sr-only">Username</label>
                                     {{ LoginForm.username }}
@@ -48,7 +48,7 @@
                     <div class="row mt-5 justify-content-center align-self-center">
                         <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
                             <div id="register" class="login-content">
-                                <form class="form-register" method="post">
+                                <form class="form-register" action="/user/signup/" method="post">
                                     {% csrf_token %}
                                     <label for="inputUsername" class="sr-only">Username</label>
                                     {{ SignUpForm.username }}
