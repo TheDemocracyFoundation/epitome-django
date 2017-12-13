@@ -1,6 +1,6 @@
 # Welcome to the Epitome project
 
-You have our deep gratitude for deciding to contribute to the development of Epitome. We welcome all contributors and contributions regardless of skill or experience level. We want to make contributing as easy as possible, by providing support to contributors, especially new contributors. This can include providing feedback on your patches among other things.  However by following the guidelines below contributors can decrease the amount of support required, which gives everyone more time to write code and contribute.
+You have our deep gratitude for deciding to contribute to the development of Epitome. We welcome all contributors and contributions regardless of skill or experience level. We want to make contributing as easy as possible, by providing support to contributors, especially those who are new. This can include providing feedback on your patches among other things.  However by following the guidelines below contributors can decrease the amount of support required, which makes the process easier and better for everyone.
 
 We expect all contributors uphold a positive and respectful behaviour as explained in the [Code of Conduct](CODE_OF_CONDUCT.md).
 
