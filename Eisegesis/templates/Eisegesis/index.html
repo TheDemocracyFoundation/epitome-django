@@ -1,47 +1,109 @@
-{% extends 'partials/eisegesis.html' %}
-{% load staticfiles %} 
-{% block masonry %}
-	
-	
-	
-<div class="container">
-  {% if latest_poll_list %}
-  <div class="card-columns">
-  {% for poll in latest_poll_list %}
-    <a class="card card-inverse card-primary p-3 text-center" href="/eisegesis/{{ poll.id }}/" Style="text-decoration: none;">
-      <blockquote class="card-blockquote">
-      <h5>{{ poll.P_TITLE }}</h5>
-        <p>{{ poll.P_SHRBODY }}</p>
-        <footer>
-          <small>
-            Created by: <cite title="Source Title">{{ poll.USER_CREATORID }}</cite>
-          </small>
-        </footer>
-      </blockquote>
-    </a>
-    {% endfor %}  
-  </div> 
-  {% else %}
-  <div class="row">
-  <div class="col-md-12  text-center">
-    <h1>Empty list.</h1>
-  </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <img src={% static "resources/img/icon-sad-face.svg"%} alt="Smiley face" class="img-responsive"> 
-    </div>
-    <div class="col-md-8">
-      <h3>The poll list is currently empty... Either nothing was posted, or your filtering excluded some polls. You can broaden your search filter or create a poll yourself! </h3>
-    </div>
-  </div>
-  <div class="row mt-5">
-  <div class="col-md-12  text-center">
-    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a poll</a>
-  </div>
-  </div>
-  {% endif %}  
-</div>  
-        
-        
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>Epitome</title>
+          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">    </head>
+    <body>
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a class="btn btn-danger text-white" href="#" role="button">New Poll</a>
+                    </li>
+                    <li class="mt-3">
+                        <a class="mdi mdi-account-box mdi-24px"href="#">Polls</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-location mdi-24px" href="#">Issues</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-multiple-plus mdi-24px" href="#">Proposals</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-search mdi-24px" href="#">Archive</a>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <nav class="navbar navbar-expand navbar-dark bg-primary">
+                <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
+                    <img class ="text-white" src="{% static "img/hbg.svg" %}" width="30" height="30" alt="">
+                </a>
+                <ul class="navbar-nav w-100">
+                  <li class="nav-item dropdown ml-auto">
+                    <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href=#>User </a>
+                        <a class="dropdown-item" href="users/logout">Logout</a>
+                    </div>
+                  </li>
+                </ul>  
+            </nav>
+            <div id="page-content-wrapper">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong><p>{{ message }}</p></strong></div>
+                {% endfor %}
+                {% endif %}
+                <div class="container">
+                {% if latest_poll_list %}
+                {% for poll in latest_poll_list %}
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col col-md-1 bg-primary">
+                                        <div class="btn-group-vertical mt-2 ml-2 mb-2">
+                                            <a class="btn btn-link text-default mdi mdi-thumb-up" href="#" role="button"></a>
+                                            <h4 class="text-white">0</h4>
+                                            <a class="btn btn-link text-danger mdi mdi-thumb-down" href="#" role="button"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-10">
+                                        <a href="/eisegesis/{{ poll.id }}/"><h3>{{ poll.P_TITLE }}</h3></a>
+                                        <p>{{ poll.P_SHRBODY }}</p> 
+                                        </p><cite title="Source Title">Created by: {{ poll.USER_CREATORID }}</cite>
+                                    </div>
+                                    <div class="col col-md-1 bg-primary">
+                                        <div class="btn-group-vertical mt-2 ml-2 mb-2">
+                                            <a class="btn btn-link text-white mdi mdi-bell" href="#" role="button"></a>
+                                            <a class="btn btn-link text-white mdi mdi-share-variant" href="#" role="button"></a>
+                                            <a class="btn btn-link text-white mdi mdi-alert" href="#" role="button"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="container">
+                        <div class="jumbotron">
+                            <h1 class="display-3">No polls were found...</h1>
+                            <p class="lead">No polls were submitted so far...</p>
+                            <hr class="my-4">
+                            <p>Try visiting another section or add a poll yourself.</p>
+                            <p class="lead">
+                                <a class="btn btn-primary btn-lg" href=# role="button">Add a poll</a>
+                            </p>
+                        </div>                
+                    </div>
+                    {% endif %}
+               </div>
+            </div>
+        </div>
+
+         <script src="{% static "js/app.min.js"%}"></script>         <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+    </body>
+</html>

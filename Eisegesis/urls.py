@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from Eisegesis import views
 
+app_name = 'Eisegesis'
 urlpatterns = [
 	#/eisegesis/
 	url(r'^$', views.index, name='index'),

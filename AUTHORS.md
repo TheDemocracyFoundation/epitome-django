@@ -2,7 +2,7 @@
 
 Epitome is a collaborative effort.
 
-The Core Epitome team:
+The core Epitome team:
 
 * Panagiotis Tokmakidis
 * Pavlos Boudagidis

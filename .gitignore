@@ -101,3 +101,6 @@ settings.py
 # Migrations
 Agora/migrations/
 Eisegesis/migrations/
+
+#.bak files
+*.bak
