@@ -7,7 +7,7 @@ from django.contrib.auth.models import User, Group
 
 
 class PollCat(models.Model):
-	PCAT_CAT = models.CharField(max_length=100)                                                          # the category of the poll
+	PCAT_CAT = models.CharField("Poll category", max_length=100)                                                          # the category of the poll
 	def __str__(self):
 		return self.PCAT_CAT
 
@@ -22,19 +22,19 @@ class Poll(models.Model):
 	PL_ENDDT = models.DateTimeField("Ending date")                                                       # the ending date and time of the poll
 	PL_DURATION = models.IntegerField("Duration", default=0)                                             # the duration of the poll
 	PL_CODE2 = models.CharField("Code 2", max_length=200, blank = True)                                  # the code2 of the poll (protocol number, approval number)
-	USER = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="User")                     # the user (admin) who created the poll
-	UGROUP = models.ForeignKey(Group, on_delete=models.DO_NOTHING, verbose_name="User group")            # the group of the user that created the poll
-	POLLCAT = models.ForeignKey(PollCat, on_delete=models.DO_NOTHING, verbose_name="Poll category")      # the category of the poll
+	USER = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User")                     # the user (admin) who created the poll
+	UGROUP = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name="User group")            # the group of the user that created the poll
+	POLLCAT = models.ForeignKey(PollCat, on_delete=models.CASCADE, verbose_name="Poll category")      # the category of the poll
 	def __str__(self): 
-		return "%s %s" % (self.P_TITLE, self.P_SHRBODY)
+		return "%s %s" % (self.PL_TITLE, self.PL_SHRBODY)
 
 
 class PollChoice(models.Model):
-	POLL = models.ForeignKey(Poll, related_name='PChoice', on_delete=models.DO_NOTHING)                  # key to Polls table
+	POLL = models.ForeignKey(Poll, related_name='PChoice', on_delete=models.CASCADE)                  # key to Polls table
 	PC_CHOICE = models.CharField("Choice", max_length=100)                                               # the vote choice
 	PC_VOTES = models.IntegerField("Votes", default=0)                                                   # the number of votes
 	def __str__(self):
-		return self.PCHOICE_CHOICE
+		return self.PC_CHOICE
 
 
 class Voter(models.Model):
@@ -49,8 +49,8 @@ class Issue(models.Model):
 	IS_BODY = models.CharField("body", max_length=1000)                                                  # the body (main text) of the issue
 	IS_CREATION = models.DateTimeField("Creation date", default = timezone.now())                        # the creation date and time of the issue
 	IS_CODE2 = models.CharField("Code 2", max_length=200, blank = True)                                  # the code2 of the issue (protocol number, approval number)
-	USER = models.ForeignKey(User, on_delete=models.DO_NOTHING)                                          # the user (admin) who created the issue
-	UGROUP = models.ForeignKey(Group, on_delete=models.DO_NOTHING)                                       # the group of the user that created the issue
+	USER = models.ForeignKey(User, on_delete=models.CASCADE)                                          # the user (admin) who created the issue
+	UGROUP = models.ForeignKey(Group, on_delete=models.CASCADE)                                       # the group of the user that created the issue
 	def __str__(self): 
 		return "%s %s" % (self.IS_TITLE, self.IS_SHRBODY)
 
