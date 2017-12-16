@@ -6,11 +6,11 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib import messages
 
-from .models import Polls,PollChoice,Voter
+from .models import Poll, PollChoice, Voter
 
 @login_required
 def index(request):
-	latest_poll_list = Polls.objects.order_by('-P_CREATION')#[:5]
+	latest_poll_list = Poll.objects.order_by('-P_CREATION')#[:5]
 	template = loader.get_template('Eisegesis/index.html')
 	context = {
 		'latest_poll_list': latest_poll_list,
