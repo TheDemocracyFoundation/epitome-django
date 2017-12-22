@@ -10,7 +10,7 @@ from .models import Poll, PollChoice, Voter
 
 @login_required
 def index(request):
-	latest_poll_list = Poll.objects.order_by('-P_CREATION')#[:5]
+	latest_poll_list = Poll.objects.order_by('-PL_CREATION')#[:5]
 	template = loader.get_template('Eisegesis/index.html')
 	context = {
 		'latest_poll_list': latest_poll_list,
