@@ -75,7 +75,7 @@ def LogIn(request):
 		#return render_to_response('Propylaea/login_register.html', {}, context)
 				
 
-@login_required
+@login_required(login_url='/user/login/')
 def UsrLogout(request):
 	# Since we know the user is logged in, we can now just log them out.
 	logout(request)
