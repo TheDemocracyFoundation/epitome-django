@@ -39,7 +39,7 @@
                     <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href=#>User </a>
-                        <a class="dropdown-item" href="users/logout">Logout</a>
+                        <a class="dropdown-item" href="/user/logout">Logout</a>
                     </div>
                   </li>
                 </ul>  
@@ -67,9 +67,9 @@
                                         </div>
                                     </div>
                                     <div class="col col-md-10">
-                                        <a href="/eisegesis/{{ poll.id }}/"><h3>{{ poll.P_TITLE }}</h3></a>
-                                        <p>{{ poll.P_SHRBODY }}</p> 
-                                        </p><cite title="Source Title">Created by: {{ poll.USER_CREATORID }}</cite>
+                                        <a href="/eisegesis/{{ poll.id }}/"><h3>{{ poll.PL_TITLE }}</h3></a>
+                                        <p>{{ poll.PL_SHRBODY }}</p> 
+                                        </p><cite title="Source Title">Created by: {{ poll.USER }}</cite>
                                     </div>
                                     <div class="col col-md-1 bg-primary">
                                         <div class="btn-group-vertical mt-2 ml-2 mb-2">
