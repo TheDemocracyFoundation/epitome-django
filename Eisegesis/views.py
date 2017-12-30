@@ -8,9 +8,9 @@ from django.contrib import messages
 
 from .models import Poll, PollChoice, Voter
 
-@login_required
+@login_required(login_url='/user/login/')
 def index(request):
-	latest_poll_list = Poll.objects.order_by('-P_CREATION')#[:5]
+	latest_poll_list = Poll.objects.order_by('-PL_CREATION')#[:5]
 	template = loader.get_template('Eisegesis/index.html')
 	context = {
 		'latest_poll_list': latest_poll_list,
@@ -18,9 +18,9 @@ def index(request):
 	return HttpResponse(template.render(context, request))
 
 
-@login_required
+@login_required(login_url='/user/login/')
 def moreInfo(request, polls_id):
-	poll = get_object_or_404(Polls, pk=polls_id)
+	poll = get_object_or_404(Poll, pk=polls_id)
 	#PChoice = get_object_or_404(PollChoice)
 	template = loader.get_template('Eisegesis/poll.html')
 	nowDt = timezone.localtime(timezone.now())
@@ -32,7 +32,7 @@ def moreInfo(request, polls_id):
 	#return render(request, 'polls/detail.html', {'question': question})
 	return HttpResponse(template.render(context, request))
 
-@login_required
+@login_required(login_url='/user/login/')
 def vote(request, polls_id):
 	poll = get_object_or_404(Polls, pk=polls_id)
 	if Voter.objects.filter(Polls_id=polls_id, user_id=request.user.id).exists():
@@ -63,4 +63,3 @@ def vote(request, polls_id):
 
 #def index(request):
 #	return HttpResponse("Hello")
-
