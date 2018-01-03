@@ -2,6 +2,7 @@ import tempfile
 import pygit2
 import os.path
 import shutil
+import re
 
 # http: //www.pygit2.org/recipes/git-clone-ssh.html
   #https: //docs.python.org/2/library/tempfile.html
@@ -18,7 +19,7 @@ keypair = pygit2.Keypair(RepoUser, RepoPub, RepoPrv, "")
 callbacks = pygit2.RemoteCallbacks(credentials = keypair)
 masterRepo = pygit2.clone_repository(repoUrl, masterRepoDir, callbacks = callbacks)
 mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
-
+remoteRegex = re.compile(r'^refs/remotes/origin/')
 
 def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, return directory of local repo 
   if branch is None:
@@ -43,18 +44,18 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
 def activeProposals( branchfrom = 'master'): #Return a list of active proposals.
   out = []
   mergeRepo.remotes[0].fetch()
-  branches <- list(mergeRepo.references)
+  branches <- filter(remoteRegex, list(mergeRepo.references))
   branch_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branchfrom))./target
   for branchto in branches:
     mergeRepo.checkout_tree(mergeRepo.get(branch_id))
     remote_id = mergeRepo.lookup_reference(branchto).target
     merge_result, _ = mergeRepo.merge_analysis(remote_id)
     if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
-      out.append(branchto)
+      out.append(re.sub(remoteRegex,'',branchto))
     elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
       mergeRepo.merge(remote_id)
       if repo.index.conflicts is None:
-        out.append(branchto)
+        out.append(re.sub(remoteRegex,'',branchto))
       mergeRepo.state_cleanup()
       mergeRepo.reset(GIT_RESET_HARD)
   return (out)
