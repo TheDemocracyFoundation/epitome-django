@@ -41,7 +41,9 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
 def activeProposals(users, branch = 'master'): #Return a list of active proposals.
   out = []
   mergeRepo = pygit2.clone_repository( masterRepoDir,mkdtemp(), callbacks = callbacks) 
+  branch_id = mergeRepo.lookup_reference('refs/heads/%s' % (branch)).target
   for user in users:
+    mergeRepo.checkout_tree(branch_id)
     remote_id = mergeRepo.lookup_reference('refs/heads/%s' % (user)).target
     merge_result, _ = mergeRepo.merge_analysis(remote_id)
     if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
@@ -59,18 +61,18 @@ def acceptProposal(branch): #Because active proposals must be fast - forwardable
   test = activeProposals([branch])
   if test[0] != branch:
     raise AssertionError('Requested branch \'%s\' is not valid active proposal' % (branch))
-  remote_master_id = masterRepo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
-  merge_result, _ = masterRepo.merge_analysis(remote_master_id)
+  merge_id = masterRepo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
+  merge_result, _ = masterRepo.merge_analysis(merge_id)
   if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
-    masterRepo.checkout_tree(masterRepo.get(remote_master_id))
+    masterRepo.checkout_tree(masterRepo.get(merge_id))
     master_ref = masterRepo.lookup_reference('refs/heads/master')
-    master_ref.set_target(remote_master_id)
-    masterRepo.head.set_target(remote_master_id)
+    master_ref.set_target(merge_id)
+    masterRepo.head.set_target(merge_id)
   elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
-    repo.merge(remote_master_id)
+    repo.merge(merge_id)
     user = repo.default_signature
     tree = repo.index.write_tree()
-    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [repo.head.target, remote_master_id])# We need to do this or git CLI will think we are still merging.
+    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [repo.head.target, merge_id])# We need to do this or git CLI will think we are still merging.
     repo.state_cleanup()
   return push(masterRepo)
 
