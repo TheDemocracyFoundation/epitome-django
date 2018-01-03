@@ -40,20 +40,21 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
   push(repo, ref = pushRef) # push to masterRepo
   push(masterRepo, ref = pushRef) # push to origin
   
-def activeProposals(users, branch = 'master'): #Return a list of active proposals.
+def activeProposals( branchfrom = 'master'): #Return a list of active proposals.
   out = []
   mergeRepo.remotes[0].fetch()
-  branch_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branch))./target
-  for user in users:
+  branches <- list(mergeRepo.references)
+  branch_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branchfrom))./target
+  for branchto in branches:
     mergeRepo.checkout_tree(mergeRepo.get(branch_id))
-    remote_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (user)).target
+    remote_id = mergeRepo.lookup_reference(branchto).target
     merge_result, _ = mergeRepo.merge_analysis(remote_id)
     if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
-      out.append(user)
+      out.append(branchto)
     elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
       mergeRepo.merge(remote_id)
       if repo.index.conflicts is None:
-        out.append(user)
+        out.append(branchto)
       mergeRepo.state_cleanup()
       mergeRepo.reset(GIT_RESET_HARD)
   return (out)
