@@ -13,7 +13,7 @@ repoUrl = mkdtemp()
 pygit2.init_repository(repoUrl)# blank local origin
 
 # Setup master repo on load.
-masterRepoDir = mkdtemp()
+masterRepoDir = mkdtemp()# this dir gets a repo with 
 keypair = pygit2.Keypair(RepoUser, RepoPub, RepoPrv, "")
 callbacks = pygit2.RemoteCallbacks(credentials = keypair)
 masterRepo = pygit2.clone_repository(repoUrl, masterRepoDir, callbacks = callbacks)
