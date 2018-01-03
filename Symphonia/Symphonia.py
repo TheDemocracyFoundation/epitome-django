@@ -38,7 +38,6 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
   
 def activeProposals(users, branch = 'master'): #Return a list of active proposals.
   out = []
-  pull(masterRepo, remote_name, branch)
   for remote in masterRepo.remotes:
     if remote.name == remote_name:
       for user in users:
