@@ -38,21 +38,20 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
   
 def activeProposals(users, branch = 'master'): #Return a list of active proposals.
   out = []
-  for remote in masterRepo.remotes:
-    if remote.name == remote_name:
-      for user in users:
-        remote_id = masterRepo.lookup_reference('refs/%s' % (remote_name, user)).target
-        merge_result, _ = masterRepo.merge_analysis(remote_id)
-        if !merge_result:
-          raise AssertionError('Unknown merge analysis result')
-        if pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
-          out.append(user)
-        elif pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
-          masterRepo.merge(remote_id)
-          if repo.index.conflicts is None:
-            out.append(user)
-          masterRepo.state_cleanup()
-        		masterRepo.reset(GIT_RESET_HARD)
+  mergeRepo = pygit2.clone_repository( masterRepoDir,mkdtemp(), callbacks = callbacks) 
+  for user in users:
+    remote_id = masterRepo.lookup_reference('refs/%s' % (remote_name, user)).target
+    merge_result, _ = masterRepo.merge_analysis(remote_id)
+    if !merge_result:
+      raise AssertionError('Unknown merge analysis result')
+    if pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
+      out.append(user)
+    elif pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
+      masterRepo.merge(remote_id)
+      if repo.index.conflicts is None:
+        out.append(user)
+      masterRepo.state_cleanup()
+      masterRepo.reset(GIT_RESET_HARD)
   return (out)
 
 def acceptProposal(branch): #Because active proposals must be fast - forwardable, we know we can just fast - forward an accepted active proposal
