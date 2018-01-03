@@ -13,7 +13,7 @@ repoUrl = mkdtemp()
 pygit2.init_repository(repoUrl)# blank local origin
 
 # Setup master repo on load.
-masterRepoDir = mkdtemp()# this dir gets a repo with 
+masterRepoDir = mkdtemp()# this dir gets a repo with a checked out copy of master
 keypair = pygit2.Keypair(RepoUser, RepoPub, RepoPrv, "")
 callbacks = pygit2.RemoteCallbacks(credentials = keypair)
 masterRepo = pygit2.clone_repository(repoUrl, masterRepoDir, callbacks = callbacks)
@@ -77,6 +77,7 @@ def acceptProposal(branch): #Because active proposals must be fast - forwardable
     commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [repo.head.target, merge_id])# We need to do this or git CLI will think we are still merging.
     repo.state_cleanup()
   push(mergeRepo)
+  masterRepo.checkout_tree(masterRepo.get(masterRepo.lookup_reference('refs/heads/master')))
   push(masterRepo)
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
