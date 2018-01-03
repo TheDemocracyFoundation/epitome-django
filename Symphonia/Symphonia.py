@@ -1,6 +1,7 @@
 import tempfile
 import pygit2
 import os.path
+import shutil
 
 # http: //www.pygit2.org/recipes/git-clone-ssh.html
   #https: //docs.python.org/2/library/tempfile.html
@@ -29,6 +30,7 @@ def submitProposal(user, email, repoDir, comment): #User wants to submit their c
   ref = 'refs/heads/' + user
   author = pygit2.Signature(user, email)
   repo = pygit2.Repository(repoDir)
+  repo.index.add_all()
   tree = repo.TreeBuilder().write()
   repo.create_commit(ref, author, author, comment, tree, [])
   repo.index.write()
@@ -40,18 +42,17 @@ def activeProposals(users, branch = 'master'): #Return a list of active proposal
   out = []
   mergeRepo = pygit2.clone_repository( masterRepoDir,mkdtemp(), callbacks = callbacks) 
   for user in users:
-    remote_id = masterRepo.lookup_reference('refs/%s' % (remote_name, user)).target
-    merge_result, _ = masterRepo.merge_analysis(remote_id)
-    if !merge_result:
-      raise AssertionError('Unknown merge analysis result')
-    if pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
+    remote_id = mergeRepo.lookup_reference('refs/heads/%s' % (user)).target
+    merge_result, _ = mergeRepo.merge_analysis(remote_id)
+    if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
       out.append(user)
-    elif pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
-      masterRepo.merge(remote_id)
+    elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
+      mergeRepo.merge(remote_id)
       if repo.index.conflicts is None:
         out.append(user)
-      masterRepo.state_cleanup()
-      masterRepo.reset(GIT_RESET_HARD)
+      mergeRepo.state_cleanup()
+      mergeRepo.reset(GIT_RESET_HARD)
+  shutil.rmtree(mergeRepo.workdir,ignore_errors=True)
   return (out)
 
 def acceptProposal(branch): #Because active proposals must be fast - forwardable, we know we can just fast - forward an accepted active proposal
@@ -60,10 +61,17 @@ def acceptProposal(branch): #Because active proposals must be fast - forwardable
     raise AssertionError('Requested branch \'%s\' is not valid active proposal' % (branch))
   remote_master_id = masterRepo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
   merge_result, _ = masterRepo.merge_analysis(remote_master_id)
-  masterRepo.checkout_tree(masterRepo.get(remote_master_id))
-  master_ref = masterRepo.lookup_reference('refs/heads/master')
-  master_ref.set_target(remote_master_id)
-  masterRepo.head.set_target(remote_master_id)
+  if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
+    masterRepo.checkout_tree(masterRepo.get(remote_master_id))
+    master_ref = masterRepo.lookup_reference('refs/heads/master')
+    master_ref.set_target(remote_master_id)
+    masterRepo.head.set_target(remote_master_id)
+  elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
+    repo.merge(remote_master_id)
+    user = repo.default_signature
+    tree = repo.index.write_tree()
+    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [repo.head.target, remote_master_id])# We need to do this or git CLI will think we are still merging.
+    repo.state_cleanup()
   return push(masterRepo)
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
