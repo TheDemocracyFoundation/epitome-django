@@ -111,7 +111,7 @@ and
 
 <http://localhost:8000/user/login>
 
-*Usernames are case-sensitive.
+*Usernames are case-sensitive.okkkkkk
 
 You should now have a working instance of Epitome.
 
