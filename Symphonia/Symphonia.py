@@ -18,32 +18,18 @@ masterRepoDir = mkdtemp()# this dir gets a repo with a checked out copy of maste
 keypair = pygit2.Keypair(RepoUser, RepoPub, RepoPrv, "")
 callbacks = pygit2.RemoteCallbacks(credentials = keypair)
 masterRepo = pygit2.clone_repository(repoUrl, masterRepoDir, callbacks = callbacks)
-mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
 remoteRegex = re.compile(r'^refs/remotes/origin/')
 
-def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, return directory of local repo 
-  if branch is None:
-    branch = 'master'
-  if repoDir is None:
-    repoDir = mkdtemp()
-  pygit2.clone_repository(masterRepoDir, repoDir, checkout_branch = branch)
-  return repoDir;
+class activeProposalsClass():
+  master=[]
 
-def submitProposal(user, email, repoDir, comment): #User wants to submit their changes# http: //www.pygit2.org/objects.html#creating-commits
-  ref = 'refs/heads/' + user
-  author = pygit2.Signature(user, email)
-  repo = pygit2.Repository(repoDir)
-  repo.index.add_all()
-  tree = repo.TreeBuilder().write()
-  repo.create_commit(ref, author, author, comment, tree, [])
-  repo.index.write()
-  pushRef = '%s:%s' % (ref,ref)
-  push(repo, ref = pushRef) # push to masterRepo
-  push(masterRepo, ref = pushRef) # push to origin
-  
-def activeProposals( branchfrom = 'master'): #Return a list of active proposals.
+def activeProposals():
+  return(activeProposalsClass.master)
+
+def regenerateActiveProposals(): #Return a list of active proposals.
+	branchfrom='master'
   out = []
-  mergeRepo.remotes[0].fetch()
+  mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
   branches <- filter(remoteRegex, list(mergeRepo.references))
   branch_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branchfrom))./target
   for branchto in branches:
@@ -58,13 +44,37 @@ def activeProposals( branchfrom = 'master'): #Return a list of active proposals.
         out.append(re.sub(remoteRegex,'',branchto))
       mergeRepo.state_cleanup()
       mergeRepo.reset(GIT_RESET_HARD)
-  return (out)
+  activeProposalsClass.master = out
+  shutil.rmtree(mergeRepo.workdir,ignore_errors=True)
 
+def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, return directory of local repo 
+  if branch is None:
+    branch = 'master'
+  if repoDir is None:
+    repoDir = mkdtemp()
+  return pygit2.clone_repository(masterRepoDir, repoDir, checkout_branch = branch)
+
+def submitProposal(branch, repo, comment): #User wants to submit their changes# http: //www.pygit2.org/objects.html#creating-commits
+  ref = 'refs/heads/' + branch
+  user = repo.default_signature
+  repo = pygit2.Repository(repoDir)
+  repo.index.add_all()
+  tree = repo.TreeBuilder().write()
+  repo.create_commit(ref, user, user, comment, tree, [])
+  repo.index.write()
+  pushRef = '%s:%s' % (ref,ref)
+  push(repo, ref = pushRef) # push to masterRepo
+  regenerateActiveProposals()
+  push(masterRepo, ref = pushRef) # push to origin
+  
 def acceptProposal(branch): #Because active proposals must be fast - forwardable, we know we can just fast - forward an accepted active proposal
-  test = activeProposals([branch])
-  if test[0] != branch:
+  test = False
+  for prop in activeProposals():
+    if prop == branch:
+      test = True
+  if test != True:
     raise AssertionError('Requested branch \'%s\' is not valid active proposal' % (branch))
-  mergeRepo.remotes[0].fetch()
+  mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
   merge_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
   merge_result, _ = mergeRepo.merge_analysis(merge_id)
   if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
@@ -74,13 +84,15 @@ def acceptProposal(branch): #Because active proposals must be fast - forwardable
     mergeRepo.head.set_target(merge_id)
   elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
     mergeRepo.merge(merge_id)
-    user = repo.default_signature
-    tree = repo.index.write_tree()
-    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [repo.head.target, merge_id])# We need to do this or git CLI will think we are still merging.
+    user = mergeRepo.default_signature
+    tree = mergeRepo.index.write_tree()
+    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [mergeRepo.head.target, merge_id])# We need to do this or git CLI will think we are still merging.
     repo.state_cleanup()
   push(mergeRepo)
   masterRepo.checkout_tree(masterRepo.get(masterRepo.lookup_reference('refs/heads/master')))
+  regenerateActiveProposals()
   push(masterRepo)
+  shutil.rmtree(mergeRepo.workdir,ignore_errors=True)  
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
   for remote in repo.remotes:

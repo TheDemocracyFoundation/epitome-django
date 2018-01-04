@@ -1,0 +1,13 @@
+On startup, the (possibly remote) origin repo is cloned to a temporary directory. The origin/master branch is downstream from master/master. This temporary directory can then be accessed to 
+
+The django app must have exclusive write access to origin/master. At the moment, this is done by giving the app exclusive write access to origin. In future, a git hosting service with branch restrictions could allow <user> to push to origin/<user> but not origin/master. github, bitbucket and gitolite implement branch restrictions in different ways, where restriction by repo is internal to git.
+
+Proposals start as a blankProposal() which clones the master repo to a working directory and checks out the requested branch. These temporary directories are not deleted here, as we don't know when the user is done with them.
+
+Once the user is finished editing and signifies intent to submit, submitProposal() adds all changes in the working directory, bundles them as a commit, and pushes this commit to master/<user> then origin/<user>
+
+activeProposals() scans the master repo for branches that 1. have unmerged commits, and 2. can merge with master/master without conflict.
+
+acceptProposal() merges an activeProposal() (master/<user>) with master/master in a merge repo. merge/master is pushed to master/master is pushed to origin/master.
+
+
