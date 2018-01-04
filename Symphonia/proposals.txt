@@ -6,8 +6,8 @@ Proposals start as a blankProposal() which clones the master repo to a working d
 
 Once the user is finished editing and signifies intent to submit, submitProposal() adds all changes in the working directory, bundles them as a commit, and pushes this commit to master/<user> then origin/<user>
 
-activeProposals() scans the master repo for branches that 1. have unmerged commits, and 2. can merge with master/master without conflict.
+activeProposals() reports branches in the master repo that 1. have unmerged commits, and 2. can merge with master/master without conflict.
 
 acceptProposal() merges an activeProposal() (master/<user>) with master/master in a merge repo. merge/master is pushed to master/master is pushed to origin/master.
 
-
+The user account under which django runs must have a PKI keypair for passwordless pushes, and a default git identity configured.
