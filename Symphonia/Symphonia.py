@@ -19,6 +19,7 @@ keypair = pygit2.Keypair(RepoUser, RepoPub, RepoPrv, "")
 callbacks = pygit2.RemoteCallbacks(credentials = keypair)
 masterRepo = pygit2.clone_repository(repoUrl, masterRepoDir, callbacks = callbacks)
 remoteRegex = re.compile(r'^refs/remotes/origin/')
+localRegex = re.compile(r'^refs/heads/')
 
 class activeProposalsClass():
   master=[]
@@ -27,13 +28,10 @@ def activeProposals():
   return(activeProposalsClass.master)
 
 def regenerateActiveProposals(): #Return a list of active proposals.
-	branchfrom='master'
   out = []
   mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
-  branches <- filter(remoteRegex, list(mergeRepo.references))
-  from_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branchfrom))./target
+  branches = filter(remoteRegex, list(mergeRepo.references))
   for branchto in branches:
-    mergeRepo.checkout_tree(mergeRepo.get(from_id))
     to_id = mergeRepo.lookup_reference(branchto).target
     merge_result, _ = mergeRepo.merge_analysis(to_id)
     if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
@@ -43,13 +41,13 @@ def regenerateActiveProposals(): #Return a list of active proposals.
       if repo.index.conflicts is None:
         out.append(re.sub(remoteRegex,'',branchto))
       mergeRepo.state_cleanup()
-      mergeRepo.reset(GIT_RESET_HARD)
+      mergeRepo.reset(pygit2.GIT_RESET_HARD)
   activeProposalsClass.master = out
   shutil.rmtree(mergeRepo.workdir,ignore_errors=True)
 
 regenerateActiveProposals()
 
-def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, return directory of local repo 
+def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, return a repo 
   if branch is None:
     branch = 'master'
   if repoDir is None:
@@ -59,7 +57,6 @@ def blankProposal(branch = None, repoDir = None): #User wants a repo to edit, re
 def submitProposal(branch, repo, comment): #User wants to submit their changes# http: //www.pygit2.org/objects.html#creating-commits
   ref = 'refs/heads/' + branch
   user = repo.default_signature
-  repo = pygit2.Repository(repoDir)
   repo.index.add_all()
   tree = repo.TreeBuilder().write()
   repo.create_commit(ref, user, user, comment, tree, [])
@@ -69,7 +66,7 @@ def submitProposal(branch, repo, comment): #User wants to submit their changes# 
   regenerateActiveProposals()
   push(masterRepo, ref = pushRef) # push to origin
   
-def acceptProposal(branch): #Because active proposals must be fast - forwardable, we know we can just fast - forward an accepted active proposal
+def acceptProposal(branch): 
   test = False
   for prop in activeProposals():
     if prop == branch:
@@ -79,16 +76,16 @@ def acceptProposal(branch): #Because active proposals must be fast - forwardable
   mergeRepo = pygit2.clone_repository( masterRepoDir,tempfile.mkdtemp())
   merge_id = mergeRepo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
   merge_result, _ = mergeRepo.merge_analysis(merge_id)
-  if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:# anything that ff merges is good.
+  if merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:
     mergeRepo.checkout_tree(mergeRepo.get(merge_id))
     master_ref = mergeRepo.lookup_reference('refs/heads/master')
     master_ref.set_target(merge_id)
     mergeRepo.head.set_target(merge_id)
-  elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:# anything that merges without conflict is good
+  elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:
     mergeRepo.merge(merge_id)
     user = mergeRepo.default_signature
     tree = mergeRepo.index.write_tree()
-    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [mergeRepo.head.target, merge_id])# We need to do this or git CLI will think we are still merging.
+    commit = repo.create_commit('HEAD',user,user,'Merge!',tree, [mergeRepo.head.target, merge_id])
     repo.state_cleanup()
   push(mergeRepo)
   masterRepo.checkout_tree(masterRepo.get(masterRepo.lookup_reference('refs/heads/master')))
