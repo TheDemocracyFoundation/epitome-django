@@ -91,7 +91,10 @@ def acceptProposal(branch):
   masterRepo.checkout_tree(masterRepo.get(masterRepo.lookup_reference('refs/heads/master')))
   regenerateActiveProposals()
   push(masterRepo)
-  shutil.rmtree(mergeRepo.workdir,ignore_errors=True)  
+  shutil.rmtree(mergeRepo.workdir,ignore_errors=True)
+  newBranch = strftime('master-%Y-%m-%d-%H-%M-%S')
+  masterRepo.branches.local.create(newBranch)
+  push(masterRepo,'origin','/refs/heads/'+newBranch)
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
   for remote in repo.remotes:
