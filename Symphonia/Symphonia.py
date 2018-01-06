@@ -92,9 +92,22 @@ def acceptProposal(branch):
   regenerateActiveProposals()
   push(masterRepo)
   shutil.rmtree(mergeRepo.workdir,ignore_errors=True)
-  newBranch = strftime('master-%Y-%m-%d-%H-%M-%S')
+  newBranch = strftime('master-%Y-%m-%d-%H-%M-%S',gmtime())
   masterRepo.branches.local.create(newBranch)
   push(masterRepo,'origin','/refs/heads/'+newBranch)
+
+historyRegex = re.compile(r'^master-')
+
+def historicMasterState(t): # t is epoch time, not tuple time
+	branches = filter(historyRegex,list(masterRepo.branches))
+	best = 0
+	for branch in branches:
+  	branchTime = mktime(strptime('master-%Y-%m-%d-%H-%M-%S',branch))
+  	if branchTime > best and branchTime <= t:
+  		best = branchTime
+  if best == 0:
+		return None
+	return blankProposal(strftime('master-%Y-%m-%d-%H-%M-%S',best))
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
   for remote in repo.remotes:
