@@ -3,6 +3,7 @@ import pygit2
 import os.path
 import shutil
 import re
+import time
 
 # http: //www.pygit2.org/recipes/git-clone-ssh.html
   #https: //docs.python.org/2/library/tempfile.html
@@ -102,18 +103,17 @@ def historicMasterState(t): # t is epoch time, not tuple time
 	branches = filter(historyRegex,list(masterRepo.branches))
 	best = 0
 	for branch in branches:
-  	branchTime = mktime(strptime('master-%Y-%m-%d-%H-%M-%S',branch))
+  	branchTime = time.mktime(time.strptime('master-%Y-%m-%d-%H-%M-%S',branch))
   	if branchTime > best and branchTime <= t:
   		best = branchTime
   if best == 0:
 		return None
-	return blankProposal(strftime('master-%Y-%m-%d-%H-%M-%S',best))
+	return blankProposal(time.strftime('master-%Y-%m-%d-%H-%M-%S',best))
 
 def push(repo, remote_name = 'origin', ref = 'refs/heads/master:refs/heads/master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
   for remote in repo.remotes:
     if remote.name == remote_name:
       remote.push(ref)
-
 
 def pull(repo, remote_name = 'origin', branch = 'master'): #https://github.com/MichaelBoselowitz/pygit2-examples/blob/master/examples.py
   for remote in repo.remotes:
