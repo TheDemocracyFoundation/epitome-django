@@ -103,7 +103,7 @@ def historicMasterState(t): # t is epoch time, not tuple time
 	branches = filter(historyRegex,list(masterRepo.branches))
 	best = 0
 	for branch in branches:
-  	branchTime = time.mktime(time.strptime('master-%Y-%m-%d-%H-%M-%S',branch))
+    branchTime = time.mktime(time.strptime('master-%Y-%m-%d-%H-%M-%S',branch))
   	if branchTime > best and branchTime <= t:
   		best = branchTime
   if best == 0:
