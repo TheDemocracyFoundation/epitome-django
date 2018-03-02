@@ -53,36 +53,20 @@
                 {% endfor %}
                 {% endif %}
                 <div class="container">
-                {% if latest_poll_list %}
-                {% for poll in latest_poll_list %}
-                    <div class="row mt-2">
-                        <div class="col-md-12">
+                    <div class="card-columns">
+                    {% if latest_poll_list %}
+                        {% for poll in latest_poll_list %}
+                        <a href="/eisegesis/{{ poll.id }}/">
                             <div class="card">
-                                <div class="row">
-                                    <div class="col col-md-1 bg-primary">
-                                        <div class="btn-group-vertical mt-2 ml-2 mb-2">
-                                            <a class="btn btn-link text-default mdi mdi-thumb-up" href="#" role="button"></a>
-                                            <h4 class="text-white">0</h4>
-                                            <a class="btn btn-link text-danger mdi mdi-thumb-down" href="#" role="button"></a>
-                                        </div>
-                                    </div>
-                                    <div class="col col-md-10">
-                                        <a href="/eisegesis/{{ poll.id }}/"><h3>{{ poll.PL_TITLE }}</h3></a>
-                                        <p>{{ poll.PL_SHRBODY }}</p> 
-                                        </p><cite title="Source Title">Created by: {{ poll.USER }}</cite>
-                                    </div>
-                                    <div class="col col-md-1 bg-primary">
-                                        <div class="btn-group-vertical mt-2 ml-2 mb-2">
-                                            <a class="btn btn-link text-white mdi mdi-bell" href="#" role="button"></a>
-                                            <a class="btn btn-link text-white mdi mdi-share-variant" href="#" role="button"></a>
-                                            <a class="btn btn-link text-white mdi mdi-alert" href="#" role="button"></a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ poll.PL_TITLE }}</h5>
+                                <p class="text-dark">{{ poll.PL_SHRBODY }}</p>
+                                <p class="card-text"><small class="text-muted">Created by: {{ poll.USER }}</small></p>
                             </div>
-                        </div>
+                            </div>
+                        </a>  
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                     {% else %}
                     <div class="container">
                         <div class="jumbotron">
