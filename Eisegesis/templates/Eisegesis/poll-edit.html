@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>Epitome</title>
+          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a class="btn btn-danger text-white" href="#" role="button">New Issue</a>
+                    </li>
+                    <li class="mt-3">
+                        <a class="mdi mdi-account-box mdi-24px"href="#">Polls</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-location mdi-24px" href="#">Issues</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-multiple-plus mdi-24px" href="#">Proposals</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-search mdi-24px" href="#">Archive</a>
+                    </li>
+                </ul>            </div>
+
+            
+            <nav class="navbar navbar-expand navbar-dark bg-primary">
+                <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
+                    <img class ="text-white" src=img/hbg.svg width="30" height="30" alt="a">
+                </a>
+                <ul class="navbar-nav w-100">
+                  <li class="nav-item dropdown ml-auto">
+                    <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href=>Login </a>
+                        <a class="dropdown-item" href=www.bing.com>Register</a>
+                    </div>
+                  </li>
+                </ul>  
+            </nav>
+            <div id="page-content-wrapper">
+                <div class="container">
+                    <form action="../submit" id="formentry" class="form-horizontal" role="form" data-parsley-validate novalidate>
+                        <div class="container-fluid shadow">
+                            <div class="row">            
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="Textarea1" rows="10">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">voting option 1</label>
+                                        <div class="controls">
+                                            <input id="field2" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId1" type="text"><span id="errId1" class="error"></span>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="form-group">
+                                    <label class="control-label control-label-left col-sm-3" for="field3">Voting option 2</label>
+                                        <div class="controls">
+                                            <input id="field3" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId2" type="text"><span id="errId2" class="error"></span>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field4">Voting option 3</label>
+                                        <div class="controls">
+                                            <input id="field4" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId3" type="text"><span id="errId3" class="error"></span>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="form-group text-center">
+                                        <button id="button6" type="button" class="btn btn-default">Submit</button>
+                                        <button id="button6" type="button" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                </div>
+            </div>
+        </div>
+        <script src="{% static "js/app.min.js"%}"></script>          <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+    </body>
+</html>
