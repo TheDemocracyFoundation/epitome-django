@@ -44,16 +44,21 @@
                   </li>
                 </ul>  
             </nav>
+			{% if poll.PL_ENDDT > nowdt %}
             <div id="page-content-wrapper">
                 <div class="container">
                     <h1>{{ poll.PL_TITLE }}</h1>
                     <h4>Created by: {{ poll.USER }}</h4> 
                     <h6>Duration: {{ poll.PL_STARTDT }} - {{ poll.PL_ENDDT }}</h6>
                     <p>{{ poll.PL_BODY }}</p>
-                    
-                    <button type="button" class="btn btn-outline-primary">Voting option 1</button>
-                    <button type="button" class="btn btn-outline-secondary">Voting option 2</button>
-                    <button type="button" class="btn btn-outline-success">Voting option 3</button>                </div>
+					<form action="{% url 'Eisegesis:vote' poll.id %}" method="post">
+                    {% csrf_token %}
+                    {% for choice in poll.PChoice.all %}                       
+						 <button type="submit" name="choice" class="btn btn-outline-primary" value="{{ choice.id }}">{{ choice.PC_CHOICE }}</button>
+                    {% endfor %}
+					</form>               
+					</div>
+			{% endif %}
             </div>
         </div>
 

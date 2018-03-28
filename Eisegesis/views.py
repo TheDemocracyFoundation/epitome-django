@@ -34,8 +34,8 @@ def moreInfo(request, polls_id):
 
 @login_required(login_url='/user/login/')
 def vote(request, polls_id):
-	poll = get_object_or_404(Polls, pk=polls_id)
-	if Voter.objects.filter(Polls_id=polls_id, user_id=request.user.id).exists():
+	poll = get_object_or_404(Poll, pk=polls_id)
+	if Voter.objects.filter(POLL_id=polls_id, USER_id=request.user.id).exists():
 		messages.add_message(request, messages.INFO, 'You have already voted.')
 		return HttpResponseRedirect(reverse('Eisegesis:index'))#, args=(poll.id,)))
 	else:
@@ -51,9 +51,9 @@ def vote(request, polls_id):
 				'error_message': "You didn't select a choice.",
 			})
 		else:
-			selected_choice.PCHOICE_VOTES += 1
+			selected_choice.PC_VOTES += 1
 			selected_choice.save()
-			v = Voter(user=request.user, Polls=poll)
+			v = Voter(USER=request.user, POLL=poll)
 			v.save()
 			# Always return an HttpResponseRedirect after successfully dealing
 			# with POST data. This prevents data from being posted twice if a
