@@ -32,7 +32,7 @@
             
             <nav class="navbar navbar-expand navbar-dark bg-primary">
                 <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
-                    <img class ="text-white" src=img/hbg.svg width="30" height="30" alt="a">
+                    <img class ="text-white" src="{% static "img/hbg.svg"%}" width="30" height="30" alt="a">
                 </a>
                 <ul class="navbar-nav w-100">
                   <li class="nav-item dropdown ml-auto">
@@ -46,31 +46,17 @@
             </nav>
             <div id="page-content-wrapper">
                 <div class="container">
-                    <form action="../submit" id="formentry" class="form-horizontal" role="form" data-parsley-validate novalidate>
+                    <form action="../submit" id="formentry" class="poll-form" role="form" data-parsley-validate novalidate>
                         <div class="container-fluid shadow">
                             <div class="row">            
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="Textarea1" rows="10">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</textarea>
+                                        {{ VotingOptions.pollbody }}  
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">voting option 1</label>
                                         <div class="controls">
-                                            <input id="field2" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId1" type="text"><span id="errId1" class="error"></span>
-                                        </div>
-                                    </div>
-                    
-                                    <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3" for="field3">Voting option 2</label>
-                                        <div class="controls">
-                                            <input id="field3" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId2" type="text"><span id="errId2" class="error"></span>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field4">Voting option 3</label>
-                                        <div class="controls">
-                                            <input id="field4" class="form-control k-textbox" data-role="text" data-parsley-errors-container="#errId3" type="text"><span id="errId3" class="error"></span>
+                                            {{ VotingOptions.votingoption }}  
                                         </div>
                                     </div>
                     
