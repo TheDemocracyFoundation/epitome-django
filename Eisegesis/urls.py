@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from Eisegesis import views
+from django.urls import path
 
 app_name = 'Eisegesis'
 urlpatterns = [
@@ -9,4 +10,8 @@ urlpatterns = [
 	url(r'^(?P<polls_id>[0-9]+)/$', views.moreInfo, name='moreInfo'),
 	#/eisegesis/5/vote
 	url(r'^(?P<polls_id>[0-9]+)/vote/$', views.vote, name='vote'),
+	#/eisegesis/create
+	url(r'^create/$', views.createPoll, name='createPoll'),
+	#/eisegesis/edit/5/
+	#url(r'^/edit/(?P<polls_id>[0-9]+)/$', views.edit, name='edit'),
 ]

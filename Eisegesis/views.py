@@ -16,7 +16,11 @@ def index(request):
 		'latest_poll_list': latest_poll_list,
 	}
 	return HttpResponse(template.render(context, request))
-
+	
+@login_required(login_url='/user/login/')
+def createPoll(request):
+	template = loader.get_template('Eisegesis/poll-edit.html')
+	return HttpResponse(template.render())
 
 @login_required(login_url='/user/login/')
 def moreInfo(request, polls_id):
