@@ -1,19 +1,11 @@
 from django import forms
+from django.forms import ModelForm
+from Eisegesis.models import Poll
 
-
-
-class VotingOptions(forms.Form):
-    """
-    Form for individual voting options
-    """
-    anchor = forms.CharField(
-                    max_length=100,
-                    widgets = {
-                        'pollbody' : forms.TextInput(attrs={
-                                'type':'text','id':'username', 'class':'form-control','placeholder':'Username','name': 'username', 'required': True, 'autofocus':True
-                            }),
-                        'votingoption' : forms.TextInput(attrs={
-                                'placeholder': 'Add your voting option here...','class':'form-control'
-                            })
-                    },
-                    required=True)
+class PollForm(ModelForm):
+    model = Poll
+    fields = ('Title', 'Body')
+    widgets = {
+        'Title' : forms.TextInput(attrs={'type':'text','id':'Title','class':'form-control','placeholder':'Title','name': 'Title', 'required': True, 'autofocus':True}),
+        'Body' : forms.TextInput(attrs={'type':'text','id':'Body','class':'form-control mt-3','placeholder':'Body','name': 'Body', 'required': True}),
+    }
