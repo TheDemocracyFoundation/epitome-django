@@ -1,7 +1,7 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
+			{% load static %}
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width,initial-scale=1">
           <title>Epitome</title>
@@ -47,16 +47,17 @@
             <div id="page-content-wrapper">
                 <div class="container">
                     <form action="../submit" id="formentry" class="poll-form" role="form" data-parsley-validate novalidate>
+						{% csrf_token %}
                         <div class="container-fluid shadow">
                             <div class="row">            
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        {{ PollForm.Body }}  
+                                        {{ PollForm.PL_BODY }}  
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">voting option 1</label>
                                         <div class="controls">
-                                            {{ PollForm.Title }}  
+                                            {{ PollForm.PL_TITLE }}  
                                         </div>
                                     </div>
                     

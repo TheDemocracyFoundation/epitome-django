@@ -1,11 +1,12 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, Textarea
 from Eisegesis.models import Poll
 
 class PollForm(ModelForm):
-    model = Poll
-    fields = ('Title', 'Body')
-    widgets = {
-        'Title' : forms.TextInput(attrs={'type':'text','id':'Title','class':'form-control','placeholder':'Title','name': 'Title', 'required': True, 'autofocus':True}),
-        'Body' : forms.TextInput(attrs={'type':'text','id':'Body','class':'form-control mt-3','placeholder':'Body','name': 'Body', 'required': True}),
-    }
+	class Meta:
+		model = Poll
+		fields = ('PL_TITLE', 'PL_BODY')
+		widgets = {
+			'PL_TITLE' : Textarea(attrs={'id':'Title','class':'form-control','rows':'10', 'required': True, 'autofocus':True}),
+			'PL_BODY' : forms.TextInput(attrs={'type':'text','id':'Body','class':'form-control mt-3','placeholder':'Body', 'required': True}),
+		}
