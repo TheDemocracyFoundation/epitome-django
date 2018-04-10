@@ -5,9 +5,11 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width,initial-scale=1">
           <title>Epitome</title>
-          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">    </head>
+          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">    
+    </head>
     <body>
         <div id="wrapper">
+            
             <div id="sidebar-wrapper">
                 <!-- Sidebar -->
                 <ul class="sidebar-nav">
@@ -49,24 +51,25 @@
                 {% for message in messages %}
                 <div class="alert alert-success" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong><p>{{ message }}</p></strong></div>
+                    <strong><p>{{ message }}</p></strong>
+                </div>
                 {% endfor %}
                 {% endif %}
                 <div class="container">
-                    <div class="card-columns">
                     {% if latest_poll_list %}
-                        {% for poll in latest_poll_list %}
-                        <a href="/eisegesis/{{ poll.id }}/">
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ poll.PL_TITLE }}</h5>
-                                <p class="text-dark">{{ poll.PL_SHRBODY }}</p>
-                                <p class="card-text"><small class="text-muted">Created by: {{ poll.USER }}</small></p>
-                            </div>
-                            </div>
-                        </a>  
-                        {% endfor %}
-                    </div>
+                        <div class="card-columns">
+                            {% for poll in latest_poll_list %}
+                            <a href="/eisegesis/{{ poll.id }}/">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ poll.PL_TITLE }}</h5>
+                                    <p class="text-dark">{{ poll.PL_SHRBODY }}</p>
+                                    <p class="card-text"><small class="text-muted">Created by: {{ poll.USER }}</small></p>
+                                </div>
+                                </div>
+                            </a> 
+                        </div> 
+                    {% endfor %}
                     {% else %}
                     <div class="container">
                         <div class="jumbotron">
@@ -80,10 +83,10 @@
                         </div>                
                     </div>
                     {% endif %}
-               </div>
+                </div>
             </div>
         </div>
-
+    
          <script src="{% static "js/app.min.js"%}"></script>         <script>
             $(function () {
                 $('[data-toggle="popover"]').popover()
