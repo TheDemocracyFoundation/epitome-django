@@ -17,4 +17,4 @@ urlpatterns = [
 	#url(r'^/edit/(?P<polls_id>[0-9]+)/$', views.edit, name='edit'),
 ]
 
-admin.site.site_header = 'Epitome admin'
+admin.site.site_header = 'Epitome administration'
