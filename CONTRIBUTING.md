@@ -23,7 +23,7 @@ We expect all contributors uphold a positive and respectful behaviour as explain
 
 * Push the changes to your fork and [submit a new pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) with a clear list of what you've done and a descriptive title.
 
-* All contributions must be made under the [AGPL3](LICENSE.txt) license. No transfer of copyright or other rights or permissions is required. All contributors should be listed in the [Authors](AUTHORS.md) file, and all contributors with copyrights must be listed. Specifically add this header in the beggining of each new file:
+* All contributions must be made under the [AGPL3](LICENSE.txt) license. No transfer of copyright or other rights or permissions is required. Specifically add this in the beggining of each new file:
 
 ```
     <one line to give the program's name and a brief idea of what it does.>
