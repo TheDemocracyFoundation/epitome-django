@@ -14,8 +14,6 @@ Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
 
 -----------------------------------
 
-The Epitome project is giving financial rewards to contributors upon successful completion of requested contracts. For more information please read [CONTRACTS.md](CONTRACTS.md).
-
 Installation:
 -----------------------------------
 Please take a look at [DOCUMENTATION.md](DOCUMENTATION.md)
