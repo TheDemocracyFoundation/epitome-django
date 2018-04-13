@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from Eisegesis import views
 from django.urls import path
+from django.contrib import admin
 
 app_name = 'Eisegesis'
 urlpatterns = [
@@ -15,3 +16,5 @@ urlpatterns = [
 	#/eisegesis/edit/5/
 	#url(r'^/edit/(?P<polls_id>[0-9]+)/$', views.edit, name='edit'),
 ]
+
+admin.site.site_header = 'Epitome administration'
