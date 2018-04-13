@@ -18,3 +18,5 @@ urlpatterns = [
 ]
 
 admin.site.site_header = 'Epitome administration'
+admin.site.site_title = 'Epitome administration'
+admin.site.index_title = 'Home'
