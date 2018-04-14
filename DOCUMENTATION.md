@@ -77,15 +77,9 @@ and
 
 `python3 manage.py makemigrations Eisegesis`
 
-and
-
 `python3 manage.py makemigrations Agora`
 
-and
-
 `python3 manage.py makemigrations Propylaea`
-
-and
 
 `python3 manage.py migrate`
 
