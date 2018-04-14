@@ -87,15 +87,13 @@ and
 
 `python3 manage.py runserver`
 
-14) To create an admin account, open a new terminal, re-activate the virtual environment and type and follow the instructions:
+14) To create an admin account, open a new terminal, re-activate the virtual environment with:
 
 `source ~/venvs/Epitome/bin/activate`
 
-and
-
 `cd ~/Epitome`
 
-and
+and follow the instructions after typing:
 
 `python3 manage.py createsuperuser`
 
