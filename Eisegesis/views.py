@@ -3,7 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.utils import timezone
+#from django.utils import timezone # in case timezone is selected
+import datetime
 from django.contrib import messages
 from Eisegesis.forms import PollForm
 
@@ -31,7 +32,7 @@ def moreInfo(request, polls_id):
 	poll = get_object_or_404(Poll, pk=polls_id)
 	#PChoice = get_object_or_404(PollChoice)
 	template = loader.get_template('Eisegesis/poll.html')
-	nowDt = timezone.localtime(timezone.now())
+	nowDt = datetime.datetime.now()  #timezone.localtime(timezone.now()) in case timezone is selected
 	context = {
 		'poll': poll,
 		'nowdt': nowDt,
@@ -51,12 +52,12 @@ def vote(request, polls_id):
 			selected_choice = poll.PChoice.get(pk=request.POST['choice'])
 		except (KeyError, PollChoice.DoesNotExist):						#probably wrong
 			# Redisplay the question voting form.
-			nowDt = timezone.localtime(timezone.now())
+			nowDt = datetime.datetime.now()  #timezone.localtime(timezone.now()) in case timezone is selected
 			return render(request, 'Eisegesis/poll.html', {
 				#'question': question,
 				'poll': poll,
 				'nowdt': nowDt,
-				'error_message': "You didn't select a choice.",
+				'error_message': "Please select a choice.",
 			})
 		else:
 			selected_choice.PC_VOTES += 1
@@ -68,6 +69,3 @@ def vote(request, polls_id):
 			# user hits the Back button.
 			messages.add_message(request, messages.INFO, 'Vote submited successfully.')
 			return HttpResponseRedirect(reverse('Eisegesis:index'))#, args=(poll.id,)))
-
-#def index(request):
-#	return HttpResponse("Hello")
