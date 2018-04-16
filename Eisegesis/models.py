@@ -17,7 +17,7 @@ class Poll(models.Model):
 	PL_TITLE = models.CharField("Title", max_length=200)                                                 # the title of the poll
 	PL_SHRBODY = models.CharField("Short body", max_length=300)                                          # the short body of the poll
 	PL_BODY = models.CharField("Body", max_length=1000)                                                  # the body (main text) of the poll
-	PL_CREATION = models.DateTimeField("Creation date", default = datetime.datetime.now)#timezone.now)                          # the creation date and time of the poll
+	PL_CREATION = models.DateTimeField("Creation date", default = timezone.now)                          # the creation date and time of the poll
 	PL_STARTDT = models.DateTimeField("Starting date")                                                   # the starting date and time of the poll
 	PL_ENDDT = models.DateTimeField("Ending date")                                                       # the ending date and time of the poll
 	PL_DURATION = models.IntegerField("Duration", default=0)                                             # the duration of the poll
@@ -47,7 +47,7 @@ class Issue(models.Model):
 	IS_TITLE = models.CharField("Title", max_length=200)                                                 # the title of the issue
 	IS_SHRBODY = models.CharField("Short body", max_length=300)                                          # the short body of the issue
 	IS_BODY = models.CharField("body", max_length=1000)                                                  # the body (main text) of the issue
-	IS_CREATION = models.DateTimeField("Creation date", default = datetime.datetime.now)#timezone.now)                          # the creation date and time of the issue
+	IS_CREATION = models.DateTimeField("Creation date", default = timezone.now)                          # the creation date and time of the issue
 	IS_CODE2 = models.CharField("Code 2", max_length=200, blank = True)                                  # the code2 of the issue (protocol number, approval number)
 	USER = models.ForeignKey(User, on_delete=models.CASCADE)                                             # the user (admin) who created the issue
 	UGROUP = models.ForeignKey(Group, on_delete=models.CASCADE)                                          # the group of the user that created the issue
