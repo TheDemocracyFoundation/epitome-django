@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=4 Epitome Open Admin
+Comment=Epitome Open Admin
+Encoding=UTF-8
+Exec=bash -c 'xdg-open http://localhost:8000/admin;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_AU]=4 Epitome Open Admin.desktop
