@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Epitome Create Admin
-Comment=Epitome Create Admin
-Encoding=UTF-8
-Exec=bash -c 'source ~/EpitomeVE/bin/activate && cd ~/Epitome && python3 manage.py createsuperuser && xdg-open http://localhost:8000/admin/;$SHELL'
-Icon=utilities-terminal
-Terminal=true
-Type=Application
-Name[en_US]=Epitome Create Admin.desktop
