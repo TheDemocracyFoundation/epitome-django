@@ -3,8 +3,7 @@
 Name=Epitome Autoinstaller
 Comment=Epitome Autoinstaller
 Encoding=UTF-8
-Exec=bash -c 'sudo apt-get update && sudo apt full-upgrade && sudo apt install git && rm -rf ~/Epitome/ && rm -rf ~/Desktop/epitome/ && rm -rf ~/EpitomeVE && cd ~/Desktop && git clone https://github.com/TheDemocracyFoundation/epitome.git && cd ~/Desktop/epitome && git checkout development && sudo apt install python3 && sudo apt install python3-venv && sudo apt install python3-pip && sudo pip3 install --upgrade pip setuptools && cd ~ && mkdir EpitomeVE && python3 -m venv EpitomeVE/ && source ~/EpitomeVE
-/bin/activate && pip3 install --upgrade pip && pip3 install django && django-admin startproject Epitome && cd ~/Desktop/epitome/ && cp -rf * ~/Epitome && rm -rf ~/Desktop/epitome/ && cd ~/Epitome && python3 manage.py makemigrations Eisegesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate && python3 manage.py runserver;$SHELL'
+Exec=bash -c 'sudo apt-get update && sudo apt full-upgrade && sudo apt install git && rm -rf ~/Epitome/ && rm -rf ~/Desktop/epitome/ && rm -rf ~/EpitomeVE && cd ~/Desktop && git clone https://github.com/TheDemocracyFoundation/epitome.git && cd ~/Desktop/epitome && git checkout development && sudo apt install python3 && sudo apt install python3-venv && sudo apt install python3-pip && sudo pip3 install --upgrade pip setuptools && cd ~ && mkdir EpitomeVE && python3 -m venv EpitomeVE/ && source ~/EpitomeVE/bin/activate && pip3 install --upgrade pip && pip3 install django && django-admin startproject Epitome && cd ~/Desktop/epitome/ && cp -rf * ~/Epitome && rm -rf ~/Desktop/epitome/ && cd ~/Epitome && python3 manage.py makemigrations Eisegesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate && python3 manage.py runserver;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application
