@@ -2,7 +2,7 @@
 Name=1 Epitome Autoinstaller (arch)
 Comment=Epitome Autoinstaller (arch)
 Encoding=UTF-8
-Exec=bash -c 'sudo pacman -S git && rm -rf ~/Epitome/ && rm -rf ~/Desktop/epitome/ && rm -rf ~/EpitomeVE && cd ~/Desktop && git clone https://github.com/TheDemocracyFoundation/epitome.git && cd ~/Desktop/epitome && git checkout development && sudo pacman -S python && sudo pacman -S python-virtualenv && sudo pacman -S python-pip && sudo pip3 install --upgrade pip setuptools && cd ~ && mkdir EpitomeVE && python -m venv EpitomeVE/ && source ~/EpitomeVE/bin/activate && pip3 install --upgrade pip && pip3 install django && django-admin startproject Epitome && cd ~/Desktop/epitome/ && cp -rf * ~/Epitome && rm -rf ~/Desktop/epitome/ && cd ~/Epitome && python manage.py makemigrations Eisegesis && python manage.py makemigrations Agora && python manage.py makemigrations Propylaea && python manage.py migrate && exit;$SHELL'
+Exec=bash -c 'rm -rf ~/Epitome/ && rm -rf ~/Desktop/epitome/ && rm -rf ~/EpitomeVE && sudo pacman -S git python python-virtualenv python-pip && cd ~/Desktop && git clone https://github.com/TheDemocracyFoundation/epitome.git && cd ~/Desktop/epitome && git checkout development && sudo pip3 install --upgrade pip setuptools && cd ~ && mkdir EpitomeVE && python -m venv EpitomeVE/ && source ~/EpitomeVE/bin/activate && pip3 install --upgrade pip && pip3 install django && django-admin startproject Epitome && cd ~/Desktop/epitome/ && cp -rf * ~/Epitome && rm -rf ~/Desktop/epitome/ && cd ~/Epitome && python manage.py makemigrations Eisegesis && python manage.py makemigrations Agora && python manage.py makemigrations Propylaea && python manage.py migrate && exit;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application
