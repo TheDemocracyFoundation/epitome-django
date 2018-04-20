@@ -30,6 +30,7 @@ Solution: kill all the processes associated with port 8000 by typing
 
 `sudo fuser -k 8000/tcp`
 
+
 * Issue: pip3: command not found
 
 Type: sudo ln -s /usr/local/bin/pip /bin/pip
