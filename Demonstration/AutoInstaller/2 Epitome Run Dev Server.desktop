@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=2 Epitome Run Server
-Comment=Epitome Run Server
+Name=2 Epitome Run Dev Server
+Comment=Epitome Run Dev Server
 Encoding=UTF-8
 Exec=bash -c 'source ~/EpitomeVE/bin/activate && cd ~/Epitome && python3 manage.py runserver;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application
-Name[en_AU]=2 Epitome Run Server.desktop
+Name[en_AU]=2 Epitome Run Dev Server.desktop
