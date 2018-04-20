@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Epitome Uninstaller
+Comment=Epitome Uninstaller
+Encoding=UTF-8
+Exec=bash -c 'rm -rf ~/Epitome/ && rm -rf ~/Desktop/epitome/ && rm -rf ~/EpitomeVE;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_US]=Epitome Uninstaller.desktop
