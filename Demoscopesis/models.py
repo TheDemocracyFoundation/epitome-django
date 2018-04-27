@@ -8,6 +8,9 @@ class PollCat(models.Model):
 	PCAT_CAT = models.CharField("Poll category", max_length=100)                                         # the category of the poll
 	def __str__(self):
 		return self.PCAT_CAT
+	class Meta:
+		verbose_name = 'Poll category'
+		verbose_name_plural = 'Poll categories'
 
 
 class Poll(models.Model):
