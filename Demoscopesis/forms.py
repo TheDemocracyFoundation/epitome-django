@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, Textarea
-from Eisegesis.models import Poll
+from Demoscopesis.models import Poll
 
 class PollForm(ModelForm):
 	class Meta:

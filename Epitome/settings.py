@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Agora',
     'Propylaea',
-    'Eisegesis',
+    'Demoscopesis',
 ]
 
 MIDDLEWARE = [

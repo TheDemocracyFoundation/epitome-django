@@ -24,14 +24,14 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     #url(r'^home/', views.homePage, name='home'),
     #url(r'^user/', include('Propylaea.urls', namespace="Propylaea")),
-    #url(r'^eisegesis/', include('Eisegesis.urls', namespace="Eisegesis")),
+    #url(r'^demoscopesis/', include('demoscopesis.urls', namespace="demoscopesis")),
     #url(r'^.*/$', RedirectView.as_view(url='/home/')),
     #url(r'^$', RedirectView.as_view(url='/home/'))
 	
 	path('admin/', admin.site.urls),
 	path('home/', views.homePage, name='home'),
 	path('user/', include('Propylaea.urls', namespace='Propylaea')),
-	path('eisegesis/', include('Eisegesis.urls', namespace='Eisegesis')),
+	path('demoscopesis/', include('Demoscopesis.urls', namespace='Demoscopesis')),
 	url(r'^.*/$', RedirectView.as_view(url='/home/')),
     url(r'^$', RedirectView.as_view(url='/home/')),
 ]

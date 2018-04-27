@@ -15,7 +15,7 @@ def SignUpV(request):
 				user.set_password(user.password)
 				user.save()				# Change sign up flag to true
 				signedUp = True
-				return HttpResponseRedirect('/eisegesis/')
+				return HttpResponseRedirect('/demoscopesis/')
 			except:
 				signedUp = False
 		else:
@@ -52,7 +52,7 @@ def LogIn(request):
 		if user is not None:					# User valid
 			if user.is_active:
 				login(request, user)
-				return HttpResponseRedirect('/eisegesis/')
+				return HttpResponseRedirect('/demoscopesis/')
 			else:
 				return HttpResponse("Your account is disabled.")
 		else:
