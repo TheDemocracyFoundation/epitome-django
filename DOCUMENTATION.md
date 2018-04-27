@@ -75,7 +75,7 @@ Install django
 
 and
 
-`python3 manage.py makemigrations Eisegesis`
+`python3 manage.py makemigrations Demoscopesis`
 
 `python3 manage.py makemigrations Agora`
 
@@ -200,7 +200,7 @@ Solution: kill all the processes associated with port 8000 by typing
 
 * Issue: Import error, No module named urls
 
-Solution: Change line in file Eisegesis/views.py
+Solution: Change line in file Demoscopesis/views.py
 
 `from django.url import reverse`
 
