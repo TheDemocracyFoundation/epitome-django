@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=5 Open Epitome
+Comment=Open Epitome
+Encoding=UTF-8
+Exec=bash -c 'xdg-open http://localhost:8000/user/login;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_AU]=5 Open Epitome.desktop

@@ -1,7 +1,0 @@
-# Welcome to the Epitome project
-
-<p align="justify">The Epitome project is giving financial rewards to contributors upon successful completion of requested contracts. Such contracts may involve the contribution of code to fix a bug, improvements in existing code or implementation of new features. Contracts will be written in Google Docs, so that interested individuals will be able add comments to the document and ask questions. Successful contributions will be rewarded based on quality (best solution wins) or on chronological order for similar quality contributions. If your contribution is incomplete or improvement is required to successfully fulfill the requested implementations of the contract, then the contributor must improve their contribution according to feedback from the project maintainers, and must do so prior to another successful contribution. Further improving rewarded contributions from the same or different contributors will not result in a reward, except if explicitly stated by the project maintainers. 
-
-To receive a reward, after your contribution has been selected, please send a personal message to user [MavropaliasG](https://github.com/MavropaliasG) with your PayPal information. All contributions must be made under the [AGPL3](LICENSE.txt) licence (for more info read [CONTRIBUTING.md](CONTRIBUTING.md)).
-
-This is a list for requested contracts and their respectful rewards:

@@ -2,47 +2,108 @@
 <!DOCTYPE html>
 <html>
     <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <title>Epitome</title>
-          <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">    </head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Epitome</title>
+        <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">
+        </head>
     <body>
-        <nav class="navbar navbar-expand navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand float-left" href="/eisegesis/">
-                    <img class ="text-white" src="{% static "img/x.svg"%}" width="30" height="30" alt=""></img>
-                </a>
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a class="btn btn-danger text-white" href="#" role="button">New Issue</a>
+                    </li>
+                    <li class="mt-3">
+                        <a class="mdi mdi-account-box mdi-24px"href="#">Polls</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-location mdi-24px" href="#">Issues</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-multiple-plus mdi-24px" href="#">Proposals</a>
+                    </li>
+                    <li>
+                        <a class="mdi mdi-account-search mdi-24px" href="#">Archive</a>
+                    </li>
+                </ul>            
             </div>
-        </nav>        
-        <div class="bg-secondary">
-            <div class="container">
-                <p>&zwnj;</p>
-                <h1 class="text-primary">{{ poll.PL_TITLE }}</h1>
-                <h4>Created by: <span class="text-danger">{{ poll.USER }}</span>, created on: <span class="text-danger">{{ poll.PL_CREATION }}</span></h4>
-                <p>&zwnj;</p>
-            </div>       
-        </div>
-        <div class="container">
-            <p>
-                {{ poll.PL_BODY }}
-            </p>
-
+            
+            <nav class="navbar navbar-expand navbar-dark bg-primary">
+                <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
+                    <img class ="text-white" src="{% static "img/hbg.svg"%}" width="30" height="30" alt="a">
+                </a>
+                <ul class="navbar-nav w-100">
+                  <li class="nav-item dropdown ml-auto">
+                    <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href=#>User </a>
+                        <a class="dropdown-item" href="/user/logout">Logout</a>
+                    </div>
+                  </li>
+                </ul>  
+            </nav>
             {% if poll.PL_ENDDT > nowdt %}
-                    <form action="{% url 'Eisegesis:vote' poll.id %}" method="post">
-                    {% csrf_token %}
-                    {% for choice in poll.PollChoice.all %}
-                        <button type="submit" name="choice" class="btn btn-primary" value="{{ choice.id }}">{{ choice.PC_CHOICE }}</button>
-                    {% endfor %}
-                </form>
+                <div id="page-content-wrapper">
+                        <div class="container">
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <h4>Created by: {{ poll.USER }}<span></span> on: {{ poll.PL_STARTDT }}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="card-title">{{ poll.PL_TITLE }}</h1>
+                                    <h3 >Subtitle</h3>
+                                    <p class="card-text">{{ poll.PL_BODY }}</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    {% csrf_token %}
+                                    {% for choice in poll.PChoice.all %}                       
+                                        <button type="submit" name="choice" class="btn btn-outline-primary" value="{{ choice.id }}">{{ choice.PC_CHOICE }}</button>
+                                    {% endfor %}
+                                    <a class="btn btn-danger" href="/eisegesis" role="button">Cancel</a>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
             {% else %}
-                <div class="text-center">
-                {% for choice in poll.PollChoice.all %}
-                        <p> {{ choice.PC_CHOICE }}  =  {{ choice.PC_VOTES }} </p>
-                {% endfor %}
-                <div class="ct-chart ct-perfect-fourth"></div>
+            <div id="page-content-wrapper">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4>Results</h4>
+                        </div>
+                        <div class="card-body">
+							   {% for choice in poll.PChoice.all %}
+                            <h4>{{ choice.PC_CHOICE }}</h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="card-footer text-center">
+                            <h4>Total number of voters: <span class="text-danger">50</span></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-3">
+                      <div class="card-header">
+                        <h4>Created by: {{ poll.USER }}<span></span>, on {{ poll.PL_STARTDT }}</h4>
+                      </div>
+                      <div class="card-body">
+                        <h1 class="card-title">{{ poll.PL_TITLE }}</h1>
+                        <p class="card-text">{{ poll.PL_BODY }}</p>
+                      </div>
+                    </div>                
                 </div>
+            </div>
             {% endif %}
         </div>
-        <script src="js/app.min.js"></script> 
+
+         <script src="{% static "js/app.min.js"%}"></script>         <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
     </body>
 </html>
