@@ -27,8 +27,8 @@
                     <li>
                         <a class="mdi mdi-account-search mdi-24px" href="#">Archive</a>
                     </li>
-                </ul>            </div>
-
+                </ul>            
+            </div>
             
             <nav class="navbar navbar-expand navbar-dark bg-primary">
                 <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
@@ -38,8 +38,8 @@
                   <li class="nav-item dropdown ml-auto">
                     <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href=>Login </a>
-                        <a class="dropdown-item" href=www.bing.com>Register</a>
+                        <a class="dropdown-item" href=#>User </a>
+                        <a class="dropdown-item" href="/user/logout">Logout</a>
                     </div>
                   </li>
                 </ul>  
@@ -61,7 +61,7 @@
                                     {% for choice in poll.PChoice.all %}                       
                                         <button type="submit" name="choice" class="btn btn-outline-primary" value="{{ choice.id }}">{{ choice.PC_CHOICE }}</button>
                                     {% endfor %}
-                                <a class="btn btn-danger" href="/eisegesis" role="button">Cancel</a>
+                                    <a class="btn btn-danger" href="/eisegesis" role="button">Cancel</a>
                                 </div>
                             </div>  
                         </div>
