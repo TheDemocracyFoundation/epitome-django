@@ -115,7 +115,8 @@ You should now have a working instance of Epitome.
 
 1) Enter the Admin page by inserting your information.
 
-![admin-login-page](/Demonstration/admin-login-page.png)
+<img src="https://imgur.com/bg02gpF">
+
 
 2) This will bring you to the admin landing page.
 
