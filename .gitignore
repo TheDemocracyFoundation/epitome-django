@@ -100,7 +100,7 @@ settings.py
 
 # Migrations
 Agora/migrations/
-Eisegesis/migrations/
+Demoscopesis/migrations/
 
 #.bak files
 *.bak
