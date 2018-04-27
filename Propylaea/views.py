@@ -34,7 +34,7 @@ def SignUpV(request):
 			'LoginForm': LoginForm,
 		}
 		return HttpResponse(template.render(context, request))
-		#return HttpResponseRedirect('/Eisegesis/Eisegesis')
+		#return HttpResponseRedirect('/Demoscopesis/Demoscopesis')
 		#return render(request, 'Propylaea/login_register.html', {'SignUpForm': SignUpForm, 'LoginForm': LoginForm})
 
 def LogIn(request):
