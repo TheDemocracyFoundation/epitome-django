@@ -3,8 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-#from django.utils import timezone # in case timezone is selected
-import datetime
+from django.utils import timezone
 from django.contrib import messages
 from Eisegesis.forms import PollForm
 
@@ -32,7 +31,7 @@ def moreInfo(request, polls_id):
 	poll = get_object_or_404(Poll, pk=polls_id)
 	#PChoice = get_object_or_404(PollChoice)
 	template = loader.get_template('Eisegesis/poll.html')
-	nowDt = datetime.datetime.now()  #timezone.localtime(timezone.now()) in case timezone is selected
+	nowDt = timezone.localtime(timezone.now())
 	context = {
 		'poll': poll,
 		'nowdt': nowDt,
@@ -52,7 +51,7 @@ def vote(request, polls_id):
 			selected_choice = poll.PChoice.get(pk=request.POST['choice'])
 		except (KeyError, PollChoice.DoesNotExist):						#probably wrong
 			# Redisplay the question voting form.
-			nowDt = datetime.datetime.now()  #timezone.localtime(timezone.now()) in case timezone is selected
+			nowDt = timezone.localtime(timezone.now())
 			return render(request, 'Eisegesis/poll.html', {
 				#'question': question,
 				'poll': poll,
