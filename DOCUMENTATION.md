@@ -38,15 +38,15 @@ and
 
 and
 
-`mkdir venvs`
+`mkdir EpitomeVE`
 
 7) Specify the system python3 installation:
 
-`python3 -m venv venvs/Epitome`
+`python3 -m venv EpitomeVE/`
 
 8) Activate the virtual environment:
 
-`source ~/venvs/Epitome/bin/activate`
+`source ~/EpitomeVE/bin/activate`
 
 upgrade pip3 again in case it requires it
 
@@ -89,7 +89,7 @@ and
 
 14) To create an admin account, open a new terminal, re-activate the virtual environment with:
 
-`source ~/venvs/Epitome/bin/activate`
+`source ~/EpitomeVE/bin/activate`
 
 `cd ~/Epitome`
 
