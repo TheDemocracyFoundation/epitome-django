@@ -32,43 +32,43 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Title</label>
-                                        <div id="options" class="controls">
+                                        <div id="title" class="controls">
                                             {{ PollForm.PL_TITLE }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Short Body</label>
-                                        <div id="options" class="controls">
+                                        <div id="shBody" class="controls">
                                             {{ PollForm.PL_SHRBODY }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Body</label>
-                                        <div id="options" class="controls">
+                                        <div id="body" class="controls">
                                             {{ PollForm.PL_BODY }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Start Date</label>
-                                        <div id="options" class="controls">
+                                        <div id="startDt" class="controls">
                                             {{ PollForm.PL_STARTDT }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">End Date</label>
-                                        <div id="options" class="controls">
+                                        <div id="endDt" class="controls">
                                             {{ PollForm.PL_ENDDT }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Code</label>
-                                        <div id="options" class="controls">
+                                        <div id="code" class="controls">
                                             {{ PollForm.PL_CODE }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Category</label>
-                                        <div id="options" class="controls">
+                                        <div id="category" class="controls">
                                             {{ PollForm.POLLCAT }} 
                                         </div>
                                     </div>
@@ -94,13 +94,13 @@
                 $('[data-toggle="popover"]').popover()
             })
             function addOption(){
-                var group = document.getElementById("options");
+                var group = document.getElementById("category");
                 var content = document.createRange().createContextualFragment(`<input class="form-control mt-2" type="text">`)
                 group.appendChild(content)
             }
 
             function removeOption(){
-                var parent = document.getElementById('options');
+                var parent = document.getElementById('category');
                 if (parent.hasChildNodes){
                     parent.removeChild(parent.lastChild);
                 }else{
