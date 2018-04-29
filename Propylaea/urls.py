@@ -1,10 +1,9 @@
-from django.conf.urls import url
+from django.urls import re_path
 from Propylaea import views
 
 app_name = 'Propylaea'
 urlpatterns = [
-    #~ url(r'^$', views.UserIndex, name='index'),
-    url(r'^signup', views.SignUpV, name='signup'),
-    url(r'^login', views.LogIn, name='login'),
-    url(r'^logout', views.UsrLogout, name='logout')
+    re_path(r'^signup', views.SignUpV, name='signup'),
+    re_path(r'^login', views.LogIn, name='login'),
+    re_path(r'^logout', views.UsrLogout, name='logout')
 ]
