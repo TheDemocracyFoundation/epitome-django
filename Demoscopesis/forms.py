@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, Textarea
-from Demoscopesis.models import Poll
+from Demoscopesis.models import Poll, PollChoice
 
 class PollForm(ModelForm):
 	class Meta:
@@ -13,5 +13,13 @@ class PollForm(ModelForm):
 			'PL_STARTDT' : forms.TextInput(attrs={'type':'date','id':'startdate','class':'form-control','required': True}),
 			'PL_ENDDT' : forms.TextInput(attrs={'type':'date','id':'enddate','class':'form-control','required': True}),
 			'PL_CODE' : forms.TextInput(attrs={'type':'text','id':'code','class':'form-control','required': True}),
-			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'code','class':'form-control','required': True}),
+			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'category','class':'form-control','required': True})
+		}
+
+class PollChoiceForm(ModelForm):
+	class Meta:
+		model = PollChoice
+		fields = ('PC_CHOICE',) # Fields is not a String, comma is needed.
+		widgets = {
+			'PC_CHOICE' : forms.TextInput(attrs={'type':'text','class':'form-control','required': True})
 		}

@@ -72,6 +72,12 @@
                                             {{ PollForm.POLLCAT }} 
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Voting Choices</label>
+                                        <div id="choice" class="controls">
+                                            {{ PollChoiceForm.PC_CHOICE }} 
+                                        </div>
+                                    </div>
                     
                                     <div class="form-group text-center">
                                         <div class="form-group text-center">
@@ -94,13 +100,13 @@
                 $('[data-toggle="popover"]').popover()
             })
             function addOption(){
-                var group = document.getElementById("category");
+                var group = document.getElementById("choice");
                 var content = document.createRange().createContextualFragment(`<input class="form-control mt-2" type="text">`)
                 group.appendChild(content)
             }
 
             function removeOption(){
-                var parent = document.getElementById('category');
+                var parent = document.getElementById("choice");
                 if (parent.children.length > 1){
                     parent.removeChild(parent.lastChild);
                 }

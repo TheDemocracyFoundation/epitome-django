@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib import messages
-from Demoscopesis.forms import PollForm
+from Demoscopesis.forms import PollForm, PollChoiceForm
 
 from .models import Poll, PollChoice, Voter
 
@@ -23,6 +23,7 @@ def createPoll(request):
 	template = loader.get_template('Demoscopesis/poll-edit.html')
 	context = {
 		'PollForm': PollForm,
+		'PollChoiceForm' : PollChoiceForm
 	}
 	return HttpResponse(template.render(context, request))
 
