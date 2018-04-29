@@ -8,38 +8,17 @@
           <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">
     </head>
     <body>
-        <div id="wrapper">
-            <div id="sidebar-wrapper">
-                <!-- Sidebar -->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a class="btn btn-danger text-white" href="#" role="button">New Issue</a>
-                    </li>
-                    <li class="mt-3">
-                        <a class="mdi mdi-account-box mdi-24px"href="#">Polls</a>
-                    </li>
-                    <li>
-                        <a class="mdi mdi-account-location mdi-24px" href="#">Issues</a>
-                    </li>
-                    <li>
-                        <a class="mdi mdi-account-multiple-plus mdi-24px" href="#">Proposals</a>
-                    </li>
-                    <li>
-                        <a class="mdi mdi-account-search mdi-24px" href="#">Archive</a>
-                    </li>
-                </ul>            </div>
-
-            
+        <div id="wrapper">            
             <nav class="navbar navbar-expand navbar-dark bg-primary">
-                <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
-                    <img class ="text-white" src="{% static "img/hbg.svg"%}" width="30" height="30" alt="a">
+                <a class="navbar-brand float-left" href="javascript:history.back()">
+                    <img class ="text-white" src="{% static "img/x.svg"%}" width="30" height="30" alt="a">
                 </a>
                 <ul class="navbar-nav w-100">
                   <li class="nav-item dropdown ml-auto">
                     <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="">Login </a>
-                        <a class="dropdown-item" href="">Register</a>
+                        <a class="dropdown-item" href="">User </a>
+                        <a class="dropdown-item" href="/user/logout">Logout</a>
                     </div>
                   </li>
                 </ul>  
@@ -52,12 +31,45 @@
                             <div class="row">            
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        {{ PollForm.PL_TITLE }}
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Title</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.PL_TITLE }} 
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Voting Options</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Short Body</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.PL_SHRBODY }} 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Body</label>
                                         <div id="options" class="controls">
                                             {{ PollForm.PL_BODY }} 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Start Date</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.PL_STARTDT }} 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">End Date</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.PL_ENDDT }} 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Code</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.PL_CODE }} 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label control-label-left col-sm-3" for="field2">Category</label>
+                                        <div id="options" class="controls">
+                                            {{ PollForm.POLLCAT }} 
                                         </div>
                                     </div>
                     
@@ -72,7 +84,8 @@
                                 </div>
                             </div>
                         </div>
-                    </form>                </div>
+                    </form>                
+                </div>
             </div>
         </div>
         <script src="{% static "js/app.min.js"%}"></script>          
@@ -93,7 +106,6 @@
                 }else{
                     console.log("Nothing to remove")
                 }
-                
             }
         </script>
     </body>
