@@ -48,7 +48,7 @@
             </nav>
             <div id="page-content-wrapper">
                 <div class="container">
-                    <form action="../submit" id="formentry" class="poll-form" role="form" data-parsley-validate novalidate>
+                    <form action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
 						{% csrf_token %}
                         <div class="container-fluid shadow">
                             <div class="row">            
@@ -98,7 +98,7 @@
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Voting Choices</label>
                                         <div id="choice" class="controls">
-                                            {{ PollChoiceForm.PC_CHOICE }} 
+                                            {{ PollChoiceFormSet.as_p }} 
                                         </div>
                                     </div>
                     
