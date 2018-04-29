@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, Textarea
+from django.forms import ModelForm, Textarea, inlineformset_factory
 from Demoscopesis.models import Poll, PollChoice
 
 class PollForm(ModelForm):
@@ -23,3 +23,5 @@ class PollChoiceForm(ModelForm):
 		widgets = {
 			'PC_CHOICE' : forms.TextInput(attrs={'type':'text','class':'form-control','required': True})
 		}
+		
+PollChoiceFormSet = inlineformset_factory(Poll, PollChoice, form=PollChoiceForm)
