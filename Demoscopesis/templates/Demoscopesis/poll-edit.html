@@ -101,10 +101,8 @@
 
             function removeOption(){
                 var parent = document.getElementById('category');
-                if (parent.hasChildNodes){
+                if (parent.children.length > 1){
                     parent.removeChild(parent.lastChild);
-                }else{
-                    console.log("Nothing to remove")
                 }
             }
         </script>
