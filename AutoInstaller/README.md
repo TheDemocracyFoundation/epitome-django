@@ -1,3 +1,5 @@
+# Epitome Autoinstaller instructions
+
 In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured. It is recommended you fully update and upgrade your system before you begin the setup.
 
 In order to install epitome to your system and set up the server, you should run the files by order.
