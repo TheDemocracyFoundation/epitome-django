@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=1 AutoInstaller
+Comment=1 AutoInstaller
+Encoding=UTF-8
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x AutoInstaller.sh && ./AutoInstaller.sh && exit;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_US]=1 AutoInstaller.desktop
