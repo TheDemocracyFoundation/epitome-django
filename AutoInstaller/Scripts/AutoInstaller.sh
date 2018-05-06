@@ -38,8 +38,6 @@ if type apt 2> /dev/null; then
    
 elif type dnf 2> /dev/null; then
    sudo dnf install git python3 python3-virtualenv python3-pip
-
-   sudo apt-get install git python3 python3-venv python3-pip
    
    # Clone Epitome repository
    cd ~/Desktop
@@ -65,9 +63,7 @@ elif type dnf 2> /dev/null; then
    pip install --upgrade pip
 elif type pacman 2> /dev/null; then
    sudo pacman -S git python python-virtualenv python-pip
-   
-   sudo apt-get install git python3 python3-venv python3-pip
-   
+      
    # Clone Epitome repository
    cd ~/Desktop
 
