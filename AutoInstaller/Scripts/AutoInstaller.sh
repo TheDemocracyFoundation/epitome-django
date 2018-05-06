@@ -9,40 +9,91 @@ rm -rf ~/Desktop/epitome/
 
 rm -rf ~/EpitomeVE
 
-# Find out the installed package manager and install required packages
+# Find out the installed package manager and customize the subsequent scripts
 if type apt 2> /dev/null; then
    sudo apt-get install git python3 python3-venv python3-pip
+   
+   # Clone Epitome repository
+   cd ~/Desktop
+
+   git clone https://github.com/TheDemocracyFoundation/epitome.git
+
+   cd ~/Desktop/epitome
+
+   git checkout development
+
+   # Install pip and activate the python virtual environment
+
+   sudo pip install --upgrade pip setuptools
+
+   cd ~
+
+   mkdir EpitomeVEs
+
+   python3 -m venv EpitomeVE/
+
+   source ~/EpitomeVE/bin/activate
+
+   pip install --upgrade pip
+   
 elif type dnf 2> /dev/null; then
    sudo dnf install git python3 python3-virtualenv python3-pip
+
+   sudo apt-get install git python3 python3-venv python3-pip
+   
+   # Clone Epitome repository
+   cd ~/Desktop
+
+   git clone https://github.com/TheDemocracyFoundation/epitome.git
+
+   cd ~/Desktop/epitome
+
+   git checkout development
+
+   # Install pip and activate the python virtual environment
+
+   sudo pip install --upgrade pip setuptools
+
+   cd ~
+
+   mkdir EpitomeVE
+
+   python3 -m virtualenv EpitomeVE/
+
+   source ~/EpitomeVE/bin/activate
+
+   pip install --upgrade pip
 elif type pacman 2> /dev/null; then
    sudo pacman -S git python python-virtualenv python-pip
+   
+   sudo apt-get install git python3 python3-venv python3-pip
+   
+   # Clone Epitome repository
+   cd ~/Desktop
+
+   git clone https://github.com/TheDemocracyFoundation/epitome.git
+
+   cd ~/Desktop/epitome
+
+   git checkout development
+
+   # Install pip and activate the python virtual environment
+
+   sudo pip install --upgrade pip setuptools
+
+   cd ~
+
+   mkdir EpitomeVE
+
+   python3 -m venv EpitomeVE/
+
+   source ~/EpitomeVE/bin/activate
+
+   pip install --upgrade pip
 else
    echo "Supported package manager not found (apt, dnf, pacman)" >&2
    exit 1
 fi
-
-# Clone Epitome repository
-cd ~/Desktop
-
-git clone https://github.com/TheDemocracyFoundation/epitome.git
-
-cd ~/Desktop/epitome
-
-git checkout development
-
-# Install pip and activate the python virtual environment
-
-sudo pip install --upgrade pip setuptools
-
-cd ~
-
-mkdir EpitomeVE
-
-python3 -m venv EpitomeVE/
-
-source ~/EpitomeVE/bin/activate
-
-pip install --upgrade pip
 
 # Install django and make migrations
 
