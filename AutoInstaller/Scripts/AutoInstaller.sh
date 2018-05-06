@@ -32,7 +32,7 @@ git checkout development
 
 # Install pip and activate the python virtual environment
 
-sudo pip3 install --upgrade pip setuptools
+sudo pip install --upgrade pip setuptools
 
 cd ~
 
@@ -42,11 +42,11 @@ python3 -m venv EpitomeVE/
 
 source ~/EpitomeVE/bin/activate
 
-pip3 install --upgrade pip
+pip install --upgrade pip
 
 # Install django and make migrations
 
-pip3 install django
+pip install django
 
 mkdir ~/Epitome/
 
