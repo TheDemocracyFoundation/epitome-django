@@ -16,12 +16,14 @@ Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
 
 Installation:
 -----------------------------------
-Please take a look at [DOCUMENTATION.md](DOCUMENTATION.md)
+For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
+
+For manual installation take a look at [DOCUMENTATION.md](DOCUMENTATION.md)
 
 Contributions:
 -----------------------------------
 
-Please take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
+Take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
 
 -----------------------------------
 
