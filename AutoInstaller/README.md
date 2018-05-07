@@ -31,7 +31,7 @@ For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 ## Troubleshooting
 
-##### Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
+#### Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
 
 Solution: type 
 
@@ -55,12 +55,12 @@ And scroll down to the bottom of the document and enter the following:
 
 Ctrl + X will quit the editor and you will be asked if you want to save your changes. Press Y for Yes.
 
-##### Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
+#### Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
 
-	Solution: kill all the processes associated with port 8000 by typing 
+Solution: kill all the processes associated with port 8000 by typing 
 
-	`sudo fuser -k 8000/tcp`
+`sudo fuser -k 8000/tcp`
 
-##### Issue: pip3: command not found
+#### Issue: pip3: command not found
 
-	Type: `sudo ln -s /usr/local/bin/pip /bin/pip`
+Type: `sudo ln -s /usr/local/bin/pip /bin/pip`
