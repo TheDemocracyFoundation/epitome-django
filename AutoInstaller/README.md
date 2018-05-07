@@ -63,4 +63,4 @@ For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 ##### Issue: pip3: command not found
 
-Type: `sudo ln -s /usr/local/bin/pip /bin/pip`
+	Type: `sudo ln -s /usr/local/bin/pip /bin/pip`
