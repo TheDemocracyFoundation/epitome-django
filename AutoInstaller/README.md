@@ -4,7 +4,7 @@ In order to run the autoinstaller for your system, you should have a non-root us
 
 In order to install epitome to your system and set up the server, you should run the files by order.
 
-* **1 AutoInstaller**: Currently the package managers supported are apt, dnf and pacman. This file will download required packages, download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app. HOWEVER, we still haven't found a way to copy the secret key in the settings.py file that was created from the django project, in the settings.py file that was downloaded from the repository. You currently need to create your own key and put that in the field. If that step is important to you, it is recommended that you follow the documentation file to install epitome manually.
+* **1 AutoInstaller**: Currently the package managers supported are apt, dnf and pacman. This file will download required packages, download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
 * **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will start the server, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file.
 
@@ -28,6 +28,8 @@ For Debian: git, python3, python3-venv, python3-pip
 For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 * **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents.
+
+Please note that you currently need to create your own secret key and put that in the settings.py file inside the folder Epitome.
 
 # Troubleshooting
 
