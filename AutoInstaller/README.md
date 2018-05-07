@@ -1,6 +1,6 @@
 # Epitome Autoinstaller
 
-In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured. It is recommended you fully update and upgrade your system before you begin the setup.
+In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured (check troubleshooting below if you don't know how to do this). It is recommended you fully update and upgrade your system before you begin the setup.
 
 In order to install epitome to your system and set up the server, you should run the files by order.
 
@@ -28,7 +28,6 @@ For Debian: git, python3, python3-venv, python3-pip
 For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 * **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents.
-
 
 ### Troubleshooting
 
