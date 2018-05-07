@@ -29,39 +29,38 @@ For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 * **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents.
 
-### Troubleshooting
+## Troubleshooting
 
-* Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
+##### Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
 
-Solution: type 
+	Solution: type 
 
- `su`
+	`su`
  
- On Debian:
+	On Debian:
 
-`apt-get install sudo nano`
+	`apt-get install sudo nano`
 
-On Fedora:
+	On Fedora:
 
-`dnf install sudo nano`
+	`dnf install sudo nano`
 
-Type:
+	Type:
 
-`EDITOR=nano visudo`
+	`EDITOR=nano visudo`
 
-And scroll down to the bottom of the document and enter the following:
+	And scroll down to the bottom of the document and enter the following:
 
-`your_username_here ALL=(ALL)       ALL`
+	`your_username_here ALL=(ALL)       ALL`
 
-Ctrl + X will quit the editor and you will be asked if you want to save your changes. Press Y for Yes.
+	Ctrl + X will quit the editor and you will be asked if you want to save your changes. Press Y for Yes.
 
-* Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
+##### Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
 
-Solution: kill all the processes associated with port 8000 by typing 
+	Solution: kill all the processes associated with port 8000 by typing 
 
-`sudo fuser -k 8000/tcp`
+	`sudo fuser -k 8000/tcp`
 
-
-* Issue: pip3: command not found
+##### Issue: pip3: command not found
 
 Type: `sudo ln -s /usr/local/bin/pip /bin/pip`
