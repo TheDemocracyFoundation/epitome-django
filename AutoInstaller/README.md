@@ -1,4 +1,4 @@
-# Epitome Autoinstaller instructions
+# Epitome Autoinstaller
 
 In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured. It is recommended you fully update and upgrade your system before you begin the setup.
 
@@ -32,7 +32,7 @@ For Red Hat: git, python3, python3-virtualenv, python3-pip
 
 ### Troubleshooting
 
-* Issue: user is not in sudoers file
+* Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
 
 Solution: type 
 
@@ -54,6 +54,7 @@ And scroll down to the bottom of the document and enter the following:
 
 `your_username_here ALL=(ALL)       ALL`
 
+Ctrl + X will quit the editor and you will be asked if you want to save your changes. Press Y for Yes.
 
 * Issue: You try to run the server again after you closed it and you get the message "Error: That port is already in use."
 
