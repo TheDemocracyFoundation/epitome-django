@@ -28,7 +28,7 @@ if type apt 2> /dev/null; then
 
    cd ~
 
-   mkdir EpitomeVEs
+   mkdir EpitomeVE
 
    python3 -m venv EpitomeVE/
 
