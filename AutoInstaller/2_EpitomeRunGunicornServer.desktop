@@ -2,7 +2,7 @@
 Name=2 (optional) Epitome Run Gunicorn WSGI server
 Comment=Epitome Run Gunicorn WSGI server
 Encoding=UTF-8
-Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 2gunicorn.sh && ./2gunicorn.sh;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 2optionalgunicorn.sh && ./2optionalgunicorn.sh;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application
