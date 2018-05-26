@@ -2,7 +2,7 @@
 Name=1 AutoInstaller
 Comment=1 AutoInstaller
 Encoding=UTF-8
-Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x autoinstaller.sh && ./autoinstaller.sh && exit;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 1autoinstaller.sh && ./1autoinstaller.sh && exit;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application

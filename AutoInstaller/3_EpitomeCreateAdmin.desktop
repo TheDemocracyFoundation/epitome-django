@@ -2,7 +2,7 @@
 Name=3 Epitome Create Admin
 Comment=Epitome Create Admin
 Encoding=UTF-8
-Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x createadmin.sh && ./createadmin.sh && exit;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 3createadmin.sh && ./3createadmin.sh && exit;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application

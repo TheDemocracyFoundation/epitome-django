@@ -2,7 +2,7 @@
 Name=4 Epitome Open Admin
 Comment=Epitome Open Admin
 Encoding=UTF-8
-Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x openadmin.sh && ./openadmin.sh;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 4openadmin.sh && ./4openadmin.sh;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application
