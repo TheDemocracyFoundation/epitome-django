@@ -2,7 +2,7 @@
 Name=4 Epitome Open Admin
 Comment=Epitome Open Admin
 Encoding=UTF-8
-Exec=bash -c 'xdg-open http://localhost:8000/admin;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x openadmin.sh && ./openadmin.sh;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application

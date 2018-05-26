@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Epitome Updater
+Comment=Epitome Updater
+Encoding=UTF-8
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x epitomeupdate.sh && ./epitomeupdate.sh && exit;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_US]=Epitome Updater.desktop

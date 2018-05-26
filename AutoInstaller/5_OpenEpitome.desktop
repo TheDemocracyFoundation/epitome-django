@@ -2,7 +2,7 @@
 Name=5 Open Epitome
 Comment=Open Epitome
 Encoding=UTF-8
-Exec=bash -c 'xdg-open http://localhost:8000/user/login;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x openepitome.sh && ./openepitome.sh;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application

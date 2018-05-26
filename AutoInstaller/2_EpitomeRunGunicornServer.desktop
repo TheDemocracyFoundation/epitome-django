@@ -2,7 +2,7 @@
 Name=2 (optional) Epitome Run Gunicorn WSGI server
 Comment=Epitome Run Gunicorn WSGI server
 Encoding=UTF-8
-Exec=bash -c 'source ~/EpitomeVE/bin/activate && pip install gunicorn psycopg2 && cd ~/Epitome && gunicorn --bind 0.0.0.0:8000 Epitome.wsgi;$SHELL'
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x gunicorn.sh && ./gunicorn.sh;$SHELL'
 Icon=utilities-terminal
 Terminal=true
 Type=Application

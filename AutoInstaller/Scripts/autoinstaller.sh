@@ -5,7 +5,7 @@ echo 'Welcome to the Epitome AutoInstaller'
 # Remove previous Epitome installations
 rm -rf ~/Epitome/
 
-rm -rf ~/Desktop/epitome/
+rm -rf ~/tempepitome/
 
 rm -rf ~/EpitomeVE
 
@@ -14,11 +14,12 @@ if type apt 2> /dev/null; then
    sudo apt-get install git python3 python3-venv python3-pip
    
    # Clone Epitome repository
-   cd ~/Desktop
+   mkdir ~/tempepitome/
+   cd ~/tempepitome/
 
    git clone https://github.com/TheDemocracyFoundation/epitome.git
 
-   cd ~/Desktop/epitome
+   cd ~/tempepitome/epitome
 
    git checkout development
 
@@ -40,11 +41,12 @@ elif type dnf 2> /dev/null; then
    sudo dnf install git python3 python3-virtualenv python3-pip
    
    # Clone Epitome repository
-   cd ~/Desktop
+   mkdir ~/tempepitome/
+   cd ~/tempepitome/
 
    git clone https://github.com/TheDemocracyFoundation/epitome.git
 
-   cd ~/Desktop/epitome
+   cd ~/tempepitome/epitome
 
    git checkout development
 
@@ -65,11 +67,12 @@ elif type pacman 2> /dev/null; then
    sudo pacman -S git python python-virtualenv python-pip
       
    # Clone Epitome repository
-   cd ~/Desktop
+   mkdir ~/tempepitome/
+   cd ~/tempepitome/
 
    git clone https://github.com/TheDemocracyFoundation/epitome.git
 
-   cd ~/Desktop/epitome
+   cd ~/tempepitome/epitome
 
    git checkout development
 
@@ -97,11 +100,11 @@ pip install django
 
 mkdir ~/Epitome/
 
-cd ~/Desktop/epitome/
+cd ~/tempepitome/epitome
 
 cp -rf * ~/Epitome
 
-rm -rf ~/Desktop/epitome/
+rm -rf ~/tempepitome/
 
 cd ~/Epitome
 

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Epitome Updater
-Comment=Epitome Updater
-Encoding=UTF-8
-Exec=bash -c 'cd ~/Desktop && git clone https://github.com/TheDemocracyFoundation/epitome.git && cd ~/Desktop/epitome && git checkout development && cd ~ && source ~/EpitomeVE/bin/activate &&  cd ~/Desktop/epitome/ && cp -rf * ~/Epitome && rm -rf ~/Desktop/epitome/ && cd ~/Epitome && python3 manage.py makemigrations Demoscopesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate && exit;$SHELL'
-Icon=utilities-terminal
-Terminal=true
-Type=Application
-Name[en_US]=Epitome Updater.desktop
