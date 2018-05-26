@@ -2,8 +2,7 @@
 Name=5 Open Epitome
 Comment=Open Epitome
 Encoding=UTF-8
-Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x 5openepitome.sh && ./5openepitome.sh;$SHELL'
-Icon=utilities-terminal
-Terminal=true
-Type=Application
+URL=http://localhost:8000/user/login
+Icon=text-html
+Type=Link
 Name[en_AU]=5 Open Epitome.desktop
