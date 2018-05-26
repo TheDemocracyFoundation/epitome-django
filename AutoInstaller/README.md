@@ -33,6 +33,10 @@ Please note that you currently need to create your own secret key and put that i
 
 # Troubleshooting
 
+#### Issue: You cannot open .desktop files because you are in a SSH session on a desktop environment which forbits their execution
+
+Solution: you can go into the directory Autoinstaller/Scripts and you can find all the scipts there. In order to run them, you should open a terminal session, change the directory to Autoinstaller/Scripts and then use the commands `chmod a+x filename.sh` and `./filename.sh` to run each individual script. Take a look above for descriptions on what each script does.
+
 #### Issue: `bash: sudo: command not found` or `sudo: No such file or directory` or `user is not in sudoers file`
 
 Solution: type 
