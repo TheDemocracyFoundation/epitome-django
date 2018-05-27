@@ -104,3 +104,6 @@ Demoscopesis/migrations/
 
 #.bak files
 *.bak
+
+#secret key file
+key
