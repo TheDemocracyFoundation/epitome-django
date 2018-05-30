@@ -6,4 +6,6 @@ pip install gunicorn psycopg2
 
 cd ~/Epitome 
 
-gunicorn --bind 0.0.0.0:8000 Epitome.wsgi
+EXTIP="$(curl ipinfo.io/ip)"
+
+gunicorn --bind $EXTIP:8000 Epitome.wsgi
