@@ -56,18 +56,15 @@ Install django
 
 `pip3 install django`
 
-9) Create a new project by typing:
+9) Create a new folder Epitome in your home folder:
 
-`django-admin startproject Epitome`
+`mkdir ~/Epitome/`
 
-**Important: This will create a new folder named "Epitome" in your current directory, go into the newly created folder, find the folder "Epitome" and the file "settings.py" and save it somewhere seperately**
+10) Move all the contents the folder which you downloaded from our repository to the newly created folder
 
-10) Move all the contents of Epitome (the folder which you downloaded from our repository) to the newly created folder replacing all the existing files
+11) Run the following command to create a key file (required).
 
-11) Open the settings.py that you saved seperately and add the secret key field to the settings.py file in the Epitome folder that was generated in your local machine (and which should now have the settings.py file that you downloaded), it should look somewhat like this:
-
-`SECRET_KEY = 'ibk%9)u6z0c3b$#rm^y1j@nk4@x6es$+dn%f2yx^c87pcf-1)o'
-`
+`symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/key`
 
 12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 
