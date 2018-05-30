@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Epitome</title>
-        <link rel="stylesheet" href="{% static "css/app.min.css"%}" type="text/css">
+        <link rel="stylesheet" href="{% static "css/app.css"%}">
         </head>
     <body>
         <div id="wrapper">
@@ -104,10 +104,18 @@
             {% endif %}
         </div>
 
-         <script src="{% static "js/app.min.js"%}"></script>         <script>
+        <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
+        <script src="{% static "js/jquery.formset.min.js"%}"></script>  
+        <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
+         <script>
             $(function () {
                 $('[data-toggle="popover"]').popover()
             })
+
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
         </script>
     </body>
 </html>
