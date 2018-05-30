@@ -2,6 +2,8 @@
 
 ### Installation
 
+For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
+
 <p align="justify">In order to install Epitome, python 3 must be installed in order to create a virtual environment. After that, django must be installed via pip. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
 
 Please note that this guide assumes that the `python` alias in your operating system's bash is pointing to python version 2. If you run the command `python --version` and you get python 3 (such as in Gentoo and Arch based linux distributions), you will have to run the commands that follow as `python` instead of `python3`.
