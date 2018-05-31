@@ -1,106 +1,75 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <title>Epitome</title>
-          <link rel="stylesheet" href="{% static "css/app.css"%}" type="text/css">    
-    </head>
-    <body>
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
-            <!-- Sidebar -->
-            <div class="sidebar-brand" id="sidebar-brand">
-                <!--
-                <a class="btn btn-danger btn-block text-white" id="expand" role="button">New</a>
-                <a class="btn btn-secondary btn-block" href="/demoscopesis/create/" role="button">Poll</a>
-                <a class="btn btn-secondary btn-block" href="#" role="button">Issue</a>
-                -->
+{% extends '_base.html' %} 
+{% load static %} 
+
+{% block body %}
+<div id="wrapper">
+
+    {% include '_sidebar.html' %}
+
+    {% include '_navbar.html' %} 
+
+    <div id="page-content-wrapper">
+        {% if messages %} 
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    <p>{{ message }}</p>
+                </strong>
             </div>
-            <ul class="sidebar-nav">
-                <li class="mt-3">
-                    <a class="mdi mdi-poll mdi-24px"href="/demoscopesis/">  Polls</a>
-                </li>
-                <li>
-                    <a class="mdi mdi-alert mdi-24px" href="#">  Issues</a>
-                </li>
-                <li>
-                    <a class="mdi mdi-message-bulleted mdi-24px" href="#">  Proposals</a>
-                </li>
-                <li>
-                    <a class="mdi mdi-archive mdi-24px" href="#">  Archive</a>
-                </li>
-            </ul>            
-        </div>
-            
-            <nav class="navbar navbar-expand navbar-dark bg-primary">
-                <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
-                    <img class ="text-white" src="{% static "img/hbg.svg" %}" width="30" height="30" alt="">
-                </a>
-                <ul class="navbar-nav w-100">
-                  <li class="nav-item dropdown ml-auto">
-                    <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href=#>User </a>
-                        <a class="dropdown-item" href="/user/logout">Logout</a>
-                    </div>
-                  </li>
-                </ul>  
-            </nav>
-            <div id="page-content-wrapper">
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong><p>{{ message }}</p></strong>
-                </div>
-                {% endfor %}
-                {% endif %}
-                <div class="container">
-                    {% if latest_poll_list %}
-                        <div class="card-columns">
-                            {% for poll in latest_poll_list %}
-                            <a href="/demoscopesis/{{ poll.id }}/">
-                                <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ poll.PL_TITLE }}</h5>
-                                    <p class="text-dark">{{ poll.PL_SHRBODY }}</p>
-                                    <p class="card-text"><small class="text-muted">Created by: {{ poll.USER }}</small></p>
-                                </div>
-                                </div>
-                            </a> 
-                            {% endfor %}
-                        </div> 
-                    {% else %}
-                    <div class="container">
-                        <div class="jumbotron">
-                            <h1 class="display-3">No polls were found.</h1>
-                            <p class="lead">No polls were submitted so far.</p>
-                            <hr class="my-4">
-                            <p>Try visiting another section or add a poll yourself.</p>
-                            <p class="lead">
-                                <a class="btn btn-primary btn-lg" href="/demoscopesis/create/" role="button">Add a poll</a>
+            {% endfor %} 
+        {% endif %}
+
+        <div class="container">
+            {% if latest_poll_list %}
+            <div class="card-columns">
+                {% for poll in latest_poll_list %}
+                <a href="/demoscopesis/{{ poll.id }}/">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ poll.PL_TITLE }}</h5>
+                            <p class="text-dark">{{ poll.PL_SHRBODY }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">Created by: {{ poll.USER }}</small>
                             </p>
-                        </div>                
+                        </div>
                     </div>
-                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-3">No polls were found.</h1>
+                    <p class="lead">No polls were submitted so far.</p>
+                    <hr class="my-4">
+                    <p>Try visiting another section or add a poll yourself.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="/demoscopesis/create/" role="button">Add a poll</a>
+                    </p>
                 </div>
             </div>
+            {% endif %}
         </div>
-    
-        <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
-        <script src="{% static "js/jquery.formset.min.js"%}"></script>
-        <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
-        <script>
-            $(function () {
-                $('[data-toggle="popover"]').popover()
-            })
-    
-            $("#menu-toggle").click(function (e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
-    </body>
-</html>
+    </div>
+</div>
+{% endblock %} 
+
+
+{% block scripts %}
+<script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
+<script src="{% static "js/jquery.formset.min.js"%}"></script>
+<script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+{% endblock %}

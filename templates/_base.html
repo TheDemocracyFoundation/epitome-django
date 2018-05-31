@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}Epitome{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+    <!-- Add additional stylesheets using this block -->
+    {% block stylesheet %}{% endblock %}
+</head>
+
+<body>
+    <!-- Use the body block to add page contents -->
+    {% block body %}
+
+    {% endblock body %}
+
+    <!-- Use the scripts block to add javascript -->
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

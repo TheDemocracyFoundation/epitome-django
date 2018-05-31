@@ -1,23 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Meta Data -->
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <title>Error {{ errorType }}</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{% static "css/app.css"%}">
-  </head>
-  <body>
-      <div class ="container">
-        <div class="jumbotron mt-5">
-        {% csrf_token %}
-          <h1 class="display-3">Error {{ errorType }}</h1>
-          <p class="lead">{{ errorMessage }}</p>
-          <p><a class="btn btn-lg btn-primary" href="{{ redirectTo }}" role="button">Close</a></p>
-        </div>
+{% extends '_base.html' %}
+
+{% block title %}Error {{ errorType }}{% endblock %}
+
+{% block body %}
+<div class ="container">
+    <div class="jumbotron mt-5">
+    {% csrf_token %}
+      <h1 class="display-3">Error {{ errorType }}</h1>
+      <p class="lead">{{ errorMessage }}</p>
+      <p><a class="btn btn-lg btn-primary" href="{{ redirectTo }}" role="button">Close</a></p>
     </div>
-  </body>
-</html>
+{% endblock %}

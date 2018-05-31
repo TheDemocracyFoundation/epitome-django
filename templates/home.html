@@ -1,22 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% extends '_base.html' %}
 
-<head>
-	<!-- Meta Data -->
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	<title></title>
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{% static "css/app.css"%}">
-</head>
-
-<body class="bg-primary">
-	<div class="container-fluid bg-main">
-		<div class="bg-main" style="height: 100vh">
-			<a class="btn btn-secondary mt-5 mr-5 float-right" href="/demoscopesis" role="button">Home</a>
-		</div>
-   	</div>
-</body>
-</html>
+{% block body %}
+<div class="container-fluid bg-main">
+	<div class="bg-main" style="height: 100vh">
+		<a class="btn btn-secondary mt-5 mr-5 float-right" href="/demoscopesis" role="button">Home</a>
+	</div>
+</div>
+{% endblock %}

@@ -1,51 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <title>Epitome</title>
-          <link rel="stylesheet" href="{% static "css/app.css"%}">
-    </head>
-    <body>
-        <div id="wrapper"> 
-                <div id="sidebar-wrapper">
-                        <!-- Sidebar -->
-                        <div class="sidebar-brand" id="sidebar-brand">
-                            <a class="btn btn-danger btn-block text-white" id="expand" role="button">New</a>
-                            <a class="btn btn-secondary btn-block" href="/demoscopesis/create/" role="button">Poll</a>
-                            <a class="btn btn-secondary btn-block" href="#" role="button">Issue</a>
-                        </div>
-                        <ul class="sidebar-nav">
-                            <li class="mt-3">
-                                <a class="mdi mdi-poll mdi-24px"href="/demoscopesis/">  Polls</a>
-                            </li>
-                            <li>
-                                <a class="mdi mdi-alert mdi-24px" href="#">  Issues</a>
-                            </li>
-                            <li>
-                                <a class="mdi mdi-message-bulleted mdi-24px" href="#">  Proposals</a>
-                            </li>
-                            <li>
-                                <a class="mdi mdi-archive mdi-24px" href="#">  Archive</a>
-                            </li>
-                        </ul>            
-                    </div>
+{% extends '_base.html' %} 
+{% load static %} 
+
+{% block body %}
+        <div id="wrapper">
             
-            <nav class="navbar navbar-expand navbar-dark bg-primary">
-                    <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
-                        <img class ="text-white" src="{% static "img/hbg.svg" %}" width="30" height="30" alt="">
-                    </a>
-                <ul class="navbar-nav w-100">
-                  <li class="nav-item dropdown ml-auto">
-                    <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="">User </a>
-                        <a class="dropdown-item" href="/user/logout">Logout</a>
-                    </div>
-                  </li>
-                </ul>  
-            </nav>
+                {% include '_navbar.html' %} 
+    
+                {% include '_sidebar.html' %}
+
             <div id="page-content-wrapper">
                 <div class="container">
                     <form action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
@@ -117,30 +79,21 @@
                 </div>
             </div>
         </div>
-        <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
-        <script src="{% static "js/jquery.formset.min.js"%}"></script>  
-        <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
-        <script>
-            $(function () {
-                $('[data-toggle="popover"]').popover()
-            })
-            function addOption(){
-                var group = document.getElementById("choice");
-                var content = document.createRange().createContextualFragment(`<input class="form-control mt-2" type="text">`)
-                group.appendChild(content)
-            }
+        {% endblock %} 
 
-            function removeOption(){
-                var parent = document.getElementById("choice");
-                if (parent.children.length > 1){
-                    parent.removeChild(parent.lastChild);
-                }
-            }
 
-            $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
-    </body>
-</html>
+{% block scripts %}
+<script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
+<script src="{% static "js/jquery.formset.min.js"%}"></script>
+<script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+{% endblock %}

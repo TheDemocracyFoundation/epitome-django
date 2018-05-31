@@ -1,70 +1,77 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% load static %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Epitome</title>
-        <link rel="stylesheet" href="{% static "css/app.css"%}">
-    </head>
-    <body>
-        <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
-            <a class="navbar-brand  float-left" href="#">
-                <img src= width="30" height="30" alt="">
-            </a>
-            <ul class="nav nav-pills" id="pills-tab">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="container bg-main">
-                    <div class="row mt-5 justify-content-center align-self-center">
-                        <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
-                            <div id="login" class="login-content">
-                                <form class="form-signin" action="/user/login/" method="post">
-                                    {% csrf_token %}
-                                    <label for="inputUsername" class="sr-only">Username</label>
-                                    {{ LoginForm.username }}
-                                    <label for="inputPassword" class="sr-only">Password</label>
-                                    {{ LoginForm.password }}
-                                    <div class="checkbox mt-3">
-                                        <label><input type="checkbox" value="remember-me"> Remember me </label>
-                                    </div>
-                                    <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
-                                </form>
+{% extends '_base.html' %} 
+{% load staticfiles %} 
+
+{% block title %}Login{% endblock %} 
+
+{% block body %}
+
+<!-- Login Navigation bar -->
+<nav class="navbar navbar-dark bg-tertiary justify-content-between flex-nowrap flex-row">
+    <a class="navbar-brand  float-left" href="#">
+        <img src=w idth="30" height="30" alt="">
+    </a>
+    <ul class="nav nav-pills" id="pills-tab">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+                aria-selected="true">Login</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+                aria-selected="false">Register</a>
+        </li>
+    </ul>
+</nav>
+<!-- End of Navigation bar -->
+
+<!-- Login forms -->
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="container bg-main">
+            <div class="row mt-5 justify-content-center align-self-center">
+                <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                    <div id="login" class="login-content">
+                        <form class="form-signin" action="/user/login/" method="post">
+                            {% csrf_token %}
+                            <label for="inputUsername" class="sr-only">Username</label>
+                            {{ LoginForm.username }}
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            {{ LoginForm.password }}
+                            <div class="checkbox mt-3">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me </label>
                             </div>
-                        </div>	
+                            <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
+                        </form>
                     </div>
-                </div>            
-            </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <div class="container bg-main">
-                    <div class="row mt-5 justify-content-center align-self-center">
-                        <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
-                            <div id="register" class="login-content">
-                                <form class="form-register" action="/user/signup/" method="post">
-                                    {% csrf_token %}
-                                    <label for="inputUsername" class="sr-only">Username</label>
-                                    {{ SignUpForm.username }}
-                                    <label for="inputEmail" class="sr-only">Email</label>
-                                    {{ SignUpForm.email }}
-                                    <label for="inputPassword" class="sr-only">Password</label>
-                                    {{ SignUpForm.password }}
-                                    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
-                                </form> 
-                            </div>
-                        </div>
-                    </div>
-                </div>            
+                </div>
             </div>
         </div>
+    </div>
 
-        <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
-    </body>
-</html>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="container bg-main">
+            <div class="row mt-5 justify-content-center align-self-center">
+                <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                    <div id="register" class="login-content">
+                        <form class="form-register" action="/user/signup/" method="post">
+                            {% csrf_token %}
+                            <label for="inputUsername" class="sr-only">Username</label>
+                            {{ SignUpForm.username }}
+                            <label for="inputEmail" class="sr-only">Email</label>
+                            {{ SignUpForm.email }}
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            {{ SignUpForm.password }}
+                            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of login forms -->
+
+{% endblock %} {% block scripts %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}

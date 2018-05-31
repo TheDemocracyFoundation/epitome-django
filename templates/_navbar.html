@@ -1,0 +1,16 @@
+{% load static %}
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+    <a class="navbar-brand float-left" href="#menu-toggle" id="menu-toggle">
+        <img class="text-white" src="{% static "img/hbg.svg" %}" width="30" height="30" alt="">
+    </a>
+    <ul class="navbar-nav w-100">
+        <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle mdi mdi-account-box" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href=#>User </a>
+                <a class="dropdown-item" href="/user/logout">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
