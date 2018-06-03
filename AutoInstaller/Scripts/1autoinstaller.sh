@@ -10,7 +10,7 @@ echo    # move to a new line
 echo 'This program is free software: you can redistribute it and/or modify'
 echo 'it under the terms of the GNU General Public License as published by'
 echo 'the Free Software Foundation, either version 3 of the License, or'
-echo '(at your option) any later version.'
+echo 'any later version.'
 echo    # move to a new line
 echo 'This program is distributed in the hope that it will be useful,'
 echo 'but WITHOUT ANY WARRANTY; without even the implied warranty of'
