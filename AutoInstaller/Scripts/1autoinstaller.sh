@@ -3,7 +3,6 @@
 echo 'Welcome to the Epitome AutoInstaller.'
 echo    # move to a new line
 
-
 echo 'Epitome'
 echo 'Copyright (C) 2015 The Democracy Foundation'
 echo 'http://democracy.foundation/'
