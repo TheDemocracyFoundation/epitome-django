@@ -7,18 +7,18 @@ echo 'Epitome'
 echo 'Copyright (C) 2015 The Democracy Foundation'
 echo 'http://democracy.foundation/'
 echo    # move to a new line
-echo 'This program is free software: you can redistribute it and/or modify'
-echo 'it under the terms of the GNU General Public License as published by'
-echo 'the Free Software Foundation, either version 3 of the License, or'
-echo 'any later version.'
+echo 'This program is free software: you can redistribute it and/or'
+echo 'modify it under the terms of the GNU General Public License as'
+echo 'published by the Free Software Foundation, either version 3 of'
+echo 'the License, or any later version.'
 echo    # move to a new line
 echo 'This program is distributed in the hope that it will be useful,'
 echo 'but WITHOUT ANY WARRANTY; without even the implied warranty of'
-echo 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the'
+echo 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the'
 echo 'GNU General Public License for more details.'
 echo    # move to a new line
 echo 'You should have received a copy of the GNU General Public License'
-echo 'along with this program.  If not, see <https://www.gnu.org/licenses/>.'
+echo 'along with this program. If not, see <https://www.gnu.org/licenses/>.'
 echo    # move to a new line
 echo    # move to a new line
 
