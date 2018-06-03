@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source ~/EpitomeVE/bin/activate 
+source ~/EpitomeVE/bin/activate
 
-pip install gunicorn psycopg2 
+pip install gunicorn psycopg2
 
-cd ~/Epitome 
+cd ~/Epitome
 
 EXTERNALIP="$(curl ipinfo.io/ip)"
 
