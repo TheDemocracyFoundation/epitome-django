@@ -107,8 +107,11 @@ Demoscopesis/migrations/
 
 #secret key file
 key
+secret_key.txt
 
 # npm
 mode_modules
 node_modules/
 package-lock.json
+
+
