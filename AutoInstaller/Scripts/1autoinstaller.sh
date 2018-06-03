@@ -116,6 +116,4 @@ python3 manage.py makemigrations Agora
 
 python3 manage.py makemigrations Propylaea
 
-python3 manage.py migrate 
-
-exit
+python3 manage.py migrate
