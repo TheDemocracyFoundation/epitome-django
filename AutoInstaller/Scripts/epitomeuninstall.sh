@@ -1,7 +1,12 @@
 #!/bin/bash
 
-rm -rf ~/Epitome/
+read -r -p "Are you sure you want to completely remove Epitome from your system? [y/n]  " response
+ response=${response,,} # tolower
+ echo    # (optional) move to a new line
+ if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+    rm -rf ~/Epitome/
 
-rm -rf ~/tempepitome
+    rm -rf ~/tempepitome
 
-rm -rf ~/EpitomeVE
+    rm -rf ~/EpitomeVE
+ fi
