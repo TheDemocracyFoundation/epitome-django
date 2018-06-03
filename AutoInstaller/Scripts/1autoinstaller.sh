@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo 'Welcome to the Epitome AutoInstaller'
+echo    # move to a new line
 
 # Remove previous Epitome installations
 rm -rf ~/Epitome/
