@@ -1,9 +1,7 @@
 #!/bin/bash
 
-rm -rf ~/Epitome/ 
+rm -rf ~/Epitome/
 
-rm -rf ~/tempepitome 
+rm -rf ~/tempepitome
 
-rm -rf ~/EpitomeVE 
-
-exit
+rm -rf ~/EpitomeVE
