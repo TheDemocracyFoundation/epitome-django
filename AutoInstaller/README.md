@@ -6,9 +6,9 @@ In order to install epitome to your system and set up the server, you should run
 
 * **1 AutoInstaller**: Currently the package managers supported are apt, dnf and pacman. This file will download required packages, download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
-* **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file.
+* **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file. Note, this script will turn django debugging mode off in your settings.py.
 
-* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server.
+* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server. Note, this script will turn django debugging mode on in your settings.py.
 
 * **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the admin user of epitome).
 
