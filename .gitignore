@@ -107,3 +107,4 @@ Demoscopesis/migrations/
 
 #secret key file
 key
+secret_key.txt
