@@ -1,31 +1,29 @@
 #!/bin/bash
 
-mkdir ~/tempepitome 
+mkdir ~/tempepitome
 
-cd ~/tempepitome 
+cd ~/tempepitome
 
-git clone https://github.com/TheDemocracyFoundation/epitome.git 
+git clone https://github.com/TheDemocracyFoundation/epitome.git
 
-cd ~/tempepitome 
+cd ~/tempepitome
 
-git checkout development 
+git checkout development
 
-source ~/EpitomeVE/bin/activate 
+source ~/EpitomeVE/bin/activate
 
-cd ~/tempepitome 
+cd ~/tempepitome
 
-cp -rf * ~/Epitome 
+cp -rf * ~/Epitome
 
-rm -rf ~/tempepitome 
+rm -rf ~/tempepitome
 
-cd ~/Epitome 
+cd ~/Epitome
 
-python3 manage.py makemigrations Demoscopesis 
+python3 manage.py makemigrations Demoscopesis
 
-python3 manage.py makemigrations Agora 
+python3 manage.py makemigrations Agora
 
-python3 manage.py makemigrations Propylaea 
+python3 manage.py makemigrations Propylaea
 
-python3 manage.py migrate 
-
-exit
+python3 manage.py migrate
