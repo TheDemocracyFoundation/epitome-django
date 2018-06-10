@@ -24,12 +24,6 @@ read -r -p "Would you like to install Epitome to your system? [y/n]  " response
  echo    # move to a new line
  if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
 
-    # Remove previous Epitome installations
-    rm -rf ~/Epitome/
-
-    rm -rf ~/tempepitome/
-
-    rm -rf ~/EpitomeVE
 echo 'Detecting package manager...'
     # Find out the installed package manager and customize the subsequent scripts
     if type apt 2> /dev/null; then
