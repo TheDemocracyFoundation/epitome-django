@@ -134,7 +134,7 @@ echo 'Detecting package manager...'
           
     elif type yum 2> /dev/null; then
         echo    # move to a new line
-        sudo dnf install git python3 python3-virtualenv python3-pip
+        sudo yum install -y git python3 python3-virtualenv python3-pip
    
         # Clone Epitome repository
         mkdir ~/tempepitome/
