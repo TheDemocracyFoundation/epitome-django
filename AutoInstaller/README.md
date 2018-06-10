@@ -17,7 +17,7 @@ In order to install epitome to your system and set up the server, you should run
 * **5 Open Epitome**: opening this file, will simply open your browser and direct you to the epitome login page. Alternatively, you can visit <http://localhost:8000/user/login>.
 
 Other files:
-* **Epitome Uninstaller**: This will delete the folders "EpitomeVE" (containing the virtual environment) and "Epitome" (containing the source code of epitome) from your home directory. This will **not** uninstall the packages that were installed by running the Autoinstaller, you need to remove those manually.
+* **Epitome Uninstaller**: This will delete the folders "EpitomeVE" (containing the virtual environment), "tempepitome" and "Epitome" (containing the source code of epitome) from your home directory. This will **not** uninstall the packages that were installed by running the Autoinstaller, you need to remove those manually.
 
 The packages installed in autoinstaller are:
 
