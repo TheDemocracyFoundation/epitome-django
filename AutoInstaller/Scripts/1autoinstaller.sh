@@ -42,7 +42,7 @@ echo 'Detecting package manager...'
 
         # Install pip and activate the python virtual environment
 
-        sudo pip install --upgrade pip setuptools
+        sudo pip3 install --upgrade pip setuptools
 
         cd ~
 
@@ -52,11 +52,11 @@ echo 'Detecting package manager...'
 
         source ~/EpitomeVE/bin/activate
 
-        pip install --upgrade pip
+        pip3 install --upgrade pip
         
         # Install django and make migrations
 
-        pip install django
+        pip3 install django
 
         mkdir ~/Epitome/
 
