@@ -133,11 +133,11 @@ echo 'Detecting package manager...'
           
     elif type yum 2> /dev/null; then
         echo    # move to a new line
-sudo yum install -y epel-release git python36 python34-setuptools python34-pip nss curl libcurl rsync
+        sudo yum install -y epel-release git python36 python34-setuptools python34-pip nss curl libcurl rsync
 
-sudo pip3 install virtualenv
+        sudo pip3 install virtualenv
 
-sudo pip3 install -U pip   
+        sudo pip3 install -U pip   
 
         # Clone Epitome repository
         mkdir ~/tempepitome/
