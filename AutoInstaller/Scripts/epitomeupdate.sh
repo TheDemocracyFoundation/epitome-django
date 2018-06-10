@@ -23,8 +23,8 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
     if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
-
+        rsync -Rr * ~/Epitome
+        
         rm -rf ~/tempepitome
 
         cd ~/Epitome
@@ -36,7 +36,7 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
     
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
+        rsync -Rr * ~/Epitome
 
         rm -rf ~/tempepitome
         

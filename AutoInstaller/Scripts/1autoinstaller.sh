@@ -106,7 +106,6 @@ echo 'Detecting package manager...'
 
         pip install --upgrade pip
         
-
         # Install django and make migrations
 
         pip install django
@@ -134,8 +133,12 @@ echo 'Detecting package manager...'
           
     elif type yum 2> /dev/null; then
         echo    # move to a new line
-        sudo yum install -y git python3 python3-virtualenv python3-pip
-   
+sudo yum install -y epel-release git python36 python34-setuptools python34-pip nss curl libcurl
+
+sudo pip3 install virtualenv
+
+sudo pip3 install -U pip   
+
         # Clone Epitome repository
         mkdir ~/tempepitome/
         cd ~/tempepitome/
@@ -148,7 +151,7 @@ echo 'Detecting package manager...'
 
         # Install pip and activate the python virtual environment
 
-        sudo pip install --upgrade pip setuptools
+        sudo pip3 install --upgrade pip setuptools
 
         cd ~
 
@@ -159,7 +162,6 @@ echo 'Detecting package manager...'
         source ~/EpitomeVE/bin/activate
 
         pip install --upgrade pip
-        
 
         # Install django and make migrations
 
@@ -169,8 +171,8 @@ echo 'Detecting package manager...'
 
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
-
+        rsync -Rr * ~/Epitome
+        
         rm -rf ~/tempepitome/
 
         cd ~/Epitome
