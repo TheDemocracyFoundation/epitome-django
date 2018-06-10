@@ -27,7 +27,7 @@ For Debian: git, python3, python3-venv, python3-pip
 
 For Red Hat: git, python3, python3-virtualenv, python3-pip
 
-* **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents.
+* **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents, and you will be prompted to choose if you would like to replace your settings.py where your current configuration is stored.
 
 Please note that you currently need to create your own secret key and put that in the settings.py file inside the folder Epitome.
 

@@ -131,6 +131,60 @@ echo 'Detecting package manager...'
 
         python3 manage.py migrate
         
+          
+    elif type yum 2> /dev/null; then
+        echo    # move to a new line
+        sudo yum install -y git python3 python3-virtualenv python3-pip
+   
+        # Clone Epitome repository
+        mkdir ~/tempepitome/
+        cd ~/tempepitome/
+
+        git clone https://github.com/TheDemocracyFoundation/epitome.git
+
+        cd ~/tempepitome/epitome
+
+        git checkout development
+
+        # Install pip and activate the python virtual environment
+
+        sudo pip install --upgrade pip setuptools
+
+        cd ~
+
+        mkdir EpitomeVE
+
+        python3 -m virtualenv EpitomeVE/
+
+        source ~/EpitomeVE/bin/activate
+
+        pip install --upgrade pip
+        
+
+        # Install django and make migrations
+
+        pip install django
+
+        mkdir ~/Epitome/
+
+        cd ~/tempepitome/epitome
+
+        cp -rf * ~/Epitome
+
+        rm -rf ~/tempepitome/
+
+        cd ~/Epitome
+
+        symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/secret_key.txt
+
+        python3 manage.py makemigrations Demoscopesis
+
+        python3 manage.py makemigrations Agora
+
+        python3 manage.py makemigrations Propylaea
+
+        python3 manage.py migrate
+        
     elif type pacman 2> /dev/null; then
         echo    # move to a new line
         sudo pacman -S git python python-virtualenv python-pip
@@ -183,7 +237,7 @@ echo 'Detecting package manager...'
 
         python3 manage.py migrate
     else
-        echo "Supported package manager not found (apt, dnf, pacman)" >&2
+        echo "Supported package manager not found (apt, dnf, pacman, yum)" >&2
         exit 1
     fi
  fi
