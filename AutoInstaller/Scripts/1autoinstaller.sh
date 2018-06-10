@@ -28,7 +28,7 @@ echo 'Detecting package manager...'
     # Find out the installed package manager and customize the subsequent scripts
     if type apt 2> /dev/null; then
         echo    # move to a new line
-        sudo apt-get install git python3 python3-venv python3-pip
+        sudo apt-get install git python3 python3-venv python3-pip rsync
    
         # Clone Epitome repository
         mkdir ~/tempepitome/
@@ -62,7 +62,7 @@ echo 'Detecting package manager...'
 
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
+        rsync -Rr * ~/Epitome
 
         rm -rf ~/tempepitome/
 
@@ -80,7 +80,7 @@ echo 'Detecting package manager...'
    
     elif type dnf 2> /dev/null; then
         echo    # move to a new line
-        sudo dnf install git python3 python3-virtualenv python3-pip
+        sudo dnf install git python3 python3-virtualenv python3-pip rsync
    
         # Clone Epitome repository
         mkdir ~/tempepitome/
@@ -114,7 +114,7 @@ echo 'Detecting package manager...'
 
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
+        rsync -Rr * ~/Epitome
 
         rm -rf ~/tempepitome/
 
@@ -133,7 +133,7 @@ echo 'Detecting package manager...'
           
     elif type yum 2> /dev/null; then
         echo    # move to a new line
-sudo yum install -y epel-release git python36 python34-setuptools python34-pip nss curl libcurl
+sudo yum install -y epel-release git python36 python34-setuptools python34-pip nss curl libcurl rsync
 
 sudo pip3 install virtualenv
 
@@ -189,7 +189,7 @@ sudo pip3 install -U pip
         
     elif type pacman 2> /dev/null; then
         echo    # move to a new line
-        sudo pacman -S git python python-virtualenv python-pip
+        sudo pacman -S git python python-virtualenv python-pip rsync
       
         # Clone Epitome repository
         mkdir ~/tempepitome/
@@ -223,7 +223,7 @@ sudo pip3 install -U pip
 
         cd ~/tempepitome/epitome
 
-        cp -rf * ~/Epitome
+        rsync -Rr * ~/Epitome
 
         rm -rf ~/tempepitome/
 
