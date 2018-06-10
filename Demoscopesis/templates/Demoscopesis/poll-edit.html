@@ -10,7 +10,7 @@
 
             <div id="page-content-wrapper">
                 <div class="container">
-                    <form action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
+                    <form id="form-body" action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
 						{% csrf_token %}
                         <div class="container-fluid shadow">
                             <div class="row">            
@@ -60,22 +60,24 @@
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Voting Choices</label>
                                         <div id="choice" class="controls">
-                                            {{ PollChoiceFormSet.as_p }} 
-                                        </div>
-                                    </div>
-                    
-                                    <div class="form-group text-center">
-                                        <div class="form-group text-center">
-                                            <button id="submit" type="button" class="btn btn-success">Submit</button>
-                                            <button id="cancel" type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
-                                            <button id="add" type="button" class="btn btn-secondary" onclick="addOption()">Add Option</button>
-                                            <button id="add" type="button" class="btn btn-secondary" onclick="removeOption()">Remove Option</button>
+                                            <!-- This is where the hidden submitted form to django should be-->
+                                            {{ PollChoiceFormSet }}
+                                            <h3>Choices</h3>
+                                            <!-- <input name="PL_SUBMIT" id="payload" class="form" type="text"> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>                
+                    </form>
+                    <div class="form-group text-center">
+                        <div class="form-group text-center">
+                            <button id="submit" type="button" class="btn btn-success" onclick="submitAll()">Submit</button>
+                            <button id="cancel" type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
+                            <button id="add" type="button" class="btn btn-secondary" onclick="addOption()">Add Option</button>
+                            <button id="add" type="button" class="btn btn-secondary" onclick="removeOption()">Remove Option</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,9 +86,10 @@
 
 {% block scripts %}
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
-<script src="{% static "js/jquery.formset.min.js"%}"></script>
+<!-- <script src="{% static "js/jquery.formset.min.js"%}"></script>-->
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
 <script>
+    // Sidebar functions
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
@@ -95,5 +98,41 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    // form field generator
+    var optionGroup = document.getElementById("choice");
+    var i = document.getElementById("choice").childElementCount;
+
+    function addOption(){
+        var fieldWrapper = document.createElement("div");
+                fieldWrapper.className = "input-group mb-3";
+            fieldWrapper.innerHTML =   `<input type="text" class="form-control target" placeholder="New Option" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button">X</button>
+                                        </div>`;
+
+        optionGroup.appendChild(fieldWrapper);
+    }
+
+    // Submit Contents
+    function submitAll(){
+        var stringBuilder = "";
+        var inputs = document.getElementsByClassName("target");
+        
+        for(i = 0; i < inputs.length; i++){
+            var link = inputs.item(i);
+            if (i === 0){
+                stringBuilder = stringBuilder + inputs.item(i).value;
+            }else{
+                stringBuilder = stringBuilder + "," + inputs.item(i).value;
+            }
+        }
+        
+        console.log(stringBuilder);
+        document.getElementById("payload").value = stringBuilder;
+        
+        console.log(document.getElementById("form-body"))
+        document.getElementById("form-body").submit();
+    }
 </script>
 {% endblock %}
