@@ -75,7 +75,6 @@
                             <button id="submit" type="button" class="btn btn-success" onclick="submitAll()">Submit</button>
                             <button id="cancel" type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
                             <button id="add" type="button" class="btn btn-secondary" onclick="addOption()">Add Option</button>
-                            <button id="add" type="button" class="btn btn-secondary" onclick="removeOption()">Remove Option</button>
                         </div>
                     </div>
                 </div>
@@ -101,17 +100,26 @@
 
     // form field generator
     var optionGroup = document.getElementById("choice");
-    var i = document.getElementById("choice").childElementCount;
+    var i = 0;
 
     function addOption(){
         var fieldWrapper = document.createElement("div");
+                fieldWrapper.id = "choice" + i;
                 fieldWrapper.className = "input-group mb-3";
             fieldWrapper.innerHTML =   `<input type="text" class="form-control target" placeholder="New Option" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">X</button>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="removeOption(`+ i +`)">X</button>
                                         </div>`;
-
+        i++;
         optionGroup.appendChild(fieldWrapper);
+    }
+
+    function removeOption(rem){
+        console.log("rem: " + rem)
+        
+        var remove = document.getElementById("choice"+rem)
+        console.log(remove)
+        document.getElementById("choice").removeChild(remove)
     }
 
     // Submit Contents
