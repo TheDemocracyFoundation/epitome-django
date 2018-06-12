@@ -1,3 +1,4 @@
+
 body {
   overflow-x: hidden;
 }
@@ -38,15 +39,30 @@ body {
   transition: all 0.5s ease;
 }
 
+
 #page-content-wrapper {
   width: 100%;
   position: absolute;
   padding: 15px;
 }
 
+#sidebar-brand {
+  height: $nav-link-height + $nav-link-padding-y * 2;
+  background-color: $tertiary;
+  padding: .8em;
+
+  a {
+    height: 2.1em;
+  }
+
+  &.expand {
+    height: 200;
+  }
+}
+
 .sidebar-nav {
   position: absolute;
-  top: 0;
+  top: 190;
   width: 250px;
   margin: 0;
   padding: 0px;
@@ -95,6 +111,7 @@ body {
   }
 }
 
+/*
 @media(min-width:768px) {
   #wrapper {
     padding-left: 0;
@@ -122,3 +139,4 @@ body {
     position: relative;
   }
 }
+*/

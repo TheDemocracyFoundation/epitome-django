@@ -29,11 +29,11 @@ urlpatterns = [
     #url(r'^$', RedirectView.as_view(url='/home/'))
 	
 	path('admin/', admin.site.urls),
-	path('home/', views.homePage, name='home'),
+	path('about/', views.aboutPage, name='about'),
 	path('user/', include('Propylaea.urls', namespace='Propylaea')),
 	path('demoscopesis/', include('Demoscopesis.urls', namespace='Demoscopesis')),
-	url(r'^.*/$', RedirectView.as_view(url='/home/')),
-    url(r'^$', RedirectView.as_view(url='/home/')),
+	url(r'^.*/$', RedirectView.as_view(url='/demoscopesis/')),
+    url(r'^$', RedirectView.as_view(url='/demoscopesis/')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -3,13 +3,34 @@
 
 {% block body %}
         <div id="wrapper">
+
+                {% include '_sidebar.html' %}
             
                 {% include '_navbar.html' %} 
-    
-                {% include '_sidebar.html' %}
 
             <div id="page-content-wrapper">
                 <div class="container">
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Too few options!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              You need at least 2 options for people to vote on.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
                     <form id="form-body" action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
 						{% csrf_token %}
                         <div class="container-fluid shadow">
@@ -60,10 +81,7 @@
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2">Voting Choices</label>
                                         <div id="choice" class="controls">
-                                            <!-- This is where the hidden submitted form to django should be-->
                                             {{ PollChoiceFormSet }}
-                                            <h3>Choices</h3>
-                                            <!-- <input name="PL_SUBMIT" id="payload" class="form" type="text"> -->
                                         </div>
                                     </div>
                                 </div>
@@ -87,60 +105,5 @@
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
 <!-- <script src="{% static "js/jquery.formset.min.js"%}"></script>-->
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
-<script>
-    // Sidebar functions
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-
-    // form field generator
-    var optionGroup = document.getElementById("choice");
-    var i = 0;
-
-    function addOption(){
-        var fieldWrapper = document.createElement("div");
-                fieldWrapper.id = "choice" + i;
-                fieldWrapper.className = "input-group mb-3";
-            fieldWrapper.innerHTML =   `<input type="text" class="form-control target" placeholder="New Option" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="removeOption(`+ i +`)">X</button>
-                                        </div>`;
-        i++;
-        optionGroup.appendChild(fieldWrapper);
-    }
-
-    function removeOption(rem){
-        console.log("rem: " + rem)
-        
-        var remove = document.getElementById("choice"+rem)
-        console.log(remove)
-        document.getElementById("choice").removeChild(remove)
-    }
-
-    // Submit Contents
-    function submitAll(){
-        var stringBuilder = "";
-        var inputs = document.getElementsByClassName("target");
-        
-        for(i = 0; i < inputs.length; i++){
-            var link = inputs.item(i);
-            if (i === 0){
-                stringBuilder = stringBuilder + inputs.item(i).value;
-            }else{
-                stringBuilder = stringBuilder + "," + inputs.item(i).value;
-            }
-        }
-        
-        console.log(stringBuilder);
-        document.getElementById("payload").value = stringBuilder;
-        
-        console.log(document.getElementById("form-body"))
-        document.getElementById("form-body").submit();
-    }
-</script>
+<script src="{% static "js/poll-edit.js"%}"></script>
 {% endblock %}
