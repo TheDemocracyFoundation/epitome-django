@@ -5,8 +5,8 @@ echo 'Copyright (C) 2015 The Democracy Foundation'
 echo 'http://democracy.foundation/'
 echo    # move to a new line
 echo 'This program is free software: you can redistribute it and/or'
-echo 'modify it under the terms of the GNU General Public License as'
-echo 'published by the Free Software Foundation, either version 3 of'
+echo 'modify it under the terms of the GNU Affero General Public License'
+echo 'as published by the Free Software Foundation, either version 3 of'
 echo 'the License, or any later version.'
 echo    # move to a new line
 echo 'This program is distributed in the hope that it will be useful,'
