@@ -12,75 +12,88 @@
                 <div class="container">
 
       
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Too few options!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              You need at least 2 options for people to vote on.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Too few options!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            You need at least 2 options for people to vote on.
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <h2 class="text-center"><b>Poll Creation</b></h2>
+                    </div>
+
                     <form id="form-body" action="{% url 'Demoscopesis:createPoll' %}" method="post" class="poll-form" role="form" data-parsley-validate novalidate>
 						{% csrf_token %}
-                        <div class="container-fluid shadow">
+                        <div class="container-fluid shadow py-5">
                             <div class="row">            
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Title</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Title</b></label>
                                         <div id="title" class="controls">
                                             {{ PollForm.PL_TITLE }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Short Body</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Short Body</b></label>
                                         <div id="shBody" class="controls">
                                             {{ PollForm.PL_SHRBODY }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Body</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Body</b></label>
                                         <div id="body" class="controls">
                                             {{ PollForm.PL_BODY }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Start Date</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Start Date</b></label>
                                         <div id="startDt" class="controls">
                                             {{ PollForm.PL_STARTDT }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">End Date</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>End Date</b></label>
                                         <div id="endDt" class="controls">
                                             {{ PollForm.PL_ENDDT }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Code</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Code</b></label>
                                         <div id="code" class="controls">
                                             {{ PollForm.PL_CODE }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Category</label>
+                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Category</b></label>
                                         <div id="category" class="controls">
                                             {{ PollForm.POLLCAT }} 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2">Voting Choices</label>
-                                        <div id="choice" class="controls">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="control-label control-label-left float-left"><b>Voting Choices</b></label>
+                                            </div>
+                                            <div class="col-6"|>
+                                                <button id="add" type="button" class="btn btn-outline-info float-right" onclick="addOption()"><b>+</b></button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="choice" class="controls mt-3">
                                             {{ PollChoiceFormSet }}
                                         </div>
                                     </div>
@@ -88,11 +101,11 @@
                             </div>
                         </div>
                     </form>
-                    <div class="form-group text-center">
+                    <div class="form-group text-center mt-3">
                         <div class="form-group text-center">
                             <button id="submit" type="button" class="btn btn-success" onclick="submitAll()">Submit</button>
                             <button id="cancel" type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
-                            <button id="add" type="button" class="btn btn-secondary" onclick="addOption()">Add Option</button>
+                            
                         </div>
                     </div>
                 </div>

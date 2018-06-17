@@ -25,7 +25,7 @@ function addOption(){
             fieldWrapper.className = "input-group mb-3";
         fieldWrapper.innerHTML =   `<input type="text" class="form-control target" placeholder="New Option" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" onclick="removeOption(`+ i +`)">X</button>
+                                        <button class="btn btn-outline-danger" type="button" onclick="removeOption(`+ i +`)"><b>x</b></button>
                                     </div>`;
     i++;
     optionGroup.appendChild(fieldWrapper);
@@ -34,14 +34,13 @@ function addOption(){
 // Add 3 forms on pageload.
 addOption();
 addOption();
-addOption();
 
 // Removes a form based on id as long as 3 forms exist.
 function removeOption(rem){
     var remove = document.getElementById("choice"+rem);
     var count = document.getElementById("choice").childElementCount;
     
-    if (count > 4){
+    if (count > 3){
         document.getElementById("choice").removeChild(remove);
     }else{
         $("#exampleModalCenter").modal();
