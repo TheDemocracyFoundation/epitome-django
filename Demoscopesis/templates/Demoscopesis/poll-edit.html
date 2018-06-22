@@ -6,12 +6,11 @@
 
                 {% include '_sidebar.html' %}
             
-                {% include '_navbar.html' %} 
+                {% include '_navbar.html' %}
 
             <div id="page-content-wrapper">
                 <div class="container">
 
-      
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -83,10 +82,11 @@
                                             {{ PollForm.POLLCAT }} 
                                         </div>
                                     </div>
+                                    <hr />
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="control-label control-label-left float-left"><b>Voting Choices</b></label>
+                                                <label class="control-label control-label-left float-left mx-3"><b>Voting Choices</b></label>
                                             </div>
                                             <div class="col-6"|>
                                                 <button id="add" type="button" class="btn btn-outline-info float-right" onclick="addOption()"><b>+</b></button>
@@ -116,7 +116,8 @@
 
 {% block scripts %}
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
-<!-- <script src="{% static "js/jquery.formset.min.js"%}"></script>-->
+<script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
 <script src="{% static "js/poll-edit.js"%}"></script>
+<script src="{% static "js/sidebar.js"%}"></script>
 {% endblock %}

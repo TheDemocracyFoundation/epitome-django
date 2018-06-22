@@ -76,14 +76,5 @@
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
 <script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
-<script>
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+<script src="{% static "js/sidebar.js"%}"></script>
 {% endblock %}

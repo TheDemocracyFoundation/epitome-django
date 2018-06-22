@@ -1,12 +1,11 @@
 {% load static %}
 <div id="sidebar-wrapper">
     <div class="sidebar-brand" id="sidebar-brand">
-        
-            <a class="btn btn-danger btn-block text-white" href="/demoscopesis/create/"id="expand" role="button"><b>New</b></a>
-             <!--           
-            <a class="btn btn-secondary btn-block" href="/demoscopesis/create/" role="button">Poll</a>
-            <a class="btn btn-secondary btn-block" href="#" role="button">Issue</a>
-        -->
+            <button class="btn btn-primary btn-block" onclick="$( '.menu' ).slideToggle();" id="newbutton"><b>Create</b></button>
+            <div class="menu hide mt-2">
+                <a class="btn btn-info btn-block text-white" href="/demoscopesis/create/" id="newpoll" role="button"><b>New Poll</b></a>
+                <a class="btn btn-info btn-block text-white" href="/demoscopesis/create/" id="newissue" role="button"><b>New Issue</b></a>
+            </div>
     </div>
 
     <ul class="sidebar-nav">
