@@ -17,7 +17,7 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
     source ~/EpitomeVE/bin/activate
 
     echo    # move to a new line
-    read -r -p "Would you like to replace your settings.py with the new one (this will delete your current configuration) [y/n]  " response
+    read -r -p "Would you like to replace your current settings.py? (this will delete your current configuration) [y/n]  " response
     response=${response,,} # tolower
     echo    # move to a new line
     if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
