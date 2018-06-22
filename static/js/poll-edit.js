@@ -1,17 +1,4 @@
 /**
- * Sidebar functions.
- * Expands and hides the sidebaron button press.
- */
-$(function () {
-    $('[data-toggle="popover"]').popover()
-})
-
-$("#menu-toggle").click(function (e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
-
-/**
  * Option form field generator.
  * Used to create dynamic forms to use as voting options.
  */
