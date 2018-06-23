@@ -1,23 +1,23 @@
 # Epitome Autoinstaller
 
-In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured (check troubleshooting below if you don't know how to do this). It is recommended you fully update and upgrade your system before you begin the setup.
+In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured (you most likely have one - check troubleshooting below if you don't). A full update and upgrade of your system is recommended before you begin the setup.
 
 In order to install epitome to your system and set up the server, you should run the files by order.
 
-* **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages, download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
+* **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages (see below), download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
 * **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file. Note, this script will turn django debugging mode off in your settings.py.
 
 * **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server. Note, this script will turn django debugging mode on in your settings.py.
 
-* **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the admin user of epitome).
+* **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the administrator user of epitome).
 
 * **4 Epitome Open Admin**: opening this file, will simply open your browser and direct you to the admin login page. Alternatively, you can visit <http://localhost:8000/admin/>.
 
 * **5 Open Epitome**: opening this file, will simply open your browser and direct you to the epitome login page. Alternatively, you can visit <http://localhost:8000/user/login>.
 
 Other files:
-* **Epitome Uninstaller**: This will delete the folders "EpitomeVE" (containing the virtual environment), "tempepitome" and "Epitome" (containing the source code of epitome) from your home directory. This will **not** uninstall the packages that were installed by running the Autoinstaller, you need to remove those manually.
+* **Epitome Uninstaller**: This will delete the folders "EpitomeVE" (containing the python virtual environment), "tempepitome" (a temp folder used by the Autoinstaller script) and "Epitome" (containing the source code of epitome) from your home directory. This will **not** uninstall the packages that were installed by running the Autoinstaller, you need to remove those manually.
 
 The packages installed in autoinstaller are:
 
@@ -29,9 +29,7 @@ For dnf: git python3 python3-virtualenv python3-pip rsync
 
 For yum: epel-release git python36 python34-setuptools python34-pip nss curl libcurl rsync
 
-* **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents, and you will be prompted to choose if you would like to replace your settings.py where your current configuration is stored.
-
-Please note that you currently need to create your own secret key and put that in the settings.py file inside the folder Epitome.
+* **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents, and you will be prompted to choose if you would like to replace your settings.py file where your current configuration is stored.
 
 # Troubleshooting
 
