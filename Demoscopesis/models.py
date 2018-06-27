@@ -14,7 +14,7 @@ class PollCat(models.Model):
 
 
 class Poll(models.Model):
-	PL_CODE = models.CharField("Code", max_length=200)                                                   # the code of the poll
+	PL_CODE = models.CharField("Code", max_length=200, blank = True)                                     # the code of the poll
 	PL_TITLE = models.CharField("Title", max_length=200)                                                 # the title of the poll
 	PL_SHRBODY = models.CharField("Short body", max_length=300)                                          # the short body of the poll
 	PL_BODY = models.CharField("Body", max_length=1000)                                                  # the body (main text) of the poll
