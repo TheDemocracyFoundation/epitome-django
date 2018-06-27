@@ -14,7 +14,7 @@ class DemoscopesisAdmin(admin.ModelAdmin):
 	list_display = ('PL_TITLE', 'PL_SHRBODY', 'PL_CREATION', 'USER')
 	fieldsets = [
 		(None,               {'fields': ['PL_TITLE', 'PL_SHRBODY', 'PL_BODY']}),
-		('Date information', {'fields': ['PL_CREATION', 'PL_STARTDT', 'PL_ENDDT', 'PL_DURATION']}),
+		('Date information', {'fields': ['PL_CREATION', 'PL_STARTDT', 'PL_ENDDT']}),
 		('Code information', {'fields': ['PL_CODE', 'PL_CODE2']}),
 		('User and Category information', {'fields': ['USER', 'UGROUP', 'POLLCAT']}),
 	]
