@@ -13,6 +13,7 @@ class PollForm(ModelForm):
 			'PL_BODY' : Textarea(attrs={'id':'body','class':'form-control','rows':'10', 'required': True, 'autofocus':True}),
 			'PL_STARTDT' : forms.TextInput(attrs={'type':'date','id':'startdate','class':'form-control','required': True}),
 			'PL_ENDDT' : forms.TextInput(attrs={'type':'date','id':'enddate','class':'form-control','required': True}),
+			'PL_STIME' : forms.TextInput(attrs={'type':'text','id':'stime','class':'form-control','required': True}),
 			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'category','class':'form-control','required': True})
 		}
 

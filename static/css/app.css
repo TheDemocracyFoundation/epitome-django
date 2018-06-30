@@ -6547,7 +6547,6 @@ a[aria-selected="false"] {
         background: none; }
 
 input, textarea {
-  background-color: #f00000;
   color: #FFF; }
 
 .poll-form {

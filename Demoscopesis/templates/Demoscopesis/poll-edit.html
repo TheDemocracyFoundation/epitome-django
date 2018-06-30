@@ -31,7 +31,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="my-3">
                         <h2 class="text-center"><b>Poll Creation</b></h2>
                     </div>
 
@@ -60,14 +60,36 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2"><b>Start Date</b></label>
-                                        <div id="startDt" class="controls">
-                                            {{ PollForm.PL_STARTDT }} 
+                                        <div class="form-row">
+                                            <div class=" col-md-8 controls" id="startDt" >
+                                                {{ PollForm.PL_STARTDT }} 
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    {{ PollForm.PL_STIME }}
+                                                    <input type="text" id="sinput" class="form-control">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button" id="shour">Select</button>    
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2"><b>End Date</b></label>
-                                        <div id="endDt" class="controls">
-                                            {{ PollForm.PL_ENDDT }} 
+                                        <div class="form-row">
+                                            <div class=" col-md-8 controls" id="startDt" >
+                                                {{ PollForm.PL_ENDDT }} 
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    {{ PollForm.PL_STIME }}
+                                                    <input type="text" id="einput" class="form-control">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button" id="ehour">Select</button>    
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -120,4 +142,29 @@
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
 <script src="{% static "js/poll-edit.js"%}"></script>
 <script src="{% static "js/sidebar.js"%}"></script>
+<script src="{% static "js/clockpicker.js"%}"></script>
+<script>
+    var sinput = $('#sinput');
+    var einput = $('#einput');
+    sinput.clockpicker({
+        autoclose: true
+    });
+    einput.clockpicker({
+        autoclose: true
+    });
+
+    $('#shour').click(function(e){
+        // Have to stop propagation here
+        e.stopPropagation();
+        sinput.clockpicker('show')
+                .clockpicker('toggleView', 'hours');
+    });
+
+    $('#ehour').click(function(e){
+        // Have to stop propagation here
+        e.stopPropagation();
+        einput.clockpicker('show')
+                .clockpicker('toggleView', 'hours');
+    });
+</script>
 {% endblock %}
