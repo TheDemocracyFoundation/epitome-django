@@ -79,9 +79,11 @@ function submitAll(){
     
 
     //document.getElementById("form-voting-options").value = stringBuilder;
-    //document.getElementById("form-categories").value = categories;
+    document.getElementById("form-categories").value = categories;
     
     console.log(stringBuilder);
     console.log(categories);
-    //document.getElementById("form-body").submit();
+
+
+    document.getElementById("form-body").submit();
 }

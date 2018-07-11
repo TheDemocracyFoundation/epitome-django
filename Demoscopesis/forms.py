@@ -14,8 +14,10 @@ class PollForm(ModelForm):
 			'PL_STARTDT' : forms.TextInput(attrs={'type':'date','id':'startdate','class':'form-control','required': True}),
 			'PL_ENDDT' : forms.TextInput(attrs={'type':'date','id':'enddate','class':'form-control','required': True}),
 			'PL_STIME' : forms.TextInput(attrs={'type':'text','id':'stime','class':'form-control','required': True}),
-			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'category','class':'form-control','required': True})
+			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'form-categories','class':'form-control', 'style':'display:none' ,'required': True})
 		}
+
+#
 
 class PollChoiceForm(ModelForm):
 	class Meta:
