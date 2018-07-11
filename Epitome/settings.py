@@ -120,6 +120,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Has to be true in order to reset cookie age in every user action
+SESSION_SAVE_EVERY_REQUEST = True
+
+# Cookie age in seconds
+SESSION_COOKIE_AGE = 600
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
