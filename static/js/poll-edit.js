@@ -62,10 +62,10 @@ function removeOption(rem){
 }
 
 // Submit Contents
+var taggle = new Taggle('categories');
 function submitAll(){
     var stringBuilder = "";
     var inputs = document.getElementsByClassName("target");
-    var taggle = new Taggle('categories');
     var categories = taggle.getTags().values.toString();
     
     for(i = 0; i < inputs.length; i++){
