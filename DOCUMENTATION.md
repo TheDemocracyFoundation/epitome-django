@@ -64,9 +64,7 @@ Install django
 
 10) Move all the contents the folder which you downloaded from our repository to the newly created folder
 
-11) Run the following command to create a key file (required).
-
-`symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/key`
+11) Set the secret key file as an environmental variable in your system. It should be 50 random characters and it should be named "EPITOME_SECRET_KEY".
 
 12) From the terminal, change the directory into the newly created folder and make the database migrations by typing:
 

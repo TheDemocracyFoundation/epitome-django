@@ -67,8 +67,6 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/secret_key.txt
-
         python3 manage.py makemigrations Demoscopesis
 
         python3 manage.py makemigrations Agora
@@ -118,8 +116,6 @@ echo 'Detecting package manager...'
         rm -rf ~/tempepitome/
 
         cd ~/Epitome
-
-        symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/secret_key.txt
 
         python3 manage.py makemigrations Demoscopesis
 
@@ -176,8 +172,6 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/secret_key.txt
-
         python3 manage.py makemigrations Demoscopesis
 
         python3 manage.py makemigrations Agora
@@ -227,8 +221,6 @@ echo 'Detecting package manager...'
         rm -rf ~/tempepitome/
 
         cd ~/Epitome
-
-        symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 key=; for (( i = 0; i < length; i++ )); do key+=${symbols[RANDOM%${#symbols[@]}]}; done; echo "$key" > ~/Epitome/secret_key.txt
 
         python3 manage.py makemigrations Demoscopesis
 
