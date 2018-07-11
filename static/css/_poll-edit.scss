@@ -1,7 +1,15 @@
+/*
 input, textarea{
     color: #FFF;
 }
+*/
 
 .poll-form{
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+    border-style: ridge;
+    border-width: 1px;
+    border-color: $gray-400;
+    border-radius: 5px;
+    clear: both;
+    overflow: hidden;
+    min-height: 10px;
 }

@@ -98,11 +98,9 @@
                                             {{ PollForm.PL_CODE }} 
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3" for="field2"><b>Category</b></label>
-                                        <div id="category" class="controls">
-                                            {{ PollForm.POLLCAT }} 
-                                        </div>
+                                    <label class="control-label control-label-left col-sm-3" for="field2"><b>Category</b></label>
+                                    <div class="">  
+                                        <div class="poll-form px-3 pb-3" id="categories" ></div>
                                     </div>
                                     <hr />
                                     <div class="form-group">
@@ -140,31 +138,11 @@
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
 <script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
-<script src="{% static "js/poll-edit.js"%}"></script>
 <script src="{% static "js/sidebar.js"%}"></script>
 <script src="{% static "js/clockpicker.js"%}"></script>
+<script src="{% static "js/taggle.js"%}"></script>
+<script src="{% static "js/poll-edit.js"%}"></script>
 <script>
-    var sinput = $('#sinput');
-    var einput = $('#einput');
-    sinput.clockpicker({
-        autoclose: true
-    });
-    einput.clockpicker({
-        autoclose: true
-    });
 
-    $('#shour').click(function(e){
-        // Have to stop propagation here
-        e.stopPropagation();
-        sinput.clockpicker('show')
-                .clockpicker('toggleView', 'hours');
-    });
-
-    $('#ehour').click(function(e){
-        // Have to stop propagation here
-        e.stopPropagation();
-        einput.clockpicker('show')
-                .clockpicker('toggleView', 'hours');
-    });
 </script>
 {% endblock %}

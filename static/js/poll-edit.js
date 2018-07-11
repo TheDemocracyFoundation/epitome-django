@@ -1,4 +1,31 @@
 /**
+ * Clockpicker definition.
+ * Two instances (start input and end input) are used.
+ */
+var sinput = $('#sinput');
+var einput = $('#einput');
+sinput.clockpicker({
+    autoclose: true
+});
+einput.clockpicker({
+    autoclose: true
+});
+
+$('#shour').click(function(e){
+    // Have to stop propagation here
+    e.stopPropagation();
+    sinput.clockpicker('show')
+            .clockpicker('toggleView', 'hours');
+});
+
+$('#ehour').click(function(e){
+    // Have to stop propagation here
+    e.stopPropagation();
+    einput.clockpicker('show')
+            .clockpicker('toggleView', 'hours');
+});
+
+/**
  * Option form field generator.
  * Used to create dynamic forms to use as voting options.
  */
@@ -38,6 +65,8 @@ function removeOption(rem){
 function submitAll(){
     var stringBuilder = "";
     var inputs = document.getElementsByClassName("target");
+    var taggle = new Taggle('categories');
+    var categories = taggle.getTags().values.toString();
     
     for(i = 0; i < inputs.length; i++){
         var link = inputs.item(i);
@@ -48,9 +77,11 @@ function submitAll(){
         }
     }
     
-    console.log(stringBuilder);
-    document.getElementById("payload").value = stringBuilder;
+
+    //document.getElementById("form-voting-options").value = stringBuilder;
+    //document.getElementById("form-categories").value = categories;
     
-    console.log(document.getElementById("form-body"))
-    document.getElementById("form-body").submit();
+    console.log(stringBuilder);
+    console.log(categories);
+    //document.getElementById("form-body").submit();
 }

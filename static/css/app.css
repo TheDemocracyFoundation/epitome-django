@@ -6546,8 +6546,508 @@ a[aria-selected="false"] {
         color: #fff;
         background: none; }
 
-input, textarea {
-  color: #FFF; }
-
+/*
+input, textarea{
+    color: #FFF;
+}
+*/
 .poll-form {
-  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.2); }
+  border-style: ridge;
+  border-width: 1px;
+  border-color: #ced4da;
+  border-radius: 5px;
+  clear: both;
+  overflow: hidden;
+  min-height: 10px; }
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-16px); }
+  60% {
+    -webkit-transform: translateY(-7px); } }
+
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-16px); }
+  60% {
+    -moz-transform: translateY(-7px); } }
+
+@-o-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -o-transform: translateY(0); }
+  40% {
+    -o-transform: translateY(-16px); }
+  60% {
+    -o-transform: translateY(-7px); } }
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-16px); }
+  60% {
+    transform: translateY(-7px); } }
+
+.bounce {
+  animation-name: bounce; }
+
+.project_container a {
+  color: #000; }
+
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: "";
+  line-height: 0;
+  clear: both; }
+
+.taggle_list {
+  padding: 0px;
+  float: left;
+  width: 100%;
+  margin-bottom: 0px; }
+
+.taggle_input {
+  color: 000;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 300; }
+
+.taggle_list li {
+  float: left;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 500; }
+
+.taggle_list .taggle {
+  margin-right: 8px;
+  margin-top: 1rem;
+  background: #E2E1DF;
+  padding: 5px 10px;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  transition: all .3s;
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+.taggle_list .taggle_hot {
+  background: #cac8c4; }
+
+.taggle_list .taggle .close {
+  font-size: 1.1rem;
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  text-decoration: none;
+  padding-left: 2px;
+  padding-top: 3px;
+  line-height: 0.5;
+  color: #ccc;
+  color: rgba(0, 0, 0, 0.2);
+  display: none;
+  border: 0;
+  background: none;
+  cursor: pointer; }
+
+.taggle_list .taggle:hover {
+  padding: 5px;
+  padding-right: 15px;
+  background: #ccc;
+  transition: all .3s; }
+
+.taggle_list .taggle:hover > .close {
+  display: block; }
+
+.taggle_list .taggle .close:hover {
+  color: #990033; }
+
+.taggle_placeholder {
+  visibility: hidden;
+  color: #CCC;
+  top: 12px;
+  left: 8px;
+  transition: opacity, .25s;
+  user-select: none; }
+
+.taggle_input {
+  padding: 8px;
+  padding-left: 0;
+  float: left;
+  margin-top: 0.8rem;
+  background: none;
+  width: 100%;
+  max-width: 100%; }
+
+.taggle_sizer {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -500px;
+  z-index: -1;
+  visibility: hidden; }
+
+/*container styles*/
+textarea.input,
+.textarea.input {
+  border: 1;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.7);
+  min-height: 50px;
+  padding: 8px;
+  border-radius: 3px;
+  color: #555;
+  transition: all .25s;
+  cursor: text;
+  position: relative; }
+
+.textarea.input:focus,
+.textarea.input.active,
+textarea.input:focus,
+textarea.input.active {
+  transition: all .25s; }
+
+.textarea.input,
+textarea.input {
+  height: auto; }
+
+.textarea.tags {
+  position: relative; }
+
+.textarea.tags * {
+  box-sizing: content-box; }
+
+.placeholder_input {
+  position: relative; }
+
+.placeholder_input span {
+  position: absolute;
+  color: #AAA;
+  top: 50%;
+  margin-top: -11px;
+  left: 10px; }
+
+.placeholder_input input {
+  width: 120px; }
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.ui-menu {
+  list-style: none;
+  padding: 2px;
+  margin: 0;
+  display: block;
+  outline: none; }
+
+.ui-widget-content {
+  color: #990033; }
+
+.ui-menu .ui-menu-item {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.ui-menu .ui-menu-item a {
+  text-decoration: none;
+  display: block;
+  padding: 2px .4em;
+  line-height: 1.5;
+  min-height: 0;
+  font-weight: normal;
+  color: #8a8a8a;
+  cursor: pointer; }
+  .ui-menu .ui-menu-item a:hover {
+    background: #990033; }
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  background: #990033;
+  color: #fff !important; }
+
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited {
+  color: #fff; }
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  font-weight: normal;
+  color: #212121; }
+
+.ui-helper-hidden {
+  display: none; }
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.autocomplete {
+  max-height: 200px;
+  overflow: scroll;
+  position: absolute;
+  top: 66px;
+  background: white;
+  width: 99.5%;
+  left: 0.25%;
+  z-index: 2; }
+
+.autocomplete ul li {
+  display: block;
+  padding: 6px 8px; }
+
+.autocomplete ul li.selected, .autocomplete ul li:hover {
+  background: #ff6633;
+  color: #fff;
+  cursor: pointer; }
+
+.ui-autocomplete {
+  max-height: 200px;
+  overflow: scroll;
+  width: 99% !important; }
+
+.custom.textarea {
+  border-radius: 0;
+  box-shadow: none; }
+  .custom.textarea .taggle {
+    border-radius: 0;
+    padding: 5px;
+    padding-right: 20px; }
+    .custom.textarea .taggle .close {
+      display: inline-block;
+      right: 3px; }
+
+.custom.delicious {
+  background-image: linear-gradient(to bottom, #eee 1%, #fff 15%);
+  border: 1px solid #AAA;
+  min-height: 50px; }
+  .custom.delicious.active {
+    border-color: #3274D1;
+    background-image: linear-gradient(to bottom, #eee 1%, #fff 15%); }
+  .custom.delicious .taggle {
+    color: #444;
+    border-radius: 0;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    background-color: #ddd;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    padding: 5px; }
+    .custom.delicious .taggle .close {
+      color: #aaa;
+      font-size: 0.9rem;
+      height: 0.7rem;
+      width: 0.7rem;
+      line-height: .1rem;
+      margin-top: 3px;
+      right: auto;
+      left: 5px; }
+      .custom.delicious .taggle .close:hover {
+        color: #888; }
+
+.custom.stackoverflow {
+  border: 1px solid #ccc;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .custom.stackoverflow .taggle {
+    color: #3E6D8E;
+    border-radius: 0;
+    background-color: #E0EAF1;
+    font-weight: 200; }
+    .custom.stackoverflow .taggle.taggle_hot {
+      background: #BDD0DD; }
+    .custom.stackoverflow .taggle .close {
+      color: #aaa;
+      border-radius: 0.7rem;
+      font-size: 0.9rem;
+      height: 0.7rem;
+      width: 0.7rem;
+      line-height: .1rem;
+      margin-top: 3px; }
+      .custom.stackoverflow .taggle .close:hover {
+        background: #C03434;
+        color: #fff; }
+
+/*!
+ * ClockPicker v0.0.7 for Bootstrap (http://weareoutman.github.io/clockpicker/)
+ * Copyright 2014 Wang Shenwei.
+ * Licensed under MIT (https://github.com/weareoutman/clockpicker/blob/gh-pages/LICENSE)
+ */
+.clockpicker .input-group-addon {
+  cursor: pointer; }
+
+.clockpicker-moving {
+  cursor: move; }
+
+.clockpicker-align-left.popover > .arrow {
+  left: 25px; }
+
+.clockpicker-align-top.popover > .arrow {
+  top: 17px; }
+
+.clockpicker-align-right.popover > .arrow {
+  left: auto;
+  right: 25px; }
+
+.clockpicker-align-bottom.popover > .arrow {
+  top: auto;
+  bottom: 6px; }
+
+.clockpicker-popover .popover-title {
+  background-color: #fff;
+  color: #999;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center; }
+
+.clockpicker-popover .popover-title span {
+  cursor: pointer; }
+
+.clockpicker-popover .popover-content {
+  background-color: #f8f8f8;
+  padding: 12px; }
+
+.popover-content:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+.clockpicker-plate {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: visible;
+  position: relative;
+  /* Disable text selection highlighting. Thanks to Hermanya */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.clockpicker-canvas,
+.clockpicker-dial {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: -1px;
+  top: -1px; }
+
+.clockpicker-minutes {
+  visibility: hidden; }
+
+.clockpicker-tick {
+  border-radius: 50%;
+  color: #666;
+  line-height: 26px;
+  text-align: center;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  cursor: pointer; }
+
+.clockpicker-tick.active,
+.clockpicker-tick:hover {
+  background-color: #c0e5f7;
+  background-color: rgba(0, 149, 221, 0.25); }
+
+.clockpicker-button {
+  background-image: none;
+  background-color: #fff;
+  border-width: 1px 0 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin: 0;
+  padding: 10px 0; }
+
+.clockpicker-button:hover {
+  background-image: none;
+  background-color: #ebebeb; }
+
+.clockpicker-button:focus {
+  outline: none !important; }
+
+.clockpicker-dial {
+  -webkit-transition: -webkit-transform 350ms, opacity 350ms;
+  -moz-transition: -moz-transform 350ms, opacity 350ms;
+  -ms-transition: -ms-transform 350ms, opacity 350ms;
+  -o-transition: -o-transform 350ms, opacity 350ms;
+  transition: transform 350ms, opacity 350ms; }
+
+.clockpicker-dial-out {
+  opacity: 0; }
+
+.clockpicker-hours.clockpicker-dial-out {
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2); }
+
+.clockpicker-minutes.clockpicker-dial-out {
+  -webkit-transform: scale(0.8, 0.8);
+  -moz-transform: scale(0.8, 0.8);
+  -ms-transform: scale(0.8, 0.8);
+  -o-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8); }
+
+.clockpicker-canvas {
+  -webkit-transition: opacity 175ms;
+  -moz-transition: opacity 175ms;
+  -ms-transition: opacity 175ms;
+  -o-transition: opacity 175ms;
+  transition: opacity 175ms; }
+
+.clockpicker-canvas-out {
+  opacity: 0.25; }
+
+.clockpicker-canvas-bearing,
+.clockpicker-canvas-fg {
+  stroke: none;
+  fill: #0095dd; }
+
+.clockpicker-canvas-bg {
+  stroke: none;
+  fill: #c0e5f7; }
+
+.clockpicker-canvas-bg-trans {
+  fill: rgba(0, 149, 221, 0.25); }
+
+.clockpicker-canvas line {
+  stroke: #0095dd;
+  stroke-width: 1;
+  stroke-linecap: round;
+  /*shape-rendering: crispEdges;*/ }
+
+.clockpicker-button.am-button {
+  margin: 1px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px; }
+
+.clockpicker-button.pm-button {
+  margin: 1px 1px 1px 136px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px; }
