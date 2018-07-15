@@ -1,8 +1,6 @@
 # Epitome 
 -----------------------------------
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome/tree/development)
-
 An instrument built for change - http://democracy.foundation/epitome/
 
 Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
@@ -19,6 +17,8 @@ Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
 
 Installation:
 -----------------------------------
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome/tree/development)
+
 For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
 
 For manual installation take a look at [DOCUMENTATION.md](DOCUMENTATION.md)
