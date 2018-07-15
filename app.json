@@ -2,7 +2,7 @@
   "name": "Epitome",
   "description": "An instrument built for change",
   "repository": "https://github.com/TheDemocracyFoundation/epitome",
-  "keywords": ["python", "django"],
+  "keywords": ["python", "django", "heroku"],
   "scripts": {
     "postdeploy": "python3 manage.py makemigrations Demoscopesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate"
   },
@@ -11,10 +11,8 @@
     "plan":"heroku-postgresql"
     }
   ],"env": {
-  "DISABLE_COLLECTSTATIC": {
-    "description": "Don't run python manage.py collectstatic --noinput on deploy",
-    "value": "1"
-  }
+  "DISABLE_COLLECTSTATIC":"1"
+  
     "SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation.",
       "generator": "secret"
