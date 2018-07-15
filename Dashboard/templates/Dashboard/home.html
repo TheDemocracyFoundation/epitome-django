@@ -1,0 +1,19 @@
+{% extends '_base.html' %} 
+{% load static %} 
+
+{% block body %}
+<div id="wrapper">
+
+    {% include '_sidebar.html' %}
+
+    {% include '_navbar.html' %} 
+</div>
+{% endblock %} 
+
+
+{% block scripts %}
+<script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
+<script src="{% static "js/jquery.formset.min.js"%}"></script>
+<script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
+<script src="{% static "js/sidebar.js"%}"></script>
+{% endblock %}
