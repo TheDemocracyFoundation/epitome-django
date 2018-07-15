@@ -11,9 +11,8 @@
     "plan":"heroku-postgresql"
     }
   ],"env": {
-  "DISABLE_COLLECTSTATIC":"1"
-  
-    "SECRET_KEY": {
+  "DISABLE_COLLECTSTATIC":"1",  
+  "DJANGO_SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation.",
       "generator": "secret"
     }
