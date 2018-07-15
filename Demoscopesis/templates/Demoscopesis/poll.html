@@ -11,7 +11,7 @@
     {% if poll.PL_ENDDT > nowdt %}
     <form action="{% url 'Demoscopesis:vote' poll.id %}" method="post">
         <div id="page-content-wrapper">
-            <div class="container">
+            <div class="container mt-5">
                 <div class="card mt-3">
                     <div class="card-header">
                         <h4>Created by: {{ poll.USER }}
@@ -36,7 +36,7 @@
     {% else %}
 
     <div id="page-content-wrapper">
-        <div class="container">
+        <div class="container mt-5">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Results</h4>
