@@ -1,5 +1,8 @@
 # Epitome 
 -----------------------------------
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome/tree/development)
+
 An instrument built for change - http://democracy.foundation/epitome/
 
 Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
