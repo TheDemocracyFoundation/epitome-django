@@ -137,5 +137,9 @@ STATICFILES_DIRS = [
 
 # ie if Heroku server
 if 'DATABASE_URL' in os.environ:
+    SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
+)   
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
