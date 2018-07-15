@@ -1,16 +1,16 @@
 {
-  "name": "Django project",
-  "description": "A hello world Django-based project",
+  "name": "Epitome",
+  "description": "An instrument built for change",
   "repository": "https://github.com/TheDemocracyFoundation/epitome",
   "keywords": ["python", "django"],
   "scripts": {
     "postdeploy": "python manage.py migrate --noinput"
   },
-  "addons": [
-      "heroku-postgresql"
-  ],
-  "success_url": "/",
-  "env": {
+  "addons":[
+    {
+	    "plan":"heroku-postgresql"
+    }
+  ],"env": {
   "DISABLE_COLLECTSTATIC": {
     "description": "Don't run python manage.py collectstatic --noinput on deploy",
     "value": "1"
