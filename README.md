@@ -17,7 +17,7 @@ Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
 
 Installation:
 -----------------------------------
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome/tree/development)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome)
 
 For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
 
