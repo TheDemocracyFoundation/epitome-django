@@ -4,11 +4,11 @@
   "repository": "https://github.com/TheDemocracyFoundation/epitome",
   "keywords": ["python", "django"],
   "scripts": {
-    "postdeploy": "python manage.py migrate --noinput"
+    "postdeploy": "python3 manage.py makemigrations Demoscopesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate"
   },
   "addons":[
     {
-	    "plan":"heroku-postgresql"
+    "plan":"heroku-postgresql"
     }
   ],"env": {
   "DISABLE_COLLECTSTATIC": {
