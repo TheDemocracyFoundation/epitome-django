@@ -25,7 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECRET_KEY = os.environ.get('EPITOME_SECRET_KEY')
 
-SECRET_KEY = '{{ secret_key }}'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
