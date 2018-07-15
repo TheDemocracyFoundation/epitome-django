@@ -2,10 +2,7 @@
   "name": "Epitome",
   "description": "An instrument built for change",
   "repository": "https://github.com/TheDemocracyFoundation/epitome",
-  "keywords": ["python", "django", "heroku"],
-  "scripts": {
-    "postdeploy": "python3 manage.py makemigrations Demoscopesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate"
-  },
+  "keywords": ["python", "django", "epitome", "governance", "e-democracy", "deliberation", "democracy", "voting"],
   "addons":[
     {
     "plan":"heroku-postgresql"
@@ -19,5 +16,8 @@
       "description": "A randomly generated secret to secure your Django installation.",
       "generator": "secret"
     }
+  },
+  "scripts": {
+    "postdeploy": "python3 manage.py makemigrations Demoscopesis && python3 manage.py makemigrations Agora && python3 manage.py makemigrations Propylaea && python3 manage.py migrate"
   }
 }
