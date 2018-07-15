@@ -11,8 +11,10 @@
     "plan":"heroku-postgresql"
     }
   ],"env": {
-  "DISABLE_COLLECTSTATIC":"1",  
-  "SECRET_KEY": {
+  "DISABLE_COLLECTSTATIC": {
+    "description": "Don't run python manage.py collectstatic --noinput on deploy",
+    "1"},
+  "EPITOME_SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation.",
       "generator": "secret"
     }
