@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
- SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 #SECRET_KEY = os.environ.get(
     'SECRET_KEY',
@@ -141,6 +141,5 @@ STATICFILES_DIRS = [
 
 # ie if Heroku server
 if 'DATABASE_URL' in os.environ:
-    SECRET_KEY = 'test'
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
