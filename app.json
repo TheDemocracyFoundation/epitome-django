@@ -1,0 +1,22 @@
+{
+  "name": "Django project",
+  "description": "A hello world Django-based project",
+  "repository": "https://github.com/john-doe/django-project",
+  "keywords": ["python", "django"],
+  "scripts": {
+    "postdeploy": "python manage.py migrate --noinput"
+  },
+  "addons": [
+      "heroku-postgresql"
+  ],
+  "success_url": "/",
+  "env": {
+  "DISABLE_COLLECTSTATIC": {
+    "description": "Don't run python manage.py collectstatic --noinput on deploy",
+    "value": "1"
+  }
+    "SECRET_KEY": {
+      "description": "A randomly generated secret to secure your Django installation.",
+      "generator": "secret"
+    }
+  }
