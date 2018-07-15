@@ -1,7 +1,7 @@
 {
   "name": "Django project",
   "description": "A hello world Django-based project",
-  "repository": "https://github.com/john-doe/django-project",
+  "repository": "https://github.com/TheDemocracyFoundation/epitome",
   "keywords": ["python", "django"],
   "scripts": {
     "postdeploy": "python manage.py migrate --noinput"
@@ -20,3 +20,4 @@
       "generator": "secret"
     }
   }
+}
