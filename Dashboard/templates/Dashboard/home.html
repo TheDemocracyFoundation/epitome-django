@@ -1,19 +1,186 @@
-{% extends '_base.html' %} 
-{% load static %} 
-
-{% block body %}
+{% extends '_base.html' %} {% load static %} {% block body %}
 <div id="wrapper">
 
-    {% include '_sidebar.html' %}
+    {% include '_sidebar.html' %} {% include '_navbar.html' %}
 
-    {% include '_navbar.html' %} 
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <ul class="list-unstyled">
+                    <li>
+                        <h5>Welcome <b>User</b></h5>
+                    </li>
+                    <li>
+                        <p>You have <b>5</b> votes remaining.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <ul class="list-unstyled text-center">
+                    <li>
+                        <h5>Your contribution score is: <b>1654</b></h5>
+                    </li>
+                    <li>
+                        <p>Your rank is: <b>73%</b></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4">
+                    <ul class="list-unstyled text-right">
+                            <li>
+                                <h5>Saturday 21st of July,</h5>
+                            </li>
+                            <li>
+                                <p><b>3</b> days since last login</p>
+                            </li>
+                        </ul>
+                    
+                    
+            </div>
+        </div>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-success badge-pill">14</span>
+                            Open Issues
+                        </li>
+                        <li class="">
+                            <span class="badge badge-warning badge-pill">33</span>
+                            Ending Soon
+                        </li>
+                        <li class="">
+                            <span class="badge badge-danger badge-pill">21</span>
+                            High Importance
+                        </li>
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">4</span>
+                            Proposals Per Issue
+                        </li>
+                    </ul>
+                </div>
+                <div id="polls-holder">
+                    <canvas id="polls-chart"></canvas>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">14</span>
+                            Open Issues
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="">
+                                <span class="badge badge-success badge-pill">14</span>
+                                Open Polls
+                            </li>
+                            <li class="">
+                                <span class="badge badge-warning badge-pill">33</span>
+                                Ending Soon
+                            </li>
+                            <li class="">
+                                <span class="badge badge-danger badge-pill">21</span>
+                                High Importance
+                            </li>
+                            <li class="">
+                                <span class="badge badge-primary badge-pill">4</span>
+                                Proposals Per Polls
+                            </li>
+                        </ul>
+                    </div>
+                <div id="issues-holder">
+                    <canvas id="issues-chart"></canvas>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">14</span>
+                            Open Issues
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="">
+                                <span class="badge badge-success badge-pill">14</span>
+                                Open Issues
+                            </li>
+                            <li class="">
+                                <span class="badge badge-warning badge-pill">33</span>
+                                Ending Soon
+                            </li>
+                            <li class="">
+                                <span class="badge badge-danger badge-pill">21</span>
+                                High Importance
+                            </li>
+                            <li class="">
+                                <span class="badge badge-primary badge-pill">4</span>
+                                Proposals Per Issue
+                            </li>
+                        </ul>
+                    </div>
+                <div id="users-holder">
+                    <canvas id="users-chart"></canvas>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">14</span>
+                            Open Polls
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock %} 
-
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
 <script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
+<script src="{% static "js/chart.bundle.min.js"%}"></script>
 <script src="{% static "js/sidebar.js"%}"></script>
+<script>
+    var config = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [
+                    25,
+                    50,
+                    75
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(153, 102, 255)'
+                ],
+                label: 'Dataset 1'
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+
+    window.onload = function () {
+        var polls = document.getElementById('polls-chart').getContext('2d');
+        window.myDoughnut = new Chart(polls, config);
+        var issues = document.getElementById('issues-chart').getContext('2d');
+        window.myDoughnut = new Chart(issues, config);
+        var users = document.getElementById('users-chart').getContext('2d');
+        window.myDoughnut = new Chart(users, config);
+    };
+</script>
 {% endblock %}
