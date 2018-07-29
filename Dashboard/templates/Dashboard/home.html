@@ -1,6 +1,5 @@
 {% extends '_base.html' %} {% load static %} {% block body %}
 <div id="wrapper">
-
     {% include '_sidebar.html' %} {% include '_navbar.html' %}
 
     <div class="container mt-5">
@@ -8,7 +7,7 @@
             <div class="col-4">
                 <ul class="list-unstyled">
                     <li>
-                        <h5>Welcome <b>User</b></h5>
+                        <h5>Welcome <b>{{ request.user.username }}</b></h5>
                     </li>
                     <li>
                         <p>You have <b>5</b> votes remaining.</p>
@@ -26,16 +25,14 @@
                 </ul>
             </div>
             <div class="col-4">
-                    <ul class="list-unstyled text-right">
-                            <li>
-                                <h5>Saturday 21st of July,</h5>
-                            </li>
-                            <li>
-                                <p><b>3</b> days since last login</p>
-                            </li>
-                        </ul>
-                    
-                    
+                <ul class="list-unstyled text-right">
+                    <li>
+                        <h5>{% now "jS F Y" %}</h5>
+                    </li>
+                    <li>
+                        <p><b>3</b> days since last login</p>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="card-deck">
@@ -74,24 +71,24 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="">
-                                <span class="badge badge-success badge-pill">14</span>
-                                Open Polls
-                            </li>
-                            <li class="">
-                                <span class="badge badge-warning badge-pill">33</span>
-                                Ending Soon
-                            </li>
-                            <li class="">
-                                <span class="badge badge-danger badge-pill">21</span>
-                                High Importance
-                            </li>
-                            <li class="">
-                                <span class="badge badge-primary badge-pill">4</span>
-                                Proposals Per Polls
-                            </li>
-                        </ul>
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-success badge-pill">14</span>
+                            Open Polls
+                        </li>
+                        <li class="">
+                            <span class="badge badge-warning badge-pill">33</span>
+                            Ending Soon
+                        </li>
+                        <li class="">
+                            <span class="badge badge-danger badge-pill">21</span>
+                            High Importance
+                        </li>
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">4</span>
+                            Proposals Per Polls
+                        </li>
+                    </ul>
                     </div>
                 <div id="issues-holder">
                     <canvas id="issues-chart"></canvas>
@@ -107,24 +104,24 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="">
-                                <span class="badge badge-success badge-pill">14</span>
-                                Open Issues
-                            </li>
-                            <li class="">
-                                <span class="badge badge-warning badge-pill">33</span>
-                                Ending Soon
-                            </li>
-                            <li class="">
-                                <span class="badge badge-danger badge-pill">21</span>
-                                High Importance
-                            </li>
-                            <li class="">
-                                <span class="badge badge-primary badge-pill">4</span>
-                                Proposals Per Issue
-                            </li>
-                        </ul>
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="badge badge-success badge-pill">14</span>
+                            Open Issues
+                        </li>
+                        <li class="">
+                            <span class="badge badge-warning badge-pill">33</span>
+                            Ending Soon
+                        </li>
+                        <li class="">
+                            <span class="badge badge-danger badge-pill">21</span>
+                            High Importance
+                        </li>
+                        <li class="">
+                            <span class="badge badge-primary badge-pill">4</span>
+                            Proposals Per Issue
+                        </li>
+                    </ul>
                     </div>
                 <div id="users-holder">
                     <canvas id="users-chart"></canvas>
@@ -141,7 +138,9 @@
         </div>
     </div>
 </div>
-{% endblock %} {% block scripts %}
+
+{% endblock %}
+{% block scripts %}
 <script src="{% static "js/jquery-3.3.1.min.js"%}"></script>
 <script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>

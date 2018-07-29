@@ -94,6 +94,7 @@ ENV/
 
 # Epitome Settings
 settings.py
+secret_key.txt
 
 # Dolphin
 .directory
@@ -110,4 +111,5 @@ mode_modules
 node_modules/
 package-lock.json
 
-
+# PyCharm
+.idea/
