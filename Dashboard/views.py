@@ -4,9 +4,12 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib import messages
-
+from Demoscopesis.models import Poll
+from datetime import datetime
 
 @login_required(login_url='/user/login/')
 def index(request):
     template = loader.get_template('Dashboard/home.html')
+    request.activeCount = Poll.objects.filter(PL_ENDDT__gt=datetime.now()).count()
+    request.inactiveCount = Poll.objects.filter(PL_ENDDT__lt=datetime.now()).count()
     return HttpResponse(template.render({},request))

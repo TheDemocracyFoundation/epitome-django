@@ -36,105 +36,59 @@
             </div>
         </div>
         <div class="card-deck">
+
             <div class="card">
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li class="">
-                            <span class="badge badge-success badge-pill">14</span>
-                            Open Issues
+                            <span class="badge badge-success badge-pill">{{ request.activeCount }}</span>
+                            Open Polls
                         </li>
                         <li class="">
-                            <span class="badge badge-warning badge-pill">33</span>
-                            Ending Soon
-                        </li>
-                        <li class="">
-                            <span class="badge badge-danger badge-pill">21</span>
-                            High Importance
-                        </li>
-                        <li class="">
-                            <span class="badge badge-primary badge-pill">4</span>
-                            Proposals Per Issue
+                            <span class="badge badge-warning badge-pill">{{ request.inactiveCount }}</span>
+                            Closed Polls
                         </li>
                     </ul>
                 </div>
-                <div id="polls-holder">
+                <div id="polls-holder" class="mb-5">
                     <canvas id="polls-chart"></canvas>
                 </div>
+            </div>
+            <div class="card">
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li class="">
-                            <span class="badge badge-primary badge-pill">14</span>
-                            Open Issues
+                            <span class="badge badge-success badge-pill">{{ request.activeCount }}</span>
+                            Open Polls
+                        </li>
+                        <li class="">
+                            <span class="badge badge-warning badge-pill">{{ request.inactiveCount }}</span>
+                            Closed Polls
                         </li>
                     </ul>
+                </div>
+                <div id="" class="mb-5">
+                    <canvas ></canvas>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li class="">
-                            <span class="badge badge-success badge-pill">14</span>
+                            <span class="badge badge-success badge-pill">{{ request.activeCount }}</span>
                             Open Polls
                         </li>
                         <li class="">
-                            <span class="badge badge-warning badge-pill">33</span>
-                            Ending Soon
-                        </li>
-                        <li class="">
-                            <span class="badge badge-danger badge-pill">21</span>
-                            High Importance
-                        </li>
-                        <li class="">
-                            <span class="badge badge-primary badge-pill">4</span>
-                            Proposals Per Polls
+                            <span class="badge badge-warning badge-pill">{{ request.inactiveCount }}</span>
+                            Closed Polls
                         </li>
                     </ul>
-                    </div>
-                <div id="issues-holder">
-                    <canvas id="issues-chart"></canvas>
                 </div>
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="">
-                            <span class="badge badge-primary badge-pill">14</span>
-                            Open Issues
-                        </li>
-                    </ul>
+                <div class="mb-5">
+                    <canvas></canvas>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="">
-                            <span class="badge badge-success badge-pill">14</span>
-                            Open Issues
-                        </li>
-                        <li class="">
-                            <span class="badge badge-warning badge-pill">33</span>
-                            Ending Soon
-                        </li>
-                        <li class="">
-                            <span class="badge badge-danger badge-pill">21</span>
-                            High Importance
-                        </li>
-                        <li class="">
-                            <span class="badge badge-primary badge-pill">4</span>
-                            Proposals Per Issue
-                        </li>
-                    </ul>
-                    </div>
-                <div id="users-holder">
-                    <canvas id="users-chart"></canvas>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="">
-                            <span class="badge badge-primary badge-pill">14</span>
-                            Open Polls
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -147,6 +101,30 @@
 <script src="{% static "js/chart.bundle.min.js"%}"></script>
 <script src="{% static "js/sidebar.js"%}"></script>
 <script>
+    var pollActivityConfiguration = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [
+                    {{request.activeCount}},
+                    {{request.inactiveCount}}
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)'
+                ],
+                label: 'Dataset 1'
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+
     var config = {
         type: 'doughnut',
         data: {
@@ -175,11 +153,7 @@
 
     window.onload = function () {
         var polls = document.getElementById('polls-chart').getContext('2d');
-        window.myDoughnut = new Chart(polls, config);
-        var issues = document.getElementById('issues-chart').getContext('2d');
-        window.myDoughnut = new Chart(issues, config);
-        var users = document.getElementById('users-chart').getContext('2d');
-        window.myDoughnut = new Chart(users, config);
+        window.myDoughnut = new Chart(polls, pollActivityConfiguration);
     };
 </script>
 {% endblock %}
