@@ -6,13 +6,19 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib import messages
 from Demoscopesis.forms import PollForm, PollChoiceFormSet
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from .models import Poll, PollChoice, Voter
 
 @login_required(login_url='/user/login/')
 def index(request):
-	latest_poll_list = Poll.objects.order_by('-PL_CREATION')
+	poll_list = Poll.objects.order_by('-PL_CREATION')
 	template = loader.get_template('Demoscopesis/index.html')
+	paginator = Paginator(poll_list, 2)
+	
+	page = request.GET.get('page')
+	latest_poll_list = paginator.get_page(page)
+	
 	context = {
 		'latest_poll_list': latest_poll_list,
 	}

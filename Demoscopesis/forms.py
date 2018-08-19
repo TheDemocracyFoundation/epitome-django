@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, Textarea, modelform_factory
+from django.forms import ModelForm, Textarea, modelform_factory, modelformset_factory
 from Demoscopesis.models import Poll, PollChoice
 
 class PollForm(ModelForm):
@@ -17,8 +17,6 @@ class PollForm(ModelForm):
 			'POLLCAT' : forms.TextInput(attrs={'type':'text','id':'form-categories','class':'form-control', 'style':'display:none' ,'required': True})
 		}
 
-#
-
 class PollChoiceForm(ModelForm):
 	class Meta:
 		model = PollChoice
@@ -27,4 +25,4 @@ class PollChoiceForm(ModelForm):
 			'PC_CHOICE' : forms.TextInput(attrs={'type':'hidden', 'id':'payload' ,'class':'form-control','required': True})
 		}
 		
-PollChoiceFormSet = modelform_factory(PollChoice, form=PollChoiceForm)
+PollChoiceFormSet = modelformset_factory(PollChoice, form=PollChoiceForm, extra=2, can_delete=False)
