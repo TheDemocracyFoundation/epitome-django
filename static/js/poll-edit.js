@@ -84,6 +84,5 @@ function submitAll(){
     console.log(stringBuilder);
     console.log(categories);
 
-
     document.getElementById("form-body").submit();
 }
