@@ -97,7 +97,7 @@ def vote(request, polls_id):
                 'error_message': "Please select a choice.",
             })
         else:
-            selected_choice.PC_VOTES += 1
+            selected_choice.PC_VOTES = F('PC_VOTES') + 1
             selected_choice.save()
             v = Voter(USER=request.user, POLL=poll)
             v.save()
