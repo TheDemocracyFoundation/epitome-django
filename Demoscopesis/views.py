@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib import messages
 from Demoscopesis.forms import PollForm, PollChoiceFormSet
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.db.models import F
+from django.db.models import F, Sum
 
 from .models import Poll, PollChoice, Voter
 
@@ -73,6 +73,8 @@ def moreInfo(request, polls_id):
     poll = get_object_or_404(Poll, pk=polls_id)
     template = loader.get_template('Demoscopesis/poll.html')
     nowDt = timezone.localtime(timezone.now())
+    if poll.PL_ENDDT < nowDt:
+        poll = get_object_or_404(Poll.objects.all().annotate(total_votes=Sum('PChoice__PC_VOTES')), pk=polls_id)
     context = {
         'poll': poll,
         'nowdt': nowDt,
