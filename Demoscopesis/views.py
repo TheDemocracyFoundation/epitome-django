@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib import messages
 from Demoscopesis.forms import PollForm, PollChoiceFormSet
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.db.models import F
 
 from .models import Poll, PollChoice, Voter
 
