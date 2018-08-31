@@ -22,9 +22,7 @@ class Poll(models.Model):
 	PL_STARTDT = models.DateTimeField("Starting date")                                                   # the starting date and time of the poll
 	PL_ENDDT = models.DateTimeField("Ending date")                                                       # the ending date and time of the poll
 	PL_CODE2 = models.CharField("Code 2", max_length=200, blank = True)                                  # the code2 of the poll (protocol number, approval number)
-	votes = models.IntegerField("Total Votes", default=0)
-	USER = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User")                        # the user (admin) who created the poll
-	UGROUP = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name="User group")               # the group of the user that created the poll
+	USER = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User")                        # the user who created the poll
 	POLLCAT = models.ManyToManyField(PollCat, verbose_name="Poll category")                              # the category of the poll
 	def __str__(self): 
 		return "%s %s" % (self.PL_TITLE, self.PL_SHRBODY)
