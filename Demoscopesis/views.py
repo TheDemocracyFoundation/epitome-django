@@ -16,7 +16,7 @@ from .models import Poll, PollChoice, Voter
 def index(request):
     poll_list = Poll.objects.order_by('-PL_CREATION')
     template = loader.get_template('Demoscopesis/index.html')
-    paginator = Paginator(poll_list, 2)
+    paginator = Paginator(poll_list, 20)
 
     page = request.GET.get('page')
     latest_poll_list = paginator.get_page(page)
