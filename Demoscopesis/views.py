@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -28,45 +28,28 @@ def index(request):
 
 
 @login_required(login_url='/user/login/')
-def createPoll(request):
-    template = loader.get_template('Demoscopesis/poll-edit.html')
-    if request.method == 'GET':
-        PollsForm = PollForm(request.GET or None)
+def create_poll(request):
+    if request.method == 'POST':
+        PollsForm = PollForm(request.POST)
+        formset = PollChoiceFormSet(request.POST)
+        if all([PollsForm.is_valid(), formset.is_valid()]):
+            poll = PollsForm.save(commit=False)
+            poll.USER = request.user
+            poll.PL_CREATION = timezone.now()
+            poll.save()
+            for form in formset:
+                poll_choice = form.save(commit=False)
+                poll_choice.POLL = poll
+                poll_choice.save()
+            return redirect('Demoscopesis:index')
+    else:
+        form = PollForm()
         formset = PollChoiceFormSet(queryset=PollChoice.objects.none())
-        context = {
-            'PollForm': PollForm,
-            'PollChoiceFormSet': formset,
-        }
-        return HttpResponse(template.render(context, request))
-    elif request.method == 'POST':
-        try:
-            PollsForm = PollForm(request.POST)
-            formset = PollChoiceFormSet(request.POST)
-            if PollsForm.is_valid() and formset.is_valid():
-                poll = PollsForm.save()
-                for form in formset:
-                    poll_choice = form.save(commit=False)
-                    poll_choice.POLL = poll
-                    poll_choice.save()
-                return redirect('Demoscopesis:index')
-        except:
-            return HttpResponseRedirect(reverse('Demoscopesis:index'))
+    return render(request, 'Demoscopesis/poll-edit.html', {
+        'PollForm': form,
+        'PollChoiceFormSet': formset,
+    })
 
-
-# if request.method == 'POST':
-#	context = {
-#		'PollForm': PollForm,
-#		'PollChoiceFormSet' : formSet,
-#	}
-#	return HttpResponse(template.render(context, request))
-# else:
-#	formSet = PollChoiceFormSet
-#	template = loader.get_template('Demoscopesis/poll-edit.html')
-#	context = {
-#		'PollForm': PollForm,
-#		'PollChoiceFormSet' : formSet,
-#	}
-#	return HttpResponse(template.render(context, request))
 
 @login_required(login_url='/user/login/')
 def moreInfo(request, polls_id):

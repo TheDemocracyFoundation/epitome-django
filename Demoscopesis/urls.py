@@ -11,7 +11,7 @@ urlpatterns = [
 	#/Demoscopesis/5/vote
 	re_path(r'^(?P<polls_id>[0-9]+)/vote/$', views.vote, name='vote'),
 	#/Demoscopesis/create
-	re_path(r'^create/$', views.createPoll, name='createPoll'),
+	re_path(r'^create/$', views.create_poll, name='createPoll'),
 	#/Demoscopesis/edit/5/
 	#re_path(r'^/edit/(?P<polls_id>[0-9]+)/$', views.edit, name='edit'),
 ]
