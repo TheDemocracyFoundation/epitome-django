@@ -43,10 +43,10 @@ def create_poll(request):
                 poll_choice.save()
             return redirect('Demoscopesis:index')
     else:
-        form = PollForm()
+        PollsForm = PollForm()
         formset = PollChoiceFormSet(queryset=PollChoice.objects.none())
     return render(request, 'Demoscopesis/poll-edit.html', {
-        'PollForm': form,
+        'PollForm': PollsForm,
         'PollChoiceFormSet': formset,
     })
 
