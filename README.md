@@ -33,3 +33,5 @@ Take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
 -----------------------------------
 
 [![AGPL3](https://www.gnu.org/graphics/agplv3-155x51.png)](LICENSE.txt)
+[![Django](https://www.djangoproject.com/m/img/badges/djangopowered126x54.gif)](http://www.djangoproject.com/)
+
