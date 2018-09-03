@@ -2,7 +2,7 @@
 
 In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured (you most likely have one - check troubleshooting below if you don't). A full update and upgrade of your system is recommended before you begin the setup.
 
-In order to install epitome to your system and set up the server, you should run the files by order.
+In order to install epitome to your system and set up the server, you should run the following files in order.
 
 * **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages (see below), download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
