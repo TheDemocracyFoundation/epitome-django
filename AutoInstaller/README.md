@@ -19,7 +19,7 @@ In order to install epitome to your system and set up the server, you should run
 Other files:
 * **Epitome Uninstaller**: This will delete the folders "EpitomeVE" (containing the python virtual environment), "tempepitome" (a temp folder used by the Autoinstaller script) and "Epitome" (containing the source code of epitome) from your home directory. This will **not** uninstall the packages that were installed by running the Autoinstaller, you need to remove those manually.
 
-The packages installed in autoinstaller are:
+The packages installed by using the autoinstaller are:
 
 For pacman: git python python-virtualenv python-pip rsync
 
