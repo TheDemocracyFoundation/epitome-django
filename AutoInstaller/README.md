@@ -6,9 +6,9 @@ In order to install epitome to your system and set up the server, you should run
 
 * **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages (see below), download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
-* **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file. Note, this script will turn django debugging mode off in your settings.py.
+* **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file.
 
-* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server. Note, this script will turn django debugging mode on in your settings.py.
+* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server.
 
 * **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the administrator user of epitome).
 
@@ -30,6 +30,8 @@ For dnf: git python3 python3-virtualenv python3-pip rsync
 For yum: epel-release git python36 python34-setuptools python34-pip nss curl libcurl rsync
 
 * **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents, and you will be prompted to choose if you would like to replace your settings.py file where your current configuration is stored.
+
+* **Toggle Debug**: This will toggle the debug mode on and off, for displaying detailed error pages. You should never deploy a site into production with DEBUG turned on. For more information visit the official [Django documentation](https://docs.djangoproject.com/en/2.1/ref/settings/#debug)
 
 # Troubleshooting
 

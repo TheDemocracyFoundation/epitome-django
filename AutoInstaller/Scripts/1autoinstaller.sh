@@ -38,8 +38,6 @@ echo 'Detecting package manager...'
 
         cd ~/tempepitome/epitome
 
-        git checkout development
-
         # Install pip and activate the python virtual environment
 
         sudo pip3 install --upgrade pip setuptools
@@ -87,8 +85,6 @@ echo 'Detecting package manager...'
         git clone https://github.com/TheDemocracyFoundation/epitome.git
 
         cd ~/tempepitome/epitome
-
-        git checkout development
 
         # Install pip and activate the python virtual environment
 
@@ -143,8 +139,6 @@ echo 'Detecting package manager...'
 
         cd ~/tempepitome/epitome
 
-        git checkout development
-
         # Install pip and activate the python virtual environment
 
         sudo pip3 install --upgrade pip setuptools
@@ -192,8 +186,6 @@ echo 'Detecting package manager...'
         git clone https://github.com/TheDemocracyFoundation/epitome.git
 
         cd ~/tempepitome/epitome
-
-        git checkout development
 
         # Install pip and activate the python virtual environment
 

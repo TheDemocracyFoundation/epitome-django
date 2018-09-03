@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Toggle Debug
+Comment=Toggles the Debug function
+Encoding=UTF-8
+Exec=bash -c 'cd $(dirname %k)/Scripts && chmod a+x toggledebug.sh && ./toggledebug.sh && exit;$SHELL'
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Name[en_US]=Toggle Debug.desktop
