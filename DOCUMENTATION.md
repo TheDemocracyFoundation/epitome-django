@@ -1,8 +1,26 @@
 # Epitome documentation
 
-### Installation
+## Installation
+
+### Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome)
+
+If you choose to install Epitome on Heroku, please click the button above, the fields of the required variables should be already populated.
+
+In order to create an admin account you must go to More > Run console, run the command
+
+`python3 manage.py createsuperuser`
+
+and fill in the admin account information.
+
+To visit the administration page, go to https://name-of-your-app.herokuapp.com/admin/ (replace the app name in the address with yours).
+
+### Autoinstaller
 
 For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
+
+### Manual installation in Linux operating systems
 
 <p align="justify">In order to install Epitome, python 3 must be installed in order to create a virtual environment. After that, django must be installed via pip. Create a new project using django’s “startproject” command, and in that new project, import the Epitome files. Epitome will be finally set up using the settings.py script and will run using the embedded server.</p>
 
