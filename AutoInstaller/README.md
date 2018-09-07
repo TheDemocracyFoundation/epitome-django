@@ -31,7 +31,7 @@ For yum: epel-release git python36 python34-setuptools python34-pip nss curl lib
 
 * **Epitome Updater**: This will download the repository again and replace the files inside your installation. It will not update outdated packages, you need to run a system update for this, and activate your virtual environment to update django. This will not delete your database contents, and you will be prompted to choose if you would like to replace your settings.py file where your current configuration is stored.
 
-* **Toggle Debug**: This will toggle the debug mode on and off, to display detailed error pages. You should never deploy a site into production with DEBUG turned on. For more information visit the official [Django documentation](https://docs.djangoproject.com/en/ref/settings/#debug).
+* **Toggle Debug**: This will toggle the debug mode on and off, to display detailed error pages. You should never deploy a site into production with DEBUG turned on. For more information visit the official [Django documentation](https://docs.djangoproject.com/en/dev/ref/settings/#debug).
 
 # Troubleshooting
 
