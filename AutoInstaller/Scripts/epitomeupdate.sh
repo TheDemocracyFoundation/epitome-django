@@ -6,7 +6,9 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
  if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
  
     symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 EPITOME_SECRET_KEY=; for (( i = 0; i < length; i++ )); do EPITOME_SECRET_KEY+=${symbols[RANDOM%${#symbols[@]}]}; done; export EPITOME_SECRET_KEY
-   
+    
+    rm -rf ~/tempepitome
+    
     mkdir ~/tempepitome
 
     cd ~/tempepitome
