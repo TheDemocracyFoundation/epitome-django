@@ -1,4 +1,4 @@
-# Epitome 
+# Epitome
 -----------------------------------
 
 An instrument built for change - http://democracy.foundation/epitome/
@@ -8,8 +8,9 @@ Read our [whitepaper](https://github.com/TheDemocracyFoundation/whitepaper).
 **Test an online demo of Epitome here! (username: demo password: demodemo)**  - http://epitome.esy.es
 
 -----------------------------------
-<p align="justify">Epitome is a direct democracy online platform for societies of every demand or size. It enables the full and non-exclusive participation of citizens and members through an appealing and abundant design. Rather than top-down, government controlled referendums, Epitome is a responsive system in which the individual proposals are subjected to peer evaluation and cultivation along with other proposals, each through their own group of creators and supporters building and improving them.
-</p>
+<p align="justify">Epitome is a free and open-source online platform of mass deliberation and consensus decision-making, developed for communities and groups of any size or need. By selecting from available subsystems and features, societies, universities, corporations, organizations and in general any form of community can customize and use Epitome as their decision-making instrument. The decision-making process and moderation of the platform is managed entirely by its members, eliminating needs for representatives, administrators or intermediates of any kind.
+
+Instead of yes-or-no referendums, through Epitome, communities and groups are able to act as self-regulating living organisms, allowing them to detect issues, propose solutions to those issues, collaborate and collectively improve them, and select the most fitting among the top ones.</p>
 
 <p align="center">
   <img src="http://i.imgur.com/Q2AXPFE.gif">
