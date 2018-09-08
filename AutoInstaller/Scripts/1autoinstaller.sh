@@ -54,7 +54,7 @@ echo 'Detecting package manager...'
         
         # Install django and make migrations
 
-        pip3 install django
+        pip3 install django whitenoise
 
         mkdir ~/Epitome/
 
@@ -102,7 +102,7 @@ echo 'Detecting package manager...'
         
         # Install django and make migrations
 
-        pip install django
+        pip install django whitenoise
 
         mkdir ~/Epitome/
 
@@ -155,7 +155,7 @@ echo 'Detecting package manager...'
 
         # Install django and make migrations
 
-        pip install django
+        pip install django whitenoise
 
         mkdir ~/Epitome/
 
@@ -203,7 +203,7 @@ echo 'Detecting package manager...'
         
         # Install django and make migrations
 
-        pip install django
+        pip install django whitenoise
 
         mkdir ~/Epitome/
 
