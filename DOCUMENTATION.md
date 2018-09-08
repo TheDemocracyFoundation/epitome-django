@@ -18,7 +18,7 @@ To visit the administration page, go to https://name-of-your-app.herokuapp.com/a
 
 ### Autoinstaller
 
-For Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs epitome to your system with a few clicks.
+For most Linux distributions, you can take a look at the [Autoinstaller script](AutoInstaller/) that downloads and installs Epitome to your system with a few clicks.
 
 ### Manual installation in Linux operating systems
 
