@@ -1,2 +1,2 @@
 release: python3 manage.py makemigrations && python3 manage.py migrate
-web: : gunicorn Epitome.wsgi --log-file -
+web: : gunicorn Epitome.wsgi
