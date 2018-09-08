@@ -1,16 +1,16 @@
 # Epitome Autoinstaller
 
-In order to run the autoinstaller for your system, you should have a non-root user with sudo privileges configured (you most likely have one - check troubleshooting below if you don't). A full update and upgrade of your system is recommended before you begin the setup.
+In order to run the autoinstaller in your Linux system, you should have a non-root user with sudo privileges configured (you most likely have one - check troubleshooting below if you don't). A full update and upgrade of your system is recommended before you begin the setup.
 
-In order to install epitome to your system and set up the server, you should run the following files in order.
+In order to install Epitome to your system and set up the server, you should run the following files in order.
 
-* **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages (see below), download the epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
+* **1 AutoInstaller**: Currently the package managers supported are apt, yum, dnf and pacman. This file will download required packages (see below for a list), download the Epitome repository, create a python 3 virtual environment, install django in the virtual environment, create the django project, copy the files of the repository in the created django project and then make the migrations required for each app.
 
 * **2 (optional) Epitome Run Gunicorn WSGI server**: This is an OPTIONAL file. Run this file only if you want to set up a WSGI Gunicorn server in order host epitome for internet access. If you run this file, it will automatically find your external ip and start a server on it, and therefore you do NOT need to run the dev server (file 2 Epitome Run Dev Server). If you just want to try epitome locally, skip this file.
 
-* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server.
+* **2 Epitome Run Dev Server**: this file will activate the python 3 virtual environment and then switch to the epitome folder to run the dev server. By default, the debug mode is turned off in Epitome for increased security, if you want to enable it see the debug toggler script explained below.
 
-* **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the administrator user of epitome).
+* **3 Epitome Create Admin**: by running this file, you will be prompted to fill in some information to create the superuser (the administrator user of Epitome).
 
 * **4 Epitome Open Admin**: opening this file, will simply open your browser and direct you to the admin login page. Alternatively, you can visit <http://localhost:8000/admin/>.
 
@@ -37,7 +37,7 @@ For yum: epel-release git python36 python34-setuptools python34-pip nss curl lib
 
 #### Issue: You cannot open .desktop files because you are in a SSH session or in a desktop environment which forbits their execution
 
-Solution: you can go into the directory Autoinstaller/Scripts and you can find all the scipts there. In order to run them, you should open a terminal session, change the directory to Autoinstaller/Scripts and then use the commands `chmod a+x filename.sh` and `./filename.sh` to run each individual script. Take a look above for descriptions on what each script does.
+Solution: you can go into the directory Autoinstaller/Scripts and you can find all the scipts there. In order to run them, you should open a terminal session, change the directory to Autoinstaller/Scripts and then use the commands `chmod a+x filename.sh` and `./filename.sh` to run each individual script.
 
 ------
 
