@@ -2,7 +2,7 @@
   "name": "Epitome",
   "description": "An instrument built for change",
   "repository": "https://github.com/TheDemocracyFoundation/epitome",
-  "keywords": ["python", "django", "epitome", "governance", "e-democracy", "deliberation", "democracy", "voting"],
+  "keywords": ["e-voting", "direct-democracy", "epitome", "governance", "e-democracy", "deliberation", "democracy", "voting", "consensus"],
   "addons":[
     {
     "plan":"heroku-postgresql"
