@@ -66,13 +66,11 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        python3 manage.py makemigrations Demoscopesis
-
-        python3 manage.py makemigrations Agora
-
-        python3 manage.py makemigrations Propylaea
+        python3 manage.py makemigrations
 
         python3 manage.py migrate
+        
+        python3 manage.py collectstatic
    
     elif type dnf 2> /dev/null; then
         echo    # move to a new line
@@ -114,14 +112,11 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        python3 manage.py makemigrations Demoscopesis
-
-        python3 manage.py makemigrations Agora
-
-        python3 manage.py makemigrations Propylaea
+        python3 manage.py makemigrations
 
         python3 manage.py migrate
         
+        python manage.py collectstatic
           
     elif type yum 2> /dev/null; then
         echo    # move to a new line
@@ -167,13 +162,11 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        python3 manage.py makemigrations Demoscopesis
-
-        python3 manage.py makemigrations Agora
-
-        python3 manage.py makemigrations Propylaea
+        python3 manage.py makemigrations
 
         python3 manage.py migrate
+        
+        python manage.py collectstatic
         
     elif type pacman 2> /dev/null; then
         echo    # move to a new line
@@ -215,13 +208,11 @@ echo 'Detecting package manager...'
 
         cd ~/Epitome
 
-        python3 manage.py makemigrations Demoscopesis
-
-        python3 manage.py makemigrations Agora
-
-        python3 manage.py makemigrations Propylaea
+        python3 manage.py makemigrations
 
         python3 manage.py migrate
+        
+        python manage.py collectstatic
     else
         echo "Supported package manager not found (apt, dnf, pacman, yum)" >&2
         exit 1
