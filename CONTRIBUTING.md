@@ -1,6 +1,6 @@
 # Welcome to the Epitome project
 
-You have our deep gratitude for deciding to contribute to the development of Epitome. You can help the project by contirbuting new features, patches, bug reports, tutorials, documentation, and artwork. We welcome all contributors regardless of skill or experience level. We want to make participation as easy as possible, by providing support to contributors, especially those who are new. This can include providing feedback on your patches among other things.  However by following the guidelines below contributors can decrease the amount of support required, which makes the process easier and better for everyone.
+You have our deep gratitude for deciding to contribute to the development of Epitome. You can help the project by contributing new features, patches, bug reports, tutorials, documentation, and artwork. We welcome all contributors regardless of skill or experience level. We want to make participation as easy as possible, by providing support to contributors, especially those who are new. This can include providing feedback on your patches among other things.  However by following the guidelines below contributors can decrease the amount of support required, which makes the process easier and better for everyone.
 
 We expect all contributors uphold a positive and respectful behaviour as explained in the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -49,4 +49,4 @@ We expect all contributors uphold a positive and respectful behaviour as explain
 
 ## Contact
 
-If you would like to contact us for any reason please fill out a form in our [contact page](http://democracy.foundation/contact/) and we will be in contact with you soon.
+If you would like to contact us for any reason please fill out a form in our [contact page](http://democracy.foundation/contact/) or join us in our [Riot.im chat room](https://riot.im/app/#/room/#democracyfoundation:matrix.org) and we will be in contact with you soon.
