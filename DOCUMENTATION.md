@@ -72,9 +72,9 @@ upgrade pip3 again in case it requires it
 
 `pip3 install --upgrade pip`
 
-Install django
+Install django and whitenoise
 
-`pip3 install django`
+`pip3 install django whitenoise`
 
 9) Create a new folder Epitome in your home folder:
 
