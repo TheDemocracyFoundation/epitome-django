@@ -22,6 +22,7 @@ read -r -p "Would you like to install Epitome to your system? [y/n]  " response
  response=${response,,} # tolower
  echo    # move to a new line
  if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+rm -rf ~/tempepitome
 symbols=({a..z} {A..Z} {0..9} '_' '-' '#' '$' '%' '^' '&' '*' '(' ')' '!' '@') length=50 EPITOME_SECRET_KEY=; for (( i = 0; i < length; i++ )); do EPITOME_SECRET_KEY+=${symbols[RANDOM%${#symbols[@]}]}; done; export EPITOME_SECRET_KEY
 echo 'Detecting package manager...'
 
