@@ -15,8 +15,6 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
 
     cd ~/tempepitome/epitome
 
-    git checkout development
-
     source ~/EpitomeVE/bin/activate
 
     echo    # move to a new line
@@ -53,13 +51,11 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
     
     fi
     
-    python3 manage.py makemigrations Demoscopesis
-
-    python3 manage.py makemigrations Agora
-
-    python3 manage.py makemigrations Propylaea
-
+    python3 manage.py makemigrations 
+    
     python3 manage.py migrate
+    
+    python3 manage.py collectstatic
     
 fi
 
