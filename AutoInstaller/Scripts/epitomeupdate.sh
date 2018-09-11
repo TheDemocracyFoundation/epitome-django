@@ -18,6 +18,10 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
     cd ~/tempepitome/epitome
 
     source ~/EpitomeVE/bin/activate
+    
+    pip3 install --upgrade pip
+
+    pip3 install django whitenoise
 
     echo    # move to a new line
     read -r -p "Would you like to replace your current settings.py? (this will delete your current configuration) [y/n]  " response
