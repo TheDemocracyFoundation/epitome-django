@@ -68,6 +68,10 @@ echo 'Detecting package manager...'
         cd ~/Epitome
 
         python3 manage.py makemigrations
+        
+        python3 manage.py makemigrations Demoscopesis
+        python3 manage.py makemigrations Agora
+        python3 manage.py makemigrations Propylaea
 
         python3 manage.py migrate
         
@@ -114,6 +118,10 @@ echo 'Detecting package manager...'
         cd ~/Epitome
 
         python3 manage.py makemigrations
+        
+        python3 manage.py makemigrations Demoscopesis
+        python3 manage.py makemigrations Agora
+        python3 manage.py makemigrations Propylaea
 
         python3 manage.py migrate
         
@@ -165,6 +173,10 @@ echo 'Detecting package manager...'
 
         python3 manage.py makemigrations
 
+        python3 manage.py makemigrations Demoscopesis
+        python3 manage.py makemigrations Agora
+        python3 manage.py makemigrations Propylaea
+
         python3 manage.py migrate
         
         python manage.py collectstatic
@@ -210,6 +222,10 @@ echo 'Detecting package manager...'
         cd ~/Epitome
 
         python3 manage.py makemigrations
+
+        python3 manage.py makemigrations Demoscopesis
+        python3 manage.py makemigrations Agora
+        python3 manage.py makemigrations Propylaea
 
         python3 manage.py migrate
         
