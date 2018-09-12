@@ -22,19 +22,19 @@ read -r -p "Are you sure you want to update Epitome? This will not replace your 
 echo 'Updating pip and required packages'
 echo    # move to a new line
     if type apt 2> /dev/null; then
-        sudo pip3 install --upgrade pip setuptools
+        pip3 install --upgrade pip setuptools
         pip3 install --upgrade pip
         pip3 install django whitenoise
     elif type dnf 2> /dev/null; then
-        sudo pip install --upgrade pip setuptools
+        pip install --upgrade pip setuptools
         pip install --upgrade pip
         pip install django whitenoise
     elif type yum 2> /dev/null; then
-        sudo pip3 install --upgrade pip setuptools
+        pip3 install --upgrade pip setuptools
         pip install --upgrade pip
         pip install django whitenoise
     elif type pacman 2> /dev/null; then
-        sudo pip install --upgrade pip setuptools
+        pip install --upgrade pip setuptools
         pip install --upgrade pip
         pip install django whitenoise
     fi
