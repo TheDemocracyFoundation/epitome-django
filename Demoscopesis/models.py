@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 
 
 class PollCat(models.Model):
-	PCAT_CAT = models.TextField("Poll category")                                                         # the category of the poll
+	PCAT_CAT = models.CharField("Poll category", max_length=100)                                         # the category of the poll
 	def __str__(self):
 		return self.PCAT_CAT
 	class Meta:
@@ -14,9 +14,9 @@ class PollCat(models.Model):
 
 
 class Poll(models.Model):
-	PL_TITLE = models.CharField("Title", max_length=1000)                                                # the title of the poll
-	PL_SHRBODY = models.TextField("Short body")                                                          # the short body of the poll
-	PL_BODY = models.TextField("Body")                                                                   # the body (main text) of the poll
+	PL_TITLE = models.CharField("Title", max_length=200)                                                 # the title of the poll
+	PL_SHRBODY = models.CharField("Short body", max_length=500)                                          # the short body of the poll
+	PL_BODY = models.CharField("Body", max_length=1500)                                                  # the body (main text) of the poll
 	PL_CREATION = models.DateTimeField("Creation date", default = timezone.now)                          # the creation date and time of the poll
 	PL_STARTDT = models.DateTimeField("Starting date")                                                   # the starting date and time of the poll
 	PL_ENDDT = models.DateTimeField("Ending date")                                                       # the ending date and time of the poll
@@ -28,7 +28,7 @@ class Poll(models.Model):
 
 class PollChoice(models.Model):
 	POLL = models.ForeignKey(Poll, related_name='PChoice', on_delete=models.CASCADE)                     # key to Polls table
-	PC_CHOICE = models.TextField("Choice")                                                               # the vote choice
+	PC_CHOICE = models.CharField("Choice", max_length=30)                                                # the vote choice
 	PC_VOTES = models.IntegerField("Votes", default=0)                                                   # the number of votes
 	def __str__(self):
 		return self.PC_CHOICE
