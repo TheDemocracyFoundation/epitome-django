@@ -15,7 +15,6 @@ class DemoscopesisAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None,               {'fields': ['PL_TITLE', 'PL_SHRBODY', 'PL_BODY']}),
 		('Date information', {'fields': ['PL_CREATION', 'PL_STARTDT', 'PL_ENDDT']}),
-		('Code information', {'fields': ['PL_CODE', 'PL_CODE2']}),
 		('User and Category information', {'fields': ['USER', 'POLLCAT']}),
 	]
 	inlines = [PollInline]

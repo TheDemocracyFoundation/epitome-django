@@ -36,6 +36,8 @@ def create_poll(request):
             poll = PollsForm.save(commit=False)
             poll.USER = request.user
             poll.PL_CREATION = timezone.now()
+            poll.PL_STARTDT = timezone.now()
+            poll.PL_ENDDT = timezone.now() + timezone.timedelta(days=7)
             poll.save()
             for form in formset:
                 poll_choice = form.save(commit=False)
