@@ -40,11 +40,11 @@
                 <div class="card-header text-center">
                     <h4>Results</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="results-card" data-progress-max="{{ poll.total_votes }}">
                     {% for choice in poll.PChoice.all %}
                     <h4>{{ choice.PC_CHOICE }}</h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress" data-progress-value="{{ choice.PC_VOTES }}">
+                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax=""></div>
                     </div>
                     {% endfor %}
                 </div>
@@ -76,4 +76,19 @@
 <script src="{% static "js/jquery.formset.min.js"%}"></script>
 <script src="{% static "js/bootstrap.bundle.min.js"%}"></script>
 <script src="{% static "js/sidebar.js"%}"></script>
+<script>
+    window.onload = voteResults();
+
+     function voteResults(){
+     if (document.getElementById("results-card") != null && document.getElementsByClassName("progress") != null ){
+        var total = document.getElementById("results-card").dataset.progressMax;
+        var votecount = document.getElementsByClassName("progress");
+            for (var i = 0; i < votecount.length; i++) {
+                res = ( votecount[i].dataset.progressValue / total ) * 100;
+                votecount[i].firstElementChild.style.width= res + '%';
+                votecount[i].firstElementChild.innerHTML = '<b>' + votecount[i].dataset.progressValue + '</b>';
+            }
+         }
+    }
+</script>
 {% endblock %}
