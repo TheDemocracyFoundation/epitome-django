@@ -61,7 +61,8 @@
                             {{ SignUpForm.email }}
                             <label for="inputPassword" class="sr-only">Password</label>
                             {{ SignUpForm.password }}
-                            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
+                            <input name="repeatPassword" id="repeat-password" class="form-control mt-3" placeholder="Repeat Password" required=true maxlength="128" type="password">
+                            <button id="register-submit-button" class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
                         </form>
                     </div>
                 </div>
@@ -74,4 +75,37 @@
 {% endblock %} {% block scripts %}
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var pass = "";
+            var rep = "";
+            buttonStatus('inactive');
+
+            $('#registration-password').keyup(function() {
+                pass = $('input#registration-password').val();
+                passwordMatch(pass, rep);
+            });
+
+            $('#repeat-password').keyup(function() {
+                rep = $('input#repeat-password').val();
+                passwordMatch(pass, rep);
+            });
+        });
+
+        function passwordMatch(pass, rep){
+            if (pass.length != 0 && pass === rep){
+                buttonStatus('active');
+            }else{
+                buttonStatus('inactive');
+            }
+        }
+
+        function buttonStatus(stat){
+            if (stat === 'active'){
+                document.getElementById("register-submit-button").disabled = false;
+            }else if (stat === 'inactive'){
+                document.getElementById("register-submit-button").disabled = true;
+            }
+        }
+    </script>
 {% endblock %}
