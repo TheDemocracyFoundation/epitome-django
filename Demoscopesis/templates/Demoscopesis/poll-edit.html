@@ -43,19 +43,22 @@
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2"><b>Title</b></label>
                                         <div id="title" class="controls">
-                                            {{ PollForm.PL_TITLE }} 
+                                            {{ PollForm.PL_TITLE }}
+                                            <p id="title-counter" class="text-right"></p>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2"><b>Short Body</b></label>
                                         <div id="shBody" class="controls">
-                                            {{ PollForm.PL_SHRBODY }} 
+                                            {{ PollForm.PL_SHRBODY }}
+                                            <p id="short-body-counter" class="text-right"></p>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label control-label-left col-sm-3" for="field2"><b>Body</b></label>
                                         <div id="body" class="controls">
-                                            {{ PollForm.PL_BODY }} 
+                                            {{ PollForm.PL_BODY }}
+                                            <p id="body-counter" class="text-right"></p>
                                         </div>
                                     </div>
                                     <!--<div class="form-group">
@@ -100,8 +103,8 @@
                                     </div>-->
 									   <div class="form-group">
 									       <label class="control-label control-label-left col-sm-3" for="field2"><b>Category</b></label>
-                                            {{ PollForm.POLLCAT }} 
-                                    </div>
+                                            {{ PollForm.POLLCAT }}
+                                        </div>
                                     <!--<label class="control-label control-label-left col-sm-3" for="field2"><b>Category</b></label>
                                     <div class="">  
                                         <div class="poll-form px-3 pb-3" id="categories" ></div>
@@ -166,6 +169,34 @@
 <script src="{% static "js/taggle.js"%}"></script>
 <script src="{% static "js/poll-edit.js"%}"></script>
 <script type="text/javascript">
+    $(document).ready(function() {
+        var title_max = 200;
+        var short_body_max = 300;
+        var body_max = 15000;
+
+        $('#title-counter').html(title_max + ' characters remaining');
+        $('#short-body-counter').html(short_body_max + ' characters remaining');
+        $('#body-counter').html(body_max + ' characters remaining');
+
+        $('#title').keyup(function() {
+            var title_text_length = $('input#title').val().length;
+            var title_text_remaining = title_max - title_text_length;
+            $('#title-counter').html(title_text_remaining + ' characters remaining');
+        });
+
+        $('#shortbody').keyup(function() {
+            var short_text_length = $('textarea#shortbody').val().length;
+            var short_text_remaining = short_body_max - short_text_length;
+            $('#short-body-counter').html(short_text_remaining + ' characters remaining');
+        });
+
+        $('#body').keyup(function() {
+            var text_length = $('textarea#body').val().length;
+            var text_remaining = body_max - text_length;
+            $('#body-counter').html(text_remaining + ' characters remaining');
+        });
+    });
+
     function updateElementIndex(el, prefix, ndx) {
         var id_regex = new RegExp('(' + prefix + '-\\d+)');
         var replacement = prefix + '-' + ndx;
