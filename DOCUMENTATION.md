@@ -98,6 +98,9 @@ and
 
 `python3 manage.py migrate`
 
+`python manage.py collectstatic`
+
+
 13) To start django server move to the folder Epitome and start the server by typing:
 
 `python3 manage.py runserver`
