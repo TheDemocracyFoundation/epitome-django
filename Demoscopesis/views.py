@@ -71,7 +71,7 @@ def moreInfo(request, polls_id):
 def vote(request, polls_id):
     poll = get_object_or_404(Poll, pk=polls_id)
     if Voter.objects.filter(POLL_id=polls_id, USER_id=request.user.id).exists():
-        messages.add_message(request, messages.INFO, 'You have already voted.')
+        messages.add_message(request, messages.ERROR, 'You have already voted.')
         return HttpResponseRedirect(reverse('Demoscopesis:index'))
     else:
         try:
@@ -92,5 +92,5 @@ def vote(request, polls_id):
             # Always return an HttpResponseRedirect after successfully dealing
             # with POST data. This prevents data from being posted twice if a
             # user hits the Back button.
-            messages.add_message(request, messages.INFO, 'Vote submited successfully.')
+            messages.add_message(request, messages.SUCCESS, 'Vote submited successfully.')
             return HttpResponseRedirect(reverse('Demoscopesis:index'))  # , args=(poll.id,)))

@@ -11,14 +11,32 @@
     <div class="mt-5" id="page-content-wrapper">
         {% if messages %} 
             {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>
-                    <p>{{ message }}</p>
-                </strong>
-            </div>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div class="container">
+                        <div class="alert alert-danger" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>
+                                <p>{{ message }}</p>
+                            </strong>
+                        </div>
+                    </div>
+
+                {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="container">
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>
+                                <p>{{ message }}</p>
+                            </strong>
+                        </div>
+                    </div>
+                {% endif %}
+
             {% endfor %} 
         {% endif %}
 
