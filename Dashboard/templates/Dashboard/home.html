@@ -32,18 +32,7 @@
                     <div class="card-header">
                         <a href="/demoscopesis/"><h4>Polls</h4></a>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="">
-                                <span class="badge badge-success badge-pill">{{ request.activeCount }}</span>
-                                Open Polls
-                            </li>
-                            <li class="">
-                                <span class="badge badge-warning badge-pill">{{ request.inactiveCount }}</span>
-                                Closed Polls
-                            </li>
-                        </ul>
-                    </div>
+
                     <div id="polls-holder" class="mb-5">
                         <canvas id="polls-chart"></canvas>
                     </div>
@@ -76,7 +65,11 @@
                     'rgb(243, 156, 18)'
                 ],
                 label: 'Dataset 1'
-            }]
+            }],
+            labels: [
+					'Open',
+					'Closed',
+				]
         },
         options: {
             responsive: true,
