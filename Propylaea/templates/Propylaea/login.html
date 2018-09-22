@@ -76,6 +76,7 @@
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
+        var timer;
         $(document).ready(function() {
             var pass = "";
             var rep = "";
@@ -84,11 +85,13 @@
             $('#registration-password').keyup(function() {
                 pass = $('input#registration-password').val();
                 passwordMatch(pass, rep);
+                colorAlert(pass, rep);
             });
 
             $('#repeat-password').keyup(function() {
                 rep = $('input#repeat-password').val();
                 passwordMatch(pass, rep);
+                colorAlert(pass, rep);
             });
         });
 
@@ -105,6 +108,21 @@
                 document.getElementById("register-submit-button").disabled = false;
             }else if (stat === 'inactive'){
                 document.getElementById("register-submit-button").disabled = true;
+
+            }
+        }
+
+        function colorAlert(pass, rep) {
+            clearTimeout(timer);
+            if (pass.length != 0 && pass === rep){
+                clearTimeout(timer);
+                $('#registration-password').css({"background-color":"White"});
+                $('#repeat-password').css({"background-color":"White"});
+            }else{
+                timer = setTimeout(function(){
+                     $('#registration-password').css({"background-color":"LightPink"});
+                     $('#repeat-password').css({"background-color":"LightPink"});
+                }, 2000);
             }
         }
     </script>

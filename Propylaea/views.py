@@ -22,7 +22,7 @@ def SignUpV(request):
 			template = loader.get_template('error.html')
 			context = {
 				"errorType": "409",
-				"errorMessage": "Your prefered credentials were received but your account was not created. Please try again with a different username.",
+				"errorMessage": "Your prefered credentials were received but your account was not created. Please verify that the format of your email is correct or try again with a different username.",
 				"redirectTo": "/user/signup"
 			}
 			return HttpResponse(template.render(context, request))
@@ -60,7 +60,7 @@ def LogIn(request):
 			template = loader.get_template('error.html')
 			context = {
 				"errorType": "401",
-				"errorMessage": "You are not authorized to login. Please check your credentials or register an account",
+				"errorMessage": "You are not authorized to login. Please check your credentials or register an account.",
 				"redirectTo": "/user/login"
 			}
 		return HttpResponse(template.render(context, request))
