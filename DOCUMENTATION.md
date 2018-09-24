@@ -6,7 +6,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TheDemocracyFoundation/epitome)
 
-If you choose to install Epitome on Heroku, please click the button above, the fields of the required variables should be already populated.
+If you choose to install Epitome on Heroku, please click the button above, the fields of the required variables should be already populated (such as the the required config variable "EPITOME_SECRET_KEY", which should contain a 50-character string including numbers and symbols. You can use [an online tool to help you with the key generation](https://www.miniwebtool.com/django-secret-key-generator/)).
 
 In order to create an admin account you must go to More > Run console, run the command
 
