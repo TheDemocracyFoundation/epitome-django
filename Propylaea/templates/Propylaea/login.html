@@ -76,54 +76,98 @@
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
-        var timer;
+
+        var emailTimer;
+        var passwordTimer;
         $(document).ready(function() {
-            var pass = "";
-            var rep = "";
-            buttonStatus('inactive');
+            $('#registration-password').click(function(){
+                $(this).popover('hide');
+            })
 
-            $('#registration-password').keyup(function() {
-                pass = $('input#registration-password').val();
-                passwordMatch(pass, rep);
-                colorAlert(pass, rep);
+            $('#registration-password').on('input',function(e){
+                $(this).popover('hide');
+                runTests();
             });
 
-            $('#repeat-password').keyup(function() {
-                rep = $('input#repeat-password').val();
-                passwordMatch(pass, rep);
-                colorAlert(pass, rep);
+            $('#repeat-password').on('input',function(e){
+                runTests();
             });
+
+             $('#registration-email').on('input',function(e){
+                runTests();
+            });
+            document.getElementById("register-submit-button").disabled = true;
         });
 
-        function passwordMatch(pass, rep){
-            if (pass.length != 0 && pass === rep){
-                buttonStatus('active');
-            }else{
-                buttonStatus('inactive');
-            }
-        }
+        function runTests(){
+            var passOk = passwordTests();
+            var emailOk = emailTests();
 
-        function buttonStatus(stat){
-            if (stat === 'active'){
+            if (passOk == true && emailOk == true){
                 document.getElementById("register-submit-button").disabled = false;
-            }else if (stat === 'inactive'){
+            }else{
                 document.getElementById("register-submit-button").disabled = true;
-
             }
         }
 
-        function colorAlert(pass, rep) {
-            clearTimeout(timer);
-            if (pass.length != 0 && pass === rep){
-                clearTimeout(timer);
+        function passwordTests(){
+            var password = $('input#registration-password').val();
+            var repeatPassword = $('input#repeat-password').val();
+
+            clearTimeout(passwordTimer);    
+
+            if (password.length == 0){
                 $('#registration-password').css({"background-color":"White"});
-                $('#repeat-password').css({"background-color":"White"});
+                return false;
+            }
+            
+            if (password.length < 8 && password.length > 0){
+                passwordTimer = setTimeout(function(){
+                    document.getElementById("registration-password").setCustomValidity("Password Should be greater than 8 characters Long");
+                    $('#registration-password').popover('show');
+                    $('#registration-password').css({"background-color":"LightPink"});
+                }, 2000);
+                return false;
             }else{
-                timer = setTimeout(function(){
+                document.getElementById("registration-password").setCustomValidity("");
+                $('#registration-password').css({"background-color":"White"});
+                $('#registration-password').popover('hide');
+            }
+
+            if (password != repeatPassword){
+                passwordTimer = setTimeout(function(){
                      $('#registration-password').css({"background-color":"LightPink"});
                      $('#repeat-password').css({"background-color":"LightPink"});
                 }, 2000);
+                return false;
+            }else{
+                $('#registration-password').css({"background-color":"White"});
+                $('#repeat-password').css({"background-color":"White"});
+            }
+            
+            return true;
+        }
+
+        function emailTests(){
+            var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+            var email = $('input#registration-email').val();
+
+            if (email.length == 0){
+                $('input#registration-email').css({"background-color":"White"});
+                return false;
+            }
+
+            clearTimeout(emailTimer);
+            if (re.test(email) == true){
+                $('input#registration-email').css({"background-color":"White"})
+                return true;
+            }else{
+                emailTimer = setTimeout(function(){
+                    $('input#registration-email').css({"background-color":"LightPink"})
+                }, 2000);
+                return false;
             }
         }
+
     </script>
 {% endblock %}
