@@ -120,6 +120,11 @@
                 $('#registration-password').css({"background-color":"White"});
                 return false;
             }
+
+            if (repeatPassword.length == 0){
+                $('#repeat-password').css({"background-color":"White"});
+                return false;
+            }
             
             if (password.length < 8 && password.length > 0){
                 passwordTimer = setTimeout(function(){
