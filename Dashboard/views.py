@@ -12,7 +12,7 @@ from Demoscopesis.models import Poll
 
 @login_required(login_url='/user/login/')
 def index(request):
-    template = loader.get_template('Dashboard/home.html')
+    template = loader.get_template('Episkopesis/home.html')
     request.activeCount = Poll.objects.filter(PL_ENDDT__gt=datetime.now()).count()
     request.inactiveCount = Poll.objects.filter(PL_ENDDT__lt=datetime.now()).count()
     return HttpResponse(template.render({}, request))
