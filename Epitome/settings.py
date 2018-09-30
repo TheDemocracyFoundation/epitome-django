@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'Agora',
     'Propylaea',
     'Demoscopesis',
-    'Dashboard'
+    'Episkopesis'
 ]
 
 MIDDLEWARE = [
