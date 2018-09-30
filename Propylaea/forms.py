@@ -24,12 +24,12 @@ class SignUpForm(ModelForm):
         widgets = {
             'username': forms.TextInput(attrs={'type': 'text', 'id': 'registration-username', 'class': 'form-control',
                                                'placeholder': 'Username', 'name': 'username', 'required': True,
-                                               'autofocus': True}),
+                                               'autofocus': True, 'style': 'box-shadow: none'}),
             'email': forms.EmailInput(attrs={'type': 'text', 'id': 'registration-email', 'class': 'form-control mt-3',
-                                             'placeholder': 'e-mail', 'name': 'email', 'required': True}),
+                                             'placeholder': 'e-mail', 'name': 'email', 'required': True, 'style': 'box-shadow: none'}),
             'password': forms.PasswordInput(
                 attrs={'type': 'password', 'id': 'registration-password', 'class': 'form-control mt-3',
                        'placeholder': 'Password', 'name': 'password', 'required': True, 'data-toggle': 'popover',
                        'data-placement': 'right', 'data-content': 'Length must be over 8 characters long',
-                       'data-trigger': 'manual'}),
+                       'data-trigger': 'manual', 'style': 'box-shadow: none'}),
         }

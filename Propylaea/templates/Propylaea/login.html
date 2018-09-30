@@ -1,7 +1,7 @@
-{% extends '_base.html' %} 
-{% load staticfiles %} 
+{% extends '_base.html' %}
+{% load staticfiles %}
 
-{% block title %}Login{% endblock %} 
+{% block title %}Login{% endblock %}
 
 {% block body %}
 
@@ -12,12 +12,12 @@
     </a>
     <ul class="nav nav-pills" id="pills-tab">
         <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-                aria-selected="true"><b>Login</b></a>
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                aria-controls="pills-home" aria-selected="true"><b>Login</b></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                aria-selected="false"><b>Register</b></a>
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                aria-controls="pills-profile" aria-selected="false"><b>Register</b></a>
         </li>
     </ul>
 </nav>
@@ -61,7 +61,10 @@
                             {{ SignUpForm.email }}
                             <label for="inputPassword" class="sr-only">Password</label>
                             {{ SignUpForm.password }}
-                            <input name="repeatPassword" id="repeat-password" class="form-control mt-3" placeholder="Repeat Password" required=true maxlength="128" type="password">
+                            <input name="repeatPassword" id="repeat-password" class="form-control mt-3" placeholder="Repeat Password"
+                                required=true maxlength="128" type="password" style="box-shadow: none;" data-toggle="popover"
+                                , data-placement="right" , data-content="Length must be over 8 characters long" ,
+                                data-trigger="manual">
                             <button id="register-submit-button" class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
                         </form>
                     </div>
@@ -73,106 +76,150 @@
 <!-- End of login forms -->
 
 {% endblock %} {% block scripts %}
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
 
-        var emailTimer;
-        var passwordTimer;
-        $(document).ready(function() {
-            $('#registration-password').click(function(){
-                $(this).popover('hide');
-            })
+    var emailTimer;
+    var passwordTimer;
+    $(document).ready(function () {
+        $('#registration-password').click(function () {
+            $(this).popover('hide');
+        })
 
-            $('#registration-password').on('input',function(e){
-                $(this).popover('hide');
-                runTests();
-            });
-
-            $('#repeat-password').on('input',function(e){
-                runTests();
-            });
-
-             $('#registration-email').on('input',function(e){
-                runTests();
-            });
-            document.getElementById("register-submit-button").disabled = true;
+        $('#registration-password').on('input', function (e) {
+            $(this).popover('hide');
+            runTests();
         });
 
-        function runTests(){
-            var passOk = passwordTests();
-            var emailOk = emailTests();
+        $('#repeat-password').on('input', function (e) {
+            runTests();
+        });
 
-            if (passOk == true && emailOk == true){
-                document.getElementById("register-submit-button").disabled = false;
-            }else{
-                document.getElementById("register-submit-button").disabled = true;
-            }
+        $('#registration-email').on('input', function (e) {
+            runTests();
+        });
+        document.getElementById("register-submit-button").disabled = true;
+    });
+
+    function runTests() {
+        var passOk = passwordTests();
+        var emailOk = emailTests();
+
+        if (passOk == true && emailOk == true) {
+            document.getElementById("register-submit-button").disabled = false;
+        } else {
+            document.getElementById("register-submit-button").disabled = true;
+        }
+    }
+
+    function passwordTests() {
+        var password = $('input#registration-password').val();
+        var repeatPassword = $('input#repeat-password').val();
+        var result = false;
+
+        clearTimeout(passwordTimer);
+
+
+        switch (true) {
+            case password.length == 0 && repeatPassword.length == 0:
+                $('#registration-password').popover("hide");
+                $('#repeat-password').popover("hide");
+                $('#registration-password').css({ "background-color": "White" });
+                $('#repeat-password').css({ "background-color": "White" });
+                break;
+            case password.length > 0 && password.length < 8 && repeatPassword.length == 0:
+                passwordTimer = setTimeout(function () {
+                    $('#registration-password').popover("show");
+                    $('#registration-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#repeat-password').css({ "background-color": "White" });
+                $('#repeat-password').popover("hide");
+                break;
+            case password.length >= 8 && repeatPassword.length == 0:
+                passwordTimer = setTimeout(function () {
+                    $('#repeat-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#registration-password').css({ "background-color": "White" });
+                $('#registration-password').popover("hide");
+                break;
+            case password.length == 0 && repeatPassword.length > 0 && repeatPassword.length < 8:
+                passwordTimer = setTimeout(function () {
+                    $('#repeat-password').popover("show");
+                    $('#repeat-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#registration-password').css({ "background-color": "White" });
+                $('#registration-password').popover("hide");
+                break;
+            case password.length > 0 && password.length < 8 && repeatPassword.length > 0 && repeatPassword.length < 8:
+                passwordTimer = setTimeout(function () {
+                    $('#registration-password').popover("show");
+                    $('#registration-password').css({ "background-color": "LightPink" });
+                    $('#repeat-password').popover("show");
+                    $('#repeat-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                break;
+            case password.length >= 8 && repeatPassword.length > 0 && repeatPassword.length < 8:
+                passwordTimer = setTimeout(function () {
+                    $('#repeat-password').popover("show");
+                    $('#repeat-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#registration-password').css({ "background-color": "White" });
+                $('#registration-password').popover("hide");
+                break;
+            case password.length == 0 && repeatPassword.length > 8:
+                passwordTimer = setTimeout(function () {
+                    $('#registration-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#repeat-password').css({ "background-color": "White" });
+                $('#repeat-password').popover("hide");
+                break;
+            case password.length > 0 && password.length < 8 && repeatPassword.length >= 8:
+                passwordTimer = setTimeout(function () {
+                    $('#registration-password').popover("show");
+                    $('#registration-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                $('#repeat-password').css({ "background-color": "White" });
+                $('#repeat-password').popover("hide");
+                break;
+            case password.length >= 8 && repeatPassword.length >= 8 && password != repeatPassword:
+                passwordTimer = setTimeout(function () {
+                    $('#registration-password').css({ "background-color": "LightPink" });
+                    $('#repeat-password').css({ "background-color": "LightPink" });
+                }, 1000);
+                break;
+            case password.length >= 8 && repeatPassword.length >= 8 && password === repeatPassword:
+                $('#registration-password').css({ "background-color": "White" });
+                $('#registration-password').popover("hide");
+                $('#repeat-password').css({ "background-color": "White" });
+                $('#repeat-password').popover("hide");
+                result = true
+                break;
         }
 
-        function passwordTests(){
-            var password = $('input#registration-password').val();
-            var repeatPassword = $('input#repeat-password').val();
+        return result;
+    }
 
-            clearTimeout(passwordTimer);    
+    function emailTests() {
+        var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+        var email = $('input#registration-email').val();
 
-            if (password.length == 0){
-                $('#registration-password').css({"background-color":"White"});
-                return false;
-            }
+        if (email.length == 0) {
+            $('input#registration-email').css({ "background-color": "White" });
+            return false;
+        }
 
-            if (repeatPassword.length == 0){
-                $('#repeat-password').css({"background-color":"White"});
-                return false;
-            }
-            
-            if (password.length < 8 && password.length > 0){
-                passwordTimer = setTimeout(function(){
-                    document.getElementById("registration-password").setCustomValidity("Password Should be greater than 8 characters Long");
-                    $('#registration-password').popover('show');
-                    $('#registration-password').css({"background-color":"LightPink"});
-                }, 2000);
-                return false;
-            }else{
-                document.getElementById("registration-password").setCustomValidity("");
-                $('#registration-password').css({"background-color":"White"});
-                $('#registration-password').popover('hide');
-            }
-
-            if (password != repeatPassword){
-                passwordTimer = setTimeout(function(){
-                     $('#registration-password').css({"background-color":"LightPink"});
-                     $('#repeat-password').css({"background-color":"LightPink"});
-                }, 2000);
-                return false;
-            }else{
-                $('#registration-password').css({"background-color":"White"});
-                $('#repeat-password').css({"background-color":"White"});
-            }
-            
+        clearTimeout(emailTimer);
+        if (re.test(email) == true) {
+            $('input#registration-email').css({ "background-color": "White" })
             return true;
+        } else {
+            emailTimer = setTimeout(function () {
+                $('input#registration-email').css({ "background-color": "LightPink" })
+            }, 2000);
+            return false;
         }
+    }
 
-        function emailTests(){
-            var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
-            var email = $('input#registration-email').val();
-
-            if (email.length == 0){
-                $('input#registration-email').css({"background-color":"White"});
-                return false;
-            }
-
-            clearTimeout(emailTimer);
-            if (re.test(email) == true){
-                $('input#registration-email').css({"background-color":"White"})
-                return true;
-            }else{
-                emailTimer = setTimeout(function(){
-                    $('input#registration-email').css({"background-color":"LightPink"})
-                }, 2000);
-                return false;
-            }
-        }
-
-    </script>
+</script>
 {% endblock %}
