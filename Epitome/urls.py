@@ -32,7 +32,7 @@ urlpatterns = [
 	path('about/', views.aboutPage, name='about'),
 	path('user/', include('Propylaea.urls', namespace='Propylaea')),
 	path('demoscopesis/', include('Demoscopesis.urls', namespace='Demoscopesis')),
-    path('Episkopesis/', include('Episkopesis.urls')),
+    path('episkopesis/', include('Episkopesis.urls')),
 	url(r'^.*/$', RedirectView.as_view(url='/episkopesis/')),
     url(r'^$', RedirectView.as_view(url='/episkopesis/'))
 ]
