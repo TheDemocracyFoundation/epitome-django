@@ -30,11 +30,12 @@ urlpatterns = [
 	
 	path('admin/', admin.site.urls),
 	path('about/', views.aboutPage, name='about'),
-	path('user/', include('Propylaea.urls', namespace='Propylaea')),
+	#path('user/', include('Propylaea.urls', namespace='Propylaea')),
+	path('user/', include('allauth.urls')),
 	path('demoscopesis/', include('Demoscopesis.urls', namespace='Demoscopesis')),
-    path('episkopesis/', include('Episkopesis.urls')),
+	path('episkopesis/', include('Episkopesis.urls')),
 	url(r'^.*/$', RedirectView.as_view(url='/episkopesis/')),
-    url(r'^$', RedirectView.as_view(url='/episkopesis/'))
+	url(r'^$', RedirectView.as_view(url='/episkopesis/'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
