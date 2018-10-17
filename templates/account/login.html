@@ -1,0 +1,179 @@
+{% extends '_base.html' %} 
+{% load staticfiles %} 
+{% load i18n %}
+{% load account socialaccount %}
+{% block title %}Login{% endblock %} 
+
+{% block body %}
+
+<!-- Login Navigation bar -->
+<nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+    <a class="navbar-brand  float-left" href="#">
+        <img src=w idth="30" height="30" alt="">
+    </a>
+    <ul class="nav nav-pills" id="pills-tab">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+                aria-selected="true"><b>Login</b></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+                aria-selected="false"><b>Register</b></a>
+        </li>
+    </ul>
+</nav>
+<!-- End of Navigation bar -->
+
+<!-- Login forms -->
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="container bg-main">
+            <div class="row mt-5 justify-content-center align-self-center">
+                <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                    <div id="login" class="login-content">
+                        <form class="form-signin" action="{% url 'account_login' %}" method="post">
+                            {% csrf_token %}
+                            <label for="inputUsername" class="sr-only">login</label>
+                            {{ form.login }}
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            {{ form.password }}
+                            <div class="checkbox mt-3">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me </label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="container bg-main">
+            <div class="row mt-5 justify-content-center align-self-center">
+                <div class="col col-lg-4 bg-white pt-5 pl-5 pr-5">
+                    <div id="register" class="login-content">
+                        <form class="form-register" action="/user/signup/" method="post">
+                            {% csrf_token %}
+                            <label for="inputUsername" class="sr-only">Username</label>
+                            {{ SignUpForm.username }}
+                            <label for="inputEmail" class="sr-only">Email</label>
+                            {{ SignUpForm.email }}
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            {{ SignUpForm.password }}
+                            <input name="repeatPassword" id="repeat-password" class="form-control mt-3" placeholder="Repeat Password" required=true maxlength="128" type="password">
+                            <button id="register-submit-button" class="btn btn-lg btn-primary btn-block mt-3" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of login forms -->
+
+{% endblock %} {% block scripts %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+
+        var emailTimer;
+        var passwordTimer;
+        $(document).ready(function() {
+            $('#registration-password').click(function(){
+                $(this).popover('hide');
+            })
+
+            $('#registration-password').on('input',function(e){
+                $(this).popover('hide');
+                runTests();
+            });
+
+            $('#repeat-password').on('input',function(e){
+                runTests();
+            });
+
+             $('#registration-email').on('input',function(e){
+                runTests();
+            });
+            document.getElementById("register-submit-button").disabled = true;
+        });
+
+        function runTests(){
+            var passOk = passwordTests();
+            var emailOk = emailTests();
+
+            if (passOk == true && emailOk == true){
+                document.getElementById("register-submit-button").disabled = false;
+            }else{
+                document.getElementById("register-submit-button").disabled = true;
+            }
+        }
+
+        function passwordTests(){
+            var password = $('input#registration-password').val();
+            var repeatPassword = $('input#repeat-password').val();
+
+            clearTimeout(passwordTimer);    
+
+            if (password.length == 0){
+                $('#registration-password').css({"background-color":"White"});
+                return false;
+            }
+
+            if (repeatPassword.length == 0){
+                $('#repeat-password').css({"background-color":"White"});
+                return false;
+            }
+            
+            if (password.length < 8 && password.length > 0){
+                passwordTimer = setTimeout(function(){
+                    document.getElementById("registration-password").setCustomValidity("Password Should be greater than 8 characters Long");
+                    $('#registration-password').popover('show');
+                    $('#registration-password').css({"background-color":"LightPink"});
+                }, 2000);
+                return false;
+            }else{
+                document.getElementById("registration-password").setCustomValidity("");
+                $('#registration-password').css({"background-color":"White"});
+                $('#registration-password').popover('hide');
+            }
+
+            if (password != repeatPassword){
+                passwordTimer = setTimeout(function(){
+                     $('#registration-password').css({"background-color":"LightPink"});
+                     $('#repeat-password').css({"background-color":"LightPink"});
+                }, 2000);
+                return false;
+            }else{
+                $('#registration-password').css({"background-color":"White"});
+                $('#repeat-password').css({"background-color":"White"});
+            }
+            
+            return true;
+        }
+
+        function emailTests(){
+            var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+            var email = $('input#registration-email').val();
+
+            if (email.length == 0){
+                $('input#registration-email').css({"background-color":"White"});
+                return false;
+            }
+
+            clearTimeout(emailTimer);
+            if (re.test(email) == true){
+                $('input#registration-email').css({"background-color":"White"})
+                return true;
+            }else{
+                emailTimer = setTimeout(function(){
+                    $('input#registration-email').css({"background-color":"LightPink"})
+                }, 2000);
+                return false;
+            }
+        }
+
+    </script>
+{% endblock %}
