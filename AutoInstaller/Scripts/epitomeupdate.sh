@@ -24,19 +24,19 @@ echo    # move to a new line
     if type apt 2> /dev/null; then
         pip3 install --upgrade pip setuptools
         pip3 install --upgrade pip
-        pip3 install django whitenoise
+        pip3 install django whitenoise django-allauth
     elif type dnf 2> /dev/null; then
         pip install --upgrade pip setuptools
         pip install --upgrade pip
-        pip install django whitenoise
+        pip install django whitenoise django-allauth
     elif type yum 2> /dev/null; then
         pip3 install --upgrade pip setuptools
         pip install --upgrade pip
-        pip install django whitenoise
+        pip install django whitenoise django-allauth
     elif type pacman 2> /dev/null; then
         pip install --upgrade pip setuptools
         pip install --upgrade pip
-        pip install django whitenoise
+        pip install django whitenoise django-allauth
     fi
 
     echo    # move to a new line
