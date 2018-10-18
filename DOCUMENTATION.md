@@ -74,7 +74,7 @@ upgrade pip3 again in case it requires it
 
 Install django and whitenoise
 
-`pip3 install django whitenoise`
+`pip3 install django whitenoise django-allauth`
 
 9) Create a new folder Epitome in your home folder:
 
